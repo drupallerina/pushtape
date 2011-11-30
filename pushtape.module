@@ -1,0 +1,421 @@
+<?php
+/**
+ * @file
+ * Pushtape core.
+ * UI, FormAPI, and other general improvements to Pushtape Features.
+ *
+ */
+
+/**
+ * Implementation of hook_init
+ */
+function pushtape_init(){
+
+}
+
+/**
+ * Implementation of hook_form_alter
+ */
+function pushtape_form_alter(&$form, &$form_state, $form_id) {
+  switch($form_id) {
+    case 'page_node_form':
+      // automatically make menu link
+      $form['menu']['enabled']['#default_value'] = 1;
+      break;
+    case 'track_node_form':
+      $node = $form['#node'];
+      /**
+       * Album fields
+       *
+       * $form['field_album_checkbox'] - General UI field to force empty value, not stored
+       * $form['field_album'] - main noderef field that stores the album id
+       * $form['field_new_album'] - field used to create a new album node, not stored
+       * $form['field_album_previous_value'] - hidden field used in _submit handler, not stored
+       *
+       *  $form['field_album_artwork_checkbox'] - General UI toggle, not stored
+       *
+       * See pushtape.js for client side manipulation of these elements
+       */
+      // Add a little UI checkbox for the artwork.
+      $form['field_album_artwork_checkbox'] = array(
+        '#title' => t('Add track artwork'),
+        '#type' => 'checkbox',
+        '#default_value' => !empty($node->field_artwork),
+        '#description' => t('(If no track artwork is present, album artwork will be used.)'),
+        '#weight' => $form['field_artwork']['#weight'] - .1,
+      );
+      $form['field_artwork']['#prefix'] = '<div class="upload-artwork indent">';
+      $form['field_artwork']['#suffix'] = '</div>';
+      
+      // Add a UI checkbox for the album field
+      $form['field_album_checkbox'] = array(
+        '#title' => t('Part of an album'),
+        '#type' => 'checkbox',
+        '#default_value' => !empty($form['field_album'][LANGUAGE_NONE]['#default_value']) && !empty($form['field_album'][LANGUAGE_NONE]['#default_value'][0]),
+        '#weight' => $form['field_album']['#weight'] - .1,
+        '#suffix' => '<div class="album-wrap indent highlight">',
+      );
+      
+      // Put the new album option at the bottom.
+      unset($form['field_album'][LANGUAGE_NONE]['#options']['_none']);
+      $form['field_album'][LANGUAGE_NONE]['#options']['_none'] = t('- New album -');
+
+      // Create a new form element to enable new album creation
+      $form['new_album'] = array(
+        '#title' => 'Name',
+        '#type' => 'textfield',
+        '#prefix' => '<div class="new-album indent">',
+        '#suffix' => '</div> <!-- new-album --></div><!-- album-wrap -->',
+        '#weight' => $form['field_album']['#weight'] + .1,
+        '#size' => 15,
+        '#description' => '(You will add more album info in the next step.)',
+      );
+      
+      // Store the previous album in a hidden field, so we can compare it later with
+      // field_album and see if it has changed
+      $form['field_album_previous_value'] = array(
+        '#type' => 'hidden',
+        '#value' => !empty($form['field_album'][LANGUAGE_NONE]['#default_value']) ? $form['field_album'][LANGUAGE_NONE]['#default_value'][0] : NULL,
+      );
+
+      $form['#validate'][] = 'pushtape_track_node_form_validate';
+      $form['actions']['submit']['#submit'][] = 'pushtape_track_node_form_submit';
+      break;
+    case 'album_node_form':
+
+      $form['field_tracklist'][LANGUAGE_NONE]['#theme'] = 'pushtape_field_multiple_value_form';
+      $form['actions']['submit']['#submit'][] = 'pushtape_album_node_form_submit';      
+      break;
+    default:
+  }
+}
+
+/**
+ *  Custom validation handler for track node form.
+ */
+function pushtape_track_node_form_validate($form, &$form_state) {
+    /* We need to force an album here. */
+  if ($form['field_album_checkbox']['#value'] == 1 && empty($form_state['values']['new_album']) && !is_numeric($form_state['values']['field_album'][LANGUAGE_NONE][0]['nid'])) {
+    //form_set_error('new_album', t('Please enter a name for your new album.'));
+  }
+  if ($form['field_album_checkbox']['#value'] == 0) {
+    $form_state['values']['new_album'] = '';
+    $form_state['values']['field_album'][LANGUAGE_NONE][0]['nid'] = ''; 
+  }
+}
+
+/**
+ *  Custom submit handler for track node form. F
+ *  Forces album->track relationship 1-1.
+ */
+function pushtape_track_node_form_submit($form, &$form_state) {
+
+  // If we are creating a new album...
+  if ($form['field_album_checkbox']['#value'] == 1 && !empty($form_state['values']['new_album'])) {
+    global $user;
+    // create a new album node
+    $node = new stdClass();
+    $node->type = 'album';
+    node_object_prepare($node);
+    $node->title = $form_state['values']['new_album'];
+    $node->author = $user->name;
+    $node->uid = $user->uid;
+    $node->language = LANGUAGE_NONE; //=LANGUAGE_NONE
+    $node->pathauto_perform_alias = FALSE;
+    $node->field_tracklist[LANGUAGE_NONE][0]['nid'] = $form_state['nid'];
+    // This function operates by reference on our node object, and will add $node->nid.
+    node_save($node);
+    
+    // Now associate the track with the new album and redirect to it after saving the track.
+    $track = node_load($form_state['nid']);
+    $track->field_album[LANGUAGE_NONE][0]['nid'] = $node->nid;
+    node_save($track);
+    
+    unset($form_state['rebuild']);
+    $form_state['redirect'] = 'node/' . $node->nid . '/edit';
+  }
+  elseif ($form_state['values']['field_album_previous_value'] != $form_state['values']['field_album'][LANGUAGE_NONE][0]['nid']) {
+     $track_id = $form_state['nid'];
+
+     // delete from previous album, if there was one.
+     if ($form_state['values']['field_album_previous_value'] > 0) {
+       $old_album = node_load($form_state['values']['field_album_previous_value']);
+       $filtered = array();
+       foreach ($old_album->field_tracklist[LANGUAGE_NONE] as $key => $value) {
+         if ($value['nid'] != $track_id) {
+           $filtered[$key]['nid'] = $value['nid'];
+         }
+       }
+       $old_album->field_tracklist[LANGUAGE_NONE] = $filtered;
+       node_save($old_album);
+     }
+     
+      // add to this album 
+      if ($form['field_album_checkbox']['#value'] == 1) {
+        $this_album = node_load($form_state['values']['field_album'][LANGUAGE_NONE][0]['nid']);
+        $delta = !empty($this_album->field_tracklist) ? count($this_album->field_tracklist[LANGUAGE_NONE]) : 0;
+        if ($delta > 0) {
+          // Avoid duplicates
+          $filtered = array();
+          $exists = FALSE;
+          foreach($this_album->field_tracklist[LANGUAGE_NONE] as $key => $value) {
+            if ($value['nid'] == $track_id) {
+              $exists = TRUE;
+            }   
+          }
+           if (!$exists) {
+             $this_album->field_tracklist[LANGUAGE_NONE][$delta]['nid'] = $track_id;
+           }
+        }
+        else {
+          $this_album->field_tracklist[LANGUAGE_NONE][$delta]['nid'] = $track_id;
+        }
+        node_save($this_album);
+      }
+  }
+}
+
+
+/**
+ *  Custom submit handler for track node form.
+ */
+function pushtape_album_node_form_submit($form, &$form_state) {
+
+}
+
+
+/**
+* Implementation of hook_menu_alter().
+* Remember to clear the menu cache after adding/editing this function.
+*/
+function pushtape_menu_alter(&$items) {
+  
+  // Add a delete tab to nodes
+  $items['node/%node']['type'] = MENU_CALLBACK;
+  unset($items['node/%node/delete']['context']);
+}
+
+
+/**
+ * Implementation of hook_theme
+ */
+function pushtape_theme() {
+  return array(
+    'pushtape_field_multiple_value_form' => array(
+      'render element' => 'element', 
+    ),
+  );
+}
+
+
+/**
+ * Override cck autocomplete output for albums to only allow sorting.
+ * This is a modified version of theme_field_multiple_value_form.
+ *
+ * TODO: This feels fragile, is there a better way to sort and store track order?
+ * 
+ */
+function theme_pushtape_field_multiple_value_form($variables) {
+  $element = $variables['element'];
+  
+  $output = '';
+  if ($element['#cardinality'] > 1 || $element['#cardinality'] == FIELD_CARDINALITY_UNLIMITED) {
+    $table_id = drupal_html_id($element['#field_name'] . '_values');
+    $order_class = $element['#field_name'] . '-delta-order';
+    $required = !empty($element['#required']) ? '<span class="form-required" title="' . t('This field is required. ') . '">*</span>' : '';
+
+    $header = array(
+      array(
+        'data' => '<label>' . t('!title: !required', array('!title' => $element['#title'], '!required' => $required)) . "</label>", 
+        'colspan' => 2, 
+        'class' => array('field-label'),
+      ),
+      t('Order'),
+    );
+    $rows = array();
+
+    // Sort items according to '_weight' (needed when the form comes back after
+    // preview or failed validation)
+    $items = array();
+    foreach (element_children($element) as $key) {
+      if ($key === 'add_more') {
+        //$add_more_button = &$element[$key];
+      }
+      else {
+        $items[] = &$element[$key];
+      }
+    }
+    usort($items, '_field_sort_items_value_helper');
+
+    // Add the items as table rows.
+    foreach ($items as $key => $item) {
+      if($item['nid']['#default_value']) {
+        $track = node_load($item['nid']['#default_value']);
+        $item['_weight']['#attributes']['class'] = array($order_class);
+        $delta_element = drupal_render($item['_weight']);
+        $cells = array(
+          array(
+            'data' => '',
+            'class' => array('field-multiple-drag'),
+          ),
+          $track->title,
+          array(
+            'data' => $delta_element,
+            'class' => array('delta-order'),
+          ),
+        );
+        $rows[] = array(
+          'data' => $cells, 
+          'class' => array('draggable'),
+        );
+      }
+    }
+
+    $output = '<div class="form-item">';
+    $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => $table_id, 'class' => array('field-multiple-table'))));
+    $output .= $element['#description'] ? '<div class="description">' . $element['#description'] . '</div>' : '';
+    //$output .= '<div class="clearfix">' . drupal_render($add_more_button) . '</div>';
+    $output .= '</div>';
+
+    drupal_add_tabledrag($table_id, 'order', 'sibling', $order_class);
+  }
+  else {
+    
+    foreach (element_children($element) as $key) {
+      $output .= drupal_render($element[$key]);
+    }
+  }
+  return $output;
+}
+
+
+/**
+ * Implementation of hook_node_view
+ */
+function pushtape_preprocess_node(&$vars) {
+  // Let's setup some variables to make theming a bit easier.
+  $node = $vars['node'];
+  if($node->type == 'track') {
+  }
+  elseif ($node->type == 'album') {
+  }
+}
+
+/**
+ * Implementation of hook_node_load
+ */
+
+function pushtape_node_load($nodes, $types) {
+  
+  // We need a really low level way to set defaults on a track node to match its album node if empty
+  // TODO: Figure out how to do this at the entity/field api level for display
+  // For now a pushtape_override flag will be set if we modify a field.
+  foreach($nodes as $node) {
+    if ($node->type == 'track') {
+      if (!empty($node->field_album)) {
+        $album = node_load($node->field_album[LANGUAGE_NONE][0]['nid']);
+        $pushtape_override = array();
+        if (empty($node->field_artwork)) {
+          $node->field_artwork = $album->field_artwork;
+          $pushtape_override[] = 'field_artwork';
+        }
+        if (empty($node->field_artist)) {
+          $node->field_artist = $album->field_artist;
+          $pushtape_override[] = 'field_artist';        
+        }
+        if (empty($node->field_release_date)) {
+          $node->field_release_date = $album->field_release_date;
+          $pushtape_override[] = 'field_release_date';           
+        }
+        $node->pushtape_override = $pushtape_override;
+      }
+    }
+  }
+}
+
+
+/**
+ *  Implementation of hook_node_prepare
+ */
+function pushtape_node_prepare($node) {
+  // Make sure overridden track fields are empty on the edit form
+  if (!empty($node->pushtape_override)) {
+    foreach($node->pushtape_override as $field) {
+      $node->$field = '';
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function pushtape_field_formatter_info() {
+  return array(
+    // the key must be unique, so it's best to prefix with your module's name.
+    'pushtape_ol_view' => array(
+      // the label is is what is displayed in the select box in the UI.
+      'label' => t('Ordered list of linked titles'),
+      // field types is the important bit!! List the field types your formatter is for.
+      'field types' => array('node_reference'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ * 
+ */
+function pushtape_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+  switch ($display['type']) {
+    case 'pushtape_ol_view':
+      $rows = array();
+      foreach ($items as $delta => $item) {
+        $rows[] = l($item['node']->title, 'node/' . $item['nid']);
+      }
+      $element[0] = array(
+        '#theme' => 'item_list', 
+        '#items' => $rows,
+        '#type' => 'ol',
+      );      
+      break;
+  }  
+  return $element;
+}
+
+
+
+
+/**
+ *
+ * THIS FAILS because empty fields don't even show up. altering them would
+ * involve having to add somehow and then alter. similar problem with entity_alter, field_attach_view_alter,
+ * and the other bajillion little_thing_alter options
+ * 
+function pushtape_field_attach_view_alter(&$output, $context) {
+  dsm($output);
+  if ($context['entity_type'] == 'node') {
+    $node = $context['entity'];
+    if ($node->type == 'track' && !empty($node->field_album)) {
+      $album = node_load($node->field_album[LANGUAGE_NONE][0]['nid']);
+      //set track artwork default
+      if (!empty($output['field_artwork']) && !empty($node->field_artwork[LANGUAGE_NONE][0]['is_default'])) {
+        $output['field_artwork'][0]['#item'] = $album->field_artwork[LANGUAGE_NONE][0];
+      }
+      // set track artist default
+      if (empty($node->field_artist)) {
+        dsm($output['field_artist']);
+        dsm($album->field_artist);
+        $output['field_artist'] = $album->field_artist;     
+      }
+      // set release date default
+      if (empty($node->field_release_date)) {
+        $output['field_release_date'] = $album->field_release_date;            
+      }        
+    }
+  }
+
+}
+
+*/
