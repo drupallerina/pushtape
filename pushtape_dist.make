@@ -26,6 +26,7 @@ projects[file_entity][version] = 2.0-unstable2
 projects[follow][version] = "1.0-alpha1"
 projects[follow][patch][] = "http://drupal.org/files/1184896-follow-add-ctools-export.patch"
 projects[google_analytics][version] = 1.2
+projects[jplayer][version] = "2.x-dev"
 projects[l10n_update][version] = "1.0-beta2"
 projects[libraries][version] = "1.0"
 projects[mailing_list][version] = "1.x-dev"
@@ -66,6 +67,17 @@ projects[mupload][download][url] = "http://git.drupal.org/sandbox/vingborg/11385
 projects[mupload][download][branch] = "master"
 
 ; Libraries
+
+
+
+libraries[jplayer][download][type] = "get"
+libraries[jplayer][download][url] = "http://www.happyworm.com/jquery/jplayer/latest/jQuery.jPlayer.1.2.0.zip"
+
+projects[getid3][subdir] = contrib
+libraries[getid3][download][type] = "get"
+libraries[getid3][download][url] = "http://downloads.sourceforge.net/project/getid3/getID3%28%29%201.x/1.7.9/getid3-1.7.9.zip"
+
+
 
 ; jQuery UI
 libraries[jquery_ui][download][type] = "get"
