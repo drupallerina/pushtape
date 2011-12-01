@@ -79,7 +79,7 @@ users[artist][status] = 1
 ; -----------------------------------------------------------------------------
 variables[site_name] = pushtape_dist
 variables[site_mail] = testing@qs10.mydev
-variables[front_page] = /releases
+variables[site_frontpage] = /releases
 ; -----------------------------------------------------------------------------
 ; Nodes
 ; -----------------------------------------------------------------------------
