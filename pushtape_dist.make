@@ -4,6 +4,7 @@ api = 2
 
 
 ; Modules
+
 projects[admin_menu][version] = "3.0-rc1"
 projects[advanced_help][version] = "1.0"
 projects[apps][version] = "1.0-beta4"
@@ -31,6 +32,7 @@ projects[mailing_list][patch][] = "http://drupal.org/files/issues/1072054-mail.p
 ;projects[nodequeue][version] = "2.0-beta1"
 projects[om_tools][version] = "2.12"
 projects[pathauto][version] = "1.0"
+projects[references][version] = 2.0-beta3
 projects[strongarm][version] = "2.0-beta4"
 projects[sweaver][version] = "1.1"
 ;projects[title][version] = "1.0-alpha2"
