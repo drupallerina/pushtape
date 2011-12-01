@@ -1,0 +1,8 @@
+core = 7.x
+
+api = 2
+projects[drupal][version] = "7.9"
+
+projects[pushtape_dist][type] = "profile"
+projects[pushtape_dist][download][type] = "git"
+projects[pushtape_dist][download][url] = "git://github.com/discipolo/pushtape_dist-dist.git"
