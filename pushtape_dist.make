@@ -4,7 +4,7 @@ api = 2
 
 
 ; Modules
-projects[admin_menu][version] = "2.0-beta3"
+projects[admin_menu][version] = "3.0-rc1"
 projects[advanced_help][version] = "1.0"
 projects[apps][version] = "1.0-beta4"
 ;projects[backup_migrate][version] = "2.2"
