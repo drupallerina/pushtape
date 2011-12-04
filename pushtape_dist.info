@@ -36,8 +36,8 @@ dependencies[] = libraries
 dependencies[] = features
 dependencies[] = ctools
 
-;dependencies[] = pushtape_feature
-dependencies[] = Pushtape
+dependencies[] = pushtape_music
+;dependencies[] = Pushtape
 
 ; -----------------------------------------------------------------------------
 ; Users
