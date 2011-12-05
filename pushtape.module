@@ -6,14 +6,14 @@
  */
 
 /**
- * Implementation of hook_init()
+ * Implementation of hook_init().
  */
 function pushtape_init() {
 
 }
 
 /**
- * Implementation of hook_form_alter()
+ * Implementation of hook_form_alter().
  */
 function pushtape_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
@@ -35,7 +35,6 @@ function pushtape_form_alter(&$form, &$form_state, $form_id) {
        *
        * See pushtape.js for client side manipulation of these elements
        */
-      
       // Add a little UI checkbox for the artwork.
       $form['field_album_artwork_checkbox'] = array(
         '#title' => t('Add track artwork'),
@@ -46,7 +45,6 @@ function pushtape_form_alter(&$form, &$form_state, $form_id) {
       );
       $form['field_artwork']['#prefix'] = '<div class="upload-artwork indent">';
       $form['field_artwork']['#suffix'] = '</div>';
-      
       // Add a UI checkbox for the album field
       $form['field_album_checkbox'] = array(
         '#title' => t('Part of an album'),
@@ -55,7 +53,6 @@ function pushtape_form_alter(&$form, &$form_state, $form_id) {
         '#weight' => $form['field_album']['#weight'] - .1,
         '#suffix' => '<div class="album-wrap indent highlight">',
       );
-      
       // Put the new album option at the bottom.
       unset($form['field_album'][LANGUAGE_NONE]['#options']['_none']);
       $form['field_album'][LANGUAGE_NONE]['#options']['_none'] = t('- New album -');
@@ -70,7 +67,6 @@ function pushtape_form_alter(&$form, &$form_state, $form_id) {
         '#size' => 15,
         '#description' => '(You will add more album info in the next step.)',
       );
-      
       // Store the previous album in a hidden field, so we can compare it later with
       // field_album and see if it has changed
       $form['field_album_previous_value'] = array(
@@ -84,7 +80,7 @@ function pushtape_form_alter(&$form, &$form_state, $form_id) {
     case 'album_node_form':
 
       $form['field_tracklist'][LANGUAGE_NONE]['#theme'] = 'pushtape_field_multiple_value_form';
-      $form['actions']['submit']['#submit'][] = 'pushtape_album_node_form_submit';    
+      $form['actions']['submit']['#submit'][] = 'pushtape_album_node_form_submit';
       break;
     default:
   }
@@ -285,7 +281,7 @@ function theme_pushtape_field_multiple_value_form($variables) {
 
 
 /**
- * Implementation of hook_node_view()
+ * Implementation of hook_node_view().
  */
 function pushtape_preprocess_node(&$vars) {
   // Let's setup some variables to make theming a bit easier.
@@ -297,7 +293,7 @@ function pushtape_preprocess_node(&$vars) {
 }
 
 /**
- * Implementation of hook_node_load()
+ * Implementation of hook_node_load().
  */
 
 function pushtape_node_load($nodes, $types) {
@@ -318,11 +314,11 @@ function pushtape_node_load($nodes, $types) {
         }
         if (empty($node->field_artist)) {
           $node->field_artist = $album->field_artist;
-          $pushtape_override[] = 'field_artist';     
+          $pushtape_override[] = 'field_artist';
         }
         if (empty($node->field_release_date)) {
           $node->field_release_date = $album->field_release_date;
-          $pushtape_override[] = 'field_release_date';         
+          $pushtape_override[] = 'field_release_date';
         }
         $node->pushtape_override = $pushtape_override;
       }
@@ -332,7 +328,7 @@ function pushtape_node_load($nodes, $types) {
 
 
 /**
- *  Implementation of hook_node_prepare()
+ *  Implementation of hook_node_prepare().
  */
 function pushtape_node_prepare($node) {
   // Make sure overridden track fields are empty on the edit form
