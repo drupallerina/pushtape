@@ -1,1 +1,26 @@
 name = Pushtape
+description = Music publishing profile. 
+core = 7.x
+dependencies[] = block
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = toolbar
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+dependencies[] = features
+dependencies[] = pathauto
+dependencies[] = references
+dependencies[] = ctools
+dependencies[] = token
+dependencies[] = views
+dependencies[] = pushtape_features
+
+files[] = pushtape.profile
