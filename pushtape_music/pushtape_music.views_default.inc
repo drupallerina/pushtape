@@ -316,7 +316,7 @@ function pushtape_music_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'releases';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'releases';
+  $handler->display->display_options['menu']['title'] = 'Releases';
   $handler->display->display_options['menu']['weight'] = '-1';
   $handler->display->display_options['menu']['name'] = 'main-menu';
 
