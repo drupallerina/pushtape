@@ -9,6 +9,7 @@
 ; The version of Drupal the profile is built for. You must include both a
 ; major and a minor release - just specifying 6.x won't work
 core = 7.9
+api = 2
 
 ; OPTIONAL ATTRIBUTES
 
@@ -37,7 +38,7 @@ projects[references] = 2.0-beta3
 projects[ctools] = 1.0-rc1
 projects[token] = 1.0-beta7 
 projects[views] = 3.0-rc3
-projects[pushtape_features] = 1.x-dev
+; projects[pushtape_features] = 1.x-dev
 
 ; For pre-releases, like Image 6.x-1.0-beta3, use this format:
 ;projects[image] = 1.0-beta3
