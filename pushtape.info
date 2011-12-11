@@ -21,6 +21,9 @@ dependencies[] = references
 dependencies[] = ctools
 dependencies[] = token
 dependencies[] = views
-dependencies[] = pushtape_features
+dependencies[] = media
+
+dependencies[] = pushtape_core
+dependencies[] = pushtape_music
 
 files[] = pushtape.profile
