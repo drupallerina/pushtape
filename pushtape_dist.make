@@ -51,6 +51,7 @@ projects[coder][version] = "1.0"
 projects[profiler_builder][version] = "1.0-alpha2"
 projects[defaultconfig][version] = "1.0-alpha4"
 projects[ftools][version] = "1.1"
+projects[subprofiles][version] = "1.0"
 
 ; Custom features
 projects[debut][version] = "1.0-beta3"

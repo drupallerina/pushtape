@@ -3,6 +3,7 @@ description = Custom Drupal 7 installation profile
 core = 7.x
 theme = bartik
 base = pushtape
+
 ; -----------------------------------------------------------------------------
 ; Modules
 ; -----------------------------------------------------------------------------
@@ -35,6 +36,7 @@ base = pushtape
 dependencies[] = libraries
 dependencies[] = features
 dependencies[] = ctools
+dependencies[] = subprofiles
 
 dependencies[] = pushtape_music
 ;dependencies[] = Pushtape
@@ -43,6 +45,16 @@ dependencies[] = debut_media
 ddependencies[] = ebut_event
 
 files[] = pushtape_dist.profile
+
+subprofiles[standard][name] = pushtape_discipolo
+subprofiles[standard][description] = Install a developer version of Pushtape with all commonly needed features enabled.
+// A feature called feature_x that should be enabled by default.
+;subprofiles[standard][features][feature_x] = TRUE
+;subprofiles[standard][features][feature_y] = TRUE
+// A feature called feature_z that should be available but disabled by
+// default.
+;subprofiles[standard][features][feature_z] = FALSE
+
 ; -----------------------------------------------------------------------------
 ; Users
 ; -----------------------------------------------------------------------------
