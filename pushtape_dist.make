@@ -56,8 +56,8 @@ projects[subprofiles][version] = "1.0"
 ; Custom features
 projects[debut][version] = "1.0-beta3"
 projects[debut_link][version] = "1.0-beta1"
-projects[debut_media][version] =1.0-beta5
-projects[debut_event][version] =1.0-beta4
+projects[debut_media][version] ="1.x-dev"
+projects[debut_event][version] ="1.0-beta4"
 ;projects[pushtape_features][version] = "1.x-dev"
 
 ;sandboxes
