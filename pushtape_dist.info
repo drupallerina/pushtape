@@ -60,13 +60,13 @@ users[superduper][roles] = Admin,Publisher
 users[superduper][status] = 1
 
 users[siteadmin][uid] = 2
-users[siteadmin][name] = siteadmin
+users[siteadmin][name] = discipolo
 users[siteadmin][mail] = changeme@qs10.mydev
 users[siteadmin][roles] = Admin,Publisher
 users[siteadmin][status] = 1
 
-users[artist][uid] = 2
-users[artist][name] = siteadmin
+users[artist][uid] = 3
+users[artist][name] = artist
 users[artist][mail] = changeme@qs10.mydev
 users[artist][roles] = Artist
 users[artist][status] = 1
