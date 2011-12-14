@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Implement hook_install().
- *
- * Perform actions to set up the site for this profile.
- */
-function pushtape_dist_install() {
-  include_once DRUPAL_ROOT . '/profiles/pushtape/pushtape.install';
-  pushtape_install();
-}
-
 
 /**
 * Generate an install task to install subprofile features.
