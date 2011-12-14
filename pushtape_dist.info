@@ -2,7 +2,7 @@ name = pushtape_dist
 description = Custom Drupal 7 installation profile
 core = 7.x
 theme = bartik
-
+base = pushtape
 ; -----------------------------------------------------------------------------
 ; Modules
 ; -----------------------------------------------------------------------------
@@ -39,6 +39,7 @@ dependencies[] = ctools
 dependencies[] = pushtape_music
 ;dependencies[] = Pushtape
 
+files[] = pushtape_dist.profile
 ; -----------------------------------------------------------------------------
 ; Users
 ; -----------------------------------------------------------------------------

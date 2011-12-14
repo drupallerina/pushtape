@@ -1,7 +1,11 @@
 core = 7.x
 
 api = 2
-projects[drupal][version] = "7.9"
+projects[drupal][version] = "7.10"
+
+projects[pushtape][type] = "profile"
+projects[pushtape][download][type] = "git"
+projects[pushtape][download][url] = "http://git.drupal.org/project/pushtape.git"
 
 projects[pushtape_dist][type] = "profile"
 projects[pushtape_dist][download][type] = "git"
