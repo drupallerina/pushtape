@@ -47,11 +47,9 @@ projects[wysiwyg][version] = "2.x-dev"
 projects[wysiwyg][patch][] = "http://drupal.org/files/835682_22_remove_path_to_theme.patch"
 
 ; Custom features
-
+projects[debut_media][version] =1.0-beta5
+projects[debut_event][version] =1.0-beta4
 ;projects[pushtape_features][version] = "1.x-dev"
-
-includes[debut_media] = "http://drupalcode.org/project/debut_media.git/blob_plain/refs/heads/7.x-1.x:/debut_media.make.inc"
-includes[debut_event] = "http://drupalcode.org/project/debut_event.git/blob_plain/refs/heads/7.x-1.x:/debut_event.make.inc"
 
 ;sandboxes
 
