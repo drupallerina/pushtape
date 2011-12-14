@@ -41,8 +41,9 @@ dependencies[] = subprofiles
 dependencies[] = pushtape_music
 ;dependencies[] = Pushtape
 
-dependencies[] = debut_media
-ddependencies[] = ebut_event
+dependencies[] = debut
+;dependencies[] = debut_media
+dependencies[] = debut_event
 
 files[] = pushtape_dist.profile
 
