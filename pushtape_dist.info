@@ -39,6 +39,9 @@ dependencies[] = ctools
 dependencies[] = pushtape_music
 ;dependencies[] = Pushtape
 
+dependencies[] = debut_media
+ddependencies[] = ebut_event
+
 files[] = pushtape_dist.profile
 ; -----------------------------------------------------------------------------
 ; Users
