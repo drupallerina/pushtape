@@ -61,7 +61,7 @@ users[superduper][status] = 1
 
 users[siteadmin][uid] = 2
 users[siteadmin][name] = discipolo
-users[siteadmin][mail] = changeme@qs10.mydev
+users[siteadmin][mail] = luis@kukuma.info
 users[siteadmin][roles] = Admin,Publisher
 users[siteadmin][status] = 1
 
