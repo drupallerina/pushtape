@@ -99,4 +99,4 @@ libraries[profiler][download][url] = "http://ftp.drupal.org/files/projects/profi
 ;Themes
 projects[om][type] = "theme"
 projects[om_admin][type] = "theme"
-
+projects[omega][type] = "theme"
