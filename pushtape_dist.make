@@ -15,7 +15,6 @@ projects[boxes][version] = "1.0-beta6"
 projects[context][version] = "3.0-beta2"
 projects[context][patch][] = "http://drupal.org/files/issues/custom_blocks_arent_editable-make.patch"
 projects[date][version] = "2.x-dev"
-projects[debut][version] = "1.0-beta3"
 projects[devel][version] = "1.2"
 projects[diff][version] = "2.0"
 projects[download_file][version] = "1.1"
@@ -46,7 +45,16 @@ projects[views_slideshow][version] = "3.0"
 projects[wysiwyg][version] = "2.x-dev"
 projects[wysiwyg][patch][] = "http://drupal.org/files/835682_22_remove_path_to_theme.patch"
 
+;Devtools
+projects[devel][version] = "1.2"
+projects[coder][version] = "1.0"
+projects[profiler_builder][version] = "1.0-alpha2"
+projects[defaultconfig][version] = "1.0-alpha4"
+projects[ftools][version] = "1.1"
+
 ; Custom features
+projects[debut][version] = "1.0-beta3"
+projects[debut_link][version] = "1.0-beta1"
 projects[debut_media][version] =1.0-beta5
 projects[debut_event][version] =1.0-beta4
 ;projects[pushtape_features][version] = "1.x-dev"
