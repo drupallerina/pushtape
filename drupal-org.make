@@ -39,7 +39,7 @@ projects[ctools] = 1.0-rc1
 projects[token] = 1.0-beta7 
 projects[views] = 3.0-rc3
 projects[media] = 1.0-rc2
-projects[pushtape_features] = 1.2
+projects[pushtape_features] = 1.4
 
 ; For pre-releases, like Image 6.x-1.0-beta3, use this format:
 ;projects[image] = 1.0-beta3
