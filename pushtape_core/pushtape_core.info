@@ -1,0 +1,17 @@
+core = "7.x"
+dependencies[] = "pushtape_music"
+description = "A music publishing platform. Easily publish albums or single tracks."
+name = "Pushtape"
+package = "Pushtape"
+project = "pushtape"
+version = "7.x-1.0"
+
+stylesheets[all][] = css/pushtape.css
+scripts[] = js/pushtape.js
+
+; Information added by drupal.org packaging script on 2011-12-16
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "pushtape_features"
+datestamp = "1324038299"
+
