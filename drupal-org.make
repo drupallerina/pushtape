@@ -32,14 +32,17 @@ api = 2
 ; version string. For example, if you wanted to specify Views 6.x-2.7,
 ; you would use:
 
-projects[features] = 1.0-beta4
+projects[features] = 1.0-beta5
 projects[pathauto] = 1.0
-projects[references] = 2.0-beta3
+projects[references] = 2.0
 projects[ctools] = 1.0-rc1
 projects[token] = 1.0-beta7 
-projects[views] = 3.0-rc3
+projects[views] = 3.0
 projects[media] = 1.0-rc2
 projects[pushtape_features] = 1.4
+
+;@todo - Move this to the libraries directory
+;library[profiler] = 2.0-beta1
 
 ; For pre-releases, like Image 6.x-1.0-beta3, use this format:
 ;projects[image] = 1.0-beta3
@@ -60,4 +63,4 @@ projects[pushtape_features] = 1.4
 ; projects[filefield][subdir] = cck_related_modules
 
 ; Defining a theme is no different.
-;projects[spreadfirefox] = 1.0
+projects[omega] = 3.0

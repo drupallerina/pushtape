@@ -1,6 +1,8 @@
 name = Pushtape
 description = Music publishing profile. 
 core = 7.x
+
+; Core
 dependencies[] = block
 dependencies[] = help
 dependencies[] = image
@@ -15,6 +17,7 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
+;Contrib
 dependencies[] = features
 dependencies[] = pathauto
 dependencies[] = references
@@ -23,6 +26,7 @@ dependencies[] = token
 dependencies[] = views
 dependencies[] = media
 
+;Install Profile
 dependencies[] = pushtape_core
 dependencies[] = pushtape_music
 
