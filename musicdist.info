@@ -33,17 +33,29 @@ base = pushtape
  dependencies[] = file
  dependencies[] = rdf
 
-dependencies[] = libraries
-dependencies[] = features
-dependencies[] = ctools
-dependencies[] = subprofiles
 
-dependencies[] = pushtape_music
+musicdist_recommended[] = menu
+musicdist_recommended[] = admin_menu
+musicdist_recommended[] = admin_menu_toolbar
+musicdist_recommended[] = dblog
+musicdist_recommended[] = help
+musicdist_recommended[] = ns_roles
+musicdist_recommended[] = defaultconfig
+musicdist_recommended[] = menu
+musicdist_recommended[] = taxonomy
+musicdist_recommended[] = uuid_taxonomy
+musicdist_recommended[] = taxonomy_menu_form
+musicdist_recommended[] = apps
+musicdist_recommended[] = libraries
+musicdist_recommended[] = features
+musicdist_recommended[] = ctools
+musicdist_recommended[] = subprofiles
+musicdist_recommended[] = pushtape_music
+
 ;dependencies[] = Pushtape
-
-dependencies[] = debut
+musicdist_recommended[] = debut
 ;dependencies[] = debut_media
-dependencies[] = debut_event
+musicdist_recommended[] = debut_event
 
 files[] = musicdist.profile
 
