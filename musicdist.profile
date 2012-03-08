@@ -28,7 +28,7 @@ function musicdist_install_tasks() {
 
 /**
  * Implements hook_apps_servers_info().
- */
+
 function musicdist_apps_servers_info() {
   return array(
     'PushTape' => array(
@@ -37,7 +37,7 @@ function musicdist_apps_servers_info() {
       'manifest' => 'http://pushtape.org/apps.json', // the location of the  json manifest
     ),
   );
-}
+} */
 
 /**
  * Feature selection form. The user get's to select the feature she wants

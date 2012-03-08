@@ -6,7 +6,7 @@ api = 2
 
 ; Modules
 
-projects[apps][version] = "1.0-beta4"
+;projects[apps][version] = "1.0-beta4"
 projects[date][version] = "2.x-dev"
 projects[calendar][version] = "3.0-alpha1"
 projects[plupload][version] = "1.0-beta3"
