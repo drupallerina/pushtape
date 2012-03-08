@@ -1,4 +1,4 @@
-name = pushtape_dist
+name = musicdist
 description = Custom Drupal 7 installation profile
 core = 7.x
 theme = bartik
@@ -45,7 +45,7 @@ dependencies[] = debut
 ;dependencies[] = debut_media
 dependencies[] = debut_event
 
-files[] = pushtape_dist.profile
+files[] = musicdist.profile
 
 subprofiles[standard][name] = pushtape_discipolo
 subprofiles[standard][description] = Install a developer version of Pushtape with all commonly needed features enabled.
@@ -95,7 +95,7 @@ users[artist][status] = 1
 ; variables need to be set if you want to bypass the Configuration form during
 ; installation (@see Users for more information on how this is accomplished).
 ; -----------------------------------------------------------------------------
-variables[site_name] = pushtape_dist
+variables[site_name] = musicdist
 variables[site_mail] = testing@qs10.mydev
 variables[site_frontpage] = releases
 ; -----------------------------------------------------------------------------
