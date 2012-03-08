@@ -28,7 +28,7 @@ projects[strongarm][version] = "2.0-beta4"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
 projects[subprofiles][version] = "1.0"
-
+projects[omega_tools][version] = "3.0-rc4"
 ; Drupalgardensmodules for import
 
 projects[follow][version] = "1.0-alpha1"
