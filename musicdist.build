@@ -1,7 +1,7 @@
 core = 7.x
 
 api = 2
-projects[drupal][version] = "7.10"
+projects[drupal][version] = "7.12"
 
 projects[pushtape][type] = "profile"
 projects[pushtape][download][type] = "git"
@@ -11,4 +11,3 @@ projects[pushtape][download][branch] = "7.x-1.x"
 projects[musicdist][type] = "profile"
 projects[musicdist][download][type] = "git"
 projects[musicdist][download][url] = "git://github.com/discipolo/musicdist.git"
-projects[pushtape][download][branch] = "master"
