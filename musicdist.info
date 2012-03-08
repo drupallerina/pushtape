@@ -1,5 +1,5 @@
 name = musicdist
-description = Custom Drupal 7 installation profile
+description = installprofile extending pushtape
 core = 7.x
 theme = bartik
 base = pushtape
