@@ -102,7 +102,14 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
  * Submit handler for feature picking form.
  */
 function musicdist_pick_features_form_submit($form, &$form_state) {
+    
+if (isset($form_state['values']['features']))
+{
+            
   variable_set('musicdist_enable_features', $form_state['values']['features']);
+  
+} else {variable_set('musicdist_enable_features', 'pushtape_music');}
+  
 }
 
 /**
