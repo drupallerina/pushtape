@@ -219,5 +219,13 @@ function musicdist_install() {
   pushtape_install();
   !function_exists('profiler_v2') ? require_once('libraries/profiler/profiler.inc') : FALSE;
     profiler_v2('pushtape_dist');
+      theme_enable(array('seven'));
+  $variables = array(
+    'admin_theme' => 'seven',
+    'node_admin_theme' => 1,
+  );
+  foreach ($variables as $key => $variable) {
+    variable_set($key, $variable);
+  }
 }
 
