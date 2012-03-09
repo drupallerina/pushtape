@@ -25,7 +25,7 @@ projects[debut_event][version] ="1.x-dev"
 ;Devel tools
 
 projects[diff][version] = "2.0"
-projects[libraries][version] = "1.0"
+projects[libraries][version] = "2.0-alpha2"
 projects[strongarm][version] = "2.0-beta4"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
