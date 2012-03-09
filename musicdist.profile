@@ -2,7 +2,7 @@
 
 function musicdist_theme($existing, $type, $theme, $path) {
   return array(
-    'musicdist_pushtape_feature' => array(
+    'musicdist_musicdist_feature' => array(
       'variables' => array('element' => NULL),
     ),
   );
@@ -11,11 +11,11 @@ function musicdist_theme($existing, $type, $theme, $path) {
 function musicdist_install_tasks() {
   return array(
     'musicdist_pick_features_form' => array(
-      'display_name' => st('Configure PushTape'),
+      'display_name' => st('Configure musicdist'),
       'type' => 'form',
     ),
     'musicdist_install_features' => array(
-      'display_name' => st('Install PushTape features'),
+      'display_name' => st('Install musicdist features'),
       'type' => 'batch',
     ),
     'musicdist_finish' => array(
@@ -31,10 +31,10 @@ function musicdist_install_tasks() {
 
 function musicdist_apps_servers_info() {
   return array(
-    'PushTape' => array(
-      'title' => t('PushTape'), //the title to be use for the server
-      'description' => t('PushTape products can be used to build audio focused media web sites.'),
-      'manifest' => 'http://pushtape.org/apps.json', // the location of the  json manifest
+    'musicdist' => array(
+      'title' => t('musicdist'), //the title to be use for the server
+      'description' => t('musicdist products can be used to build audio focused media web sites.'),
+      'manifest' => 'http://musicdist.org/apps.json', // the location of the  json manifest
     ),
   );
 } */
@@ -45,7 +45,7 @@ function musicdist_apps_servers_info() {
  */
 function musicdist_pick_features_form($form, &$form_state, &$install_state) {
   $features = array();
-  drupal_set_title(st('Configure PushTape'));
+  drupal_set_title(st('Configure musicdist'));
   $modules = $form_state['modules'] = system_rebuild_module_data();
 
   foreach ($modules as $module_name => $module) {
@@ -53,7 +53,7 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
       $features[$module->info['musicdist_type']][$module_name] = $module;
     }
   }
-  $form['welcome']['#markup'] = '<h1 class="title">Select features</h1><p>' . st('Welcome to PushTape! PushTape comes with a wide array
+  $form['welcome']['#markup'] = '<h1 class="title">Select features</h1><p>' . st('Welcome to musicdist! musicdist comes with a wide array
     of features and depending on which you choose, you can create different kinds of sites. The features are
     presented below.') . '</p>';
   $form['features'] = array(
@@ -102,13 +102,16 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
  * Submit handler for feature picking form.
  */
 function musicdist_pick_features_form_submit($form, &$form_state) {
-    
-if (isset($form_state['values']['features']))
-{
-            
-  variable_set('musicdist_enable_features', $form_state['values']['features']);
+  if (isset($form_state['values']['features']))
+  {            
+    variable_set('musicdist_enable_features', $form_state['values']['features']);
   
-} else {variable_set('musicdist_enable_features', 'pushtape_music');}
+  }
+  
+  else {
+      variable_set('musicdist_enable_features', array() );
+
+  }
   
 }
 
@@ -134,9 +137,9 @@ function musicdist_install_features(&$install_state) {
      }
    }
   }
-  // Add pushtape recommended modules.
-  if (isset($module_data['PushTape']->info['musicdist_recommended']) && is_array($module_data['PushTape']->info['musicdist_recommended'])) {
-    foreach ($module_data['PushTape']->info['musicdist_recommended'] as $recommended) {
+  // Add musicdist recommended modules.
+  if (isset($module_data['musicdist']->info['musicdist_recommended']) && is_array($module_data['musicdist']->info['musicdist_recommended'])) {
+    foreach ($module_data['musicdist']->info['musicdist_recommended'] as $recommended) {
       $modules[] = $recommended;
     }
   }
@@ -168,7 +171,7 @@ function musicdist_install_features(&$install_state) {
   }
   $batch = array(
     'operations' => $operations,
-    'title' => st('Installing PushTape features'),
+    'title' => st('Installing musicdist features'),
     'error_message' => st('The installation has encountered an error.'),
     'finished' => '_install_profile_modules_finished',
   );
@@ -178,7 +181,7 @@ function musicdist_install_features(&$install_state) {
 /**
  * Implements hook_musicdist_feature_types().
  */
-function musicdist_pushtape_feature_types() {
+function musicdist_musicdist_feature_types() {
   return array(
     'product' => array(
       'title' => st('Products'),
@@ -223,9 +226,9 @@ function musicdist_finish() {
  */
 function musicdist_install() {
   include_once DRUPAL_ROOT . '/profiles/pushtape/pushtape.install';
-  pushtape_install();
+  musicdist_install();
   !function_exists('profiler_v2') ? require_once('libraries/profiler/profiler.inc') : FALSE;
-    profiler_v2('pushtape_dist');
+    profiler_v2('musicdist');
       theme_enable(array('seven'));
   $variables = array(
     'admin_theme' => 'seven',
