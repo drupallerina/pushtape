@@ -64,3 +64,8 @@ projects[omega][type] = "theme"
 projects[omegapushtape][download][type] = "git"
 projects[omegapushtape][download][url] = "discipolo@git.drupal.org:sandbox/discipolo/1474174.git"
 projects[omegapushtape][download][branch] = "master"
+
+;patches
+
+projects[pushtape_features][patch][] = "http://drupal.org/files/pushtapemusic_featuretype-1.patch"
+
