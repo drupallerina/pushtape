@@ -49,13 +49,7 @@ musicdist_recommended[] = taxonomy_menu_form
 musicdist_recommended[] = libraries
 musicdist_recommended[] = features
 musicdist_recommended[] = ctools
-musicdist_recommended[] = subprofiles
-musicdist_recommended[] = pushtape_music
 
-;dependencies[] = Pushtape
-musicdist_recommended[] = debut
-;dependencies[] = debut_media
-musicdist_recommended[] = debut_event
 
 files[] = musicdist.profile
 
