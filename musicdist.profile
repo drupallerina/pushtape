@@ -48,8 +48,8 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
   drupal_set_title(st('Configure musicdist'));
   $modules = $form_state['modules'] = system_rebuild_module_data();
   foreach ($modules as $module_name => $module) {
-    if (isset($module->info['feature_type'])) {
-      $features[$module->info['feature_type']][$module_name] = $module;
+    if (isset($module->info['pushtape_feature_type'])) {
+      $features[$module->info['pushtape_feature_type']][$module_name] = $module;
     }
   }
   $form['welcome']['#markup'] = '<h1 class="title">Select features</h1><p>' . st('Welcome to musicdist! musicdist comes with a wide array
@@ -182,8 +182,8 @@ function musicdist_install_features(&$install_state) {
  */
 function musicdist_musicdist_feature_types() {
   return array(
-    'Feature' => array(
-      'title' => st('Feature'),
+    'content' => array(
+      'title' => st('content'),
       'description' => st('A content Feature adds new types of content to your site.
         It could for instance be a blog or an article.'),
     ),
