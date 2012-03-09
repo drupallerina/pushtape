@@ -18,7 +18,8 @@ projects[wysiwyg][patch][] = "http://drupal.org/files/835682_22_remove_path_to_t
 projects[debut][version] = "1.x-dev"
 ;projects[debut_link][version] = "1.0-beta1"
 ;projects[debut_media][version] ="1.x-dev"
-projects[debut_event][version] ="1.x-dev"
+
+includes[debut_event] = "http://drupalcode.org/project/debut_event.git/blob_plain/refs/heads/7.x-1.x:/debut_event.make.inc"
 
 ;Devel tools
 
@@ -29,6 +30,7 @@ projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
 projects[subprofiles][version] = "1.0"
 projects[omega_tools][version] = "3.0-rc4"
+
 ; Drupalgardensmodules for import
 
 projects[follow][version] = "1.0-alpha1"

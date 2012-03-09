@@ -49,8 +49,8 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
   $modules = $form_state['modules'] = system_rebuild_module_data();
 
   foreach ($modules as $module_name => $module) {
-    if (isset($module->info['musicdist_type'])) {
-      $features[$module->info['musicdist_type']][$module_name] = $module;
+    if (isset($module->info['package'])) {
+      $features[$module->info['package']][$module_name] = $module;
     }
   }
   $form['welcome']['#markup'] = '<h1 class="title">Select features</h1><p>' . st('Welcome to musicdist! musicdist comes with a wide array
@@ -124,6 +124,7 @@ function musicdist_install_features(&$install_state) {
   $modules = array();
   $module_data = system_rebuild_module_data();
   variable_del('musicdist_enable_features');
+  dpm($feature_groups);
   foreach ($feature_groups as $group => $features) {
    foreach ($features as $feature => $info) {
      if ($info['enabled']) {
@@ -183,15 +184,9 @@ function musicdist_install_features(&$install_state) {
  */
 function musicdist_musicdist_feature_types() {
   return array(
-    'product' => array(
-      'title' => st('Products'),
-      'description' => st('A product is a way of distributing your content to your users.
-        It could be a blog, a web newspaper or an rss feed.'),
-      'collapsed' => FALSE,
-    ),
-    'content' => array(
-      'title' => st('Content'),
-      'description' => st('A content feature adds new types of content to your site.
+    'Feature' => array(
+      'title' => st('Feature'),
+      'description' => st('A content Feature adds new types of content to your site.
         It could for instance be a blog or an article.'),
     ),
     'extension' => array(
