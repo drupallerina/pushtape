@@ -47,7 +47,7 @@ function musicdist_pick_features_form($form, &$form_state, &$install_state) {
   $features = array();
   drupal_set_title(st('Configure musicdist'));
   $modules = $form_state['modules'] = system_rebuild_module_data();
-
+  ;dpm($module->info);
   foreach ($modules as $module_name => $module) {
     if (isset($module->info['package'])) {
       $features[$module->info['package']][$module_name] = $module;
@@ -124,7 +124,7 @@ function musicdist_install_features(&$install_state) {
   $modules = array();
   $module_data = system_rebuild_module_data();
   variable_del('musicdist_enable_features');
-  dpm($feature_groups);
+ ; dpm($feature_groups);
   foreach ($feature_groups as $group => $features) {
    foreach ($features as $feature => $info) {
      if ($info['enabled']) {
@@ -221,7 +221,7 @@ function musicdist_finish() {
  */
 function musicdist_install() {
   include_once DRUPAL_ROOT . '/profiles/pushtape/pushtape.install';
-  musicdist_install();
+  pushtape_install();
   !function_exists('profiler_v2') ? require_once('libraries/profiler/profiler.inc') : FALSE;
     profiler_v2('musicdist');
       theme_enable(array('seven'));
@@ -233,4 +233,3 @@ function musicdist_install() {
     variable_set($key, $variable);
   }
 }
-
