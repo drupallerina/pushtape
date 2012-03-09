@@ -5,6 +5,8 @@ api = 2
 ;includes[] = http://drupalcode.org/project/buildkit.git/blob_plain/refs/heads/7.x-2.x:/drupal-org.make
 
 ; Modules
+projects[media][version] = "2.x-dev"
+projects[file_entity][version] = "2.x-dev"
 
 ;projects[apps][version] = "1.0-beta4"
 projects[date][version] = "2.x-dev"
