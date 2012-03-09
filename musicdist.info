@@ -35,16 +35,8 @@ base = pushtape
 
 
 musicdist_recommended[] = menu
-musicdist_recommended[] = admin_menu
-musicdist_recommended[] = admin_menu_toolbar
 musicdist_recommended[] = dblog
 musicdist_recommended[] = help
-musicdist_recommended[] = ns_roles
-musicdist_recommended[] = defaultconfig
-musicdist_recommended[] = menu
-musicdist_recommended[] = taxonomy
-musicdist_recommended[] = uuid_taxonomy
-musicdist_recommended[] = taxonomy_menu_form
 ;musicdist_recommended[] = apps
 musicdist_recommended[] = libraries
 musicdist_recommended[] = features
