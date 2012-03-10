@@ -82,7 +82,7 @@ projects[omega][type] = "theme"
 
 
 
-projects[omegapusht1474174][type] = "theme"
+projects[omegapushtape][type] = "theme"
 projects[omegapushtape][download][type] = "git"
 projects[omegapushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
 projects[omegapushtape][download][branch] = "7.x-1.x"
