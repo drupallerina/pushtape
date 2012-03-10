@@ -25,6 +25,12 @@ projects[debut][version] = "1.x-dev"
 ;projects[debut_media][version] ="1.x-dev"
 projects[debut_event][version] ="1.x-dev"
 
+projects[pushtape_music_audiofile][download][type] = "get"
+projects[pushtape_music_audiofile][download][url] = "http://drupal.org/files/pushtape_music_audiofile.zip"
+
+projects[pushtape_music_playlist][download][type] = "get"
+projects[pushtape_music_playlist][download][url] = "http://drupal.org/files/pushtape_music_playlist.zip"
+
 ;includes[debut_event] = "http://drupalcode.org/project/debut_event.git/blob_plain/refs/heads/7.x-1.x:/debut_event.make.inc"
 
 ;Devel tools
