@@ -14,6 +14,8 @@ projects[calendar][version] = "3.0-alpha1"
 projects[plupload][version] = "1.0-beta4"
 projects[wysiwyg][version] = "2.x-dev"
 projects[wysiwyg][patch][] = "http://drupal.org/files/835682_22_remove_path_to_theme.patch"
+projects[soundmanager2][version] = "2.x-dev"
+projects[download_file][version] = "1.1"
 
 ; Apps
 
