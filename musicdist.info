@@ -1,7 +1,7 @@
 name = musicdist
 description = installprofile extending pushtape
 core = 7.x
-theme = bartik
+theme = omegapushtape
 base = pushtape
 
 ; -----------------------------------------------------------------------------
@@ -41,6 +41,7 @@ musicdist_recommended[] = help
 musicdist_recommended[] = libraries
 musicdist_recommended[] = features
 musicdist_recommended[] = ctools
+musicdist_recommended[] = pushtape
 
 
 files[] = musicdist.profile
