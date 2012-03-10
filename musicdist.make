@@ -80,9 +80,11 @@ libraries[profiler][download][url] = "http://ftp.drupal.org/files/projects/profi
 ;Themes
 projects[omega][type] = "theme"
 
-projects[omegapushtape][type] = "theme"
+
+
+projects[omegapusht1474174][type] = "theme"
 projects[omegapushtape][download][type] = "git"
-projects[omegapushtape][download][url] = "git.drupal.org:sandbox/discipolo/1474174.git"
+projects[omegapushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
 projects[omegapushtape][download][branch] = "7.x-1.x"
 
 ;patches
