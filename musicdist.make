@@ -7,6 +7,7 @@ api = 2
 ; Modules
 projects[media][version] = "2.x-dev"
 projects[file_entity][version] = "2.x-dev"
+projects[context][version] = "3.0-beta2"
 
 ;projects[apps][version] = "1.0-beta4"
 projects[date][version] = "2.x-dev"
