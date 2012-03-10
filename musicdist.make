@@ -25,9 +25,11 @@ projects[debut][version] = "1.x-dev"
 ;projects[debut_media][version] ="1.x-dev"
 projects[debut_event][version] ="1.x-dev"
 
+projects[pushtape_music_audiofile][type] = "module"
 projects[pushtape_music_audiofile][download][type] = "get"
 projects[pushtape_music_audiofile][download][url] = "http://drupal.org/files/pushtape_music_audiofile.zip"
 
+projects[pushtape_music_playlist][type] = "module"
 projects[pushtape_music_playlist][download][type] = "get"
 projects[pushtape_music_playlist][download][url] = "http://drupal.org/files/pushtape_music_playlist.zip"
 
@@ -77,7 +79,7 @@ libraries[profiler][download][url] = "http://ftp.drupal.org/files/projects/profi
 
 ;Themes
 projects[omega][type] = "theme"
-
+projects[omegapushtape][type] = "theme"
 projects[omegapushtape][download][type] = "git"
 projects[omegapushtape][download][url] = "discipolo@git.drupal.org:sandbox/discipolo/1474174.git"
 projects[omegapushtape][download][branch] = "master"
