@@ -44,6 +44,12 @@ projects[mailing_list][patch][] = "http://drupal.org/files/issues/1072054-mail.p
 
 ; Libraries
 
+; Plupload
+libraries[plupload][download][type] = "get"
+libraries[plupload][download][url] = "https://github.com/downloads/moxiecode/plupload/plupload_1_5_2.zip"
+libraries[plupload][directory_name] = "plupload"
+libraries[plupload][destination] = "modules/contrib/plupload"
+
 ; jQuery UI
 libraries[jquery_ui][download][type] = "get"
 libraries[jquery_ui][download][url] = "http://jqueryui.com/download/jquery-ui-1.8.16.custom.zip"
