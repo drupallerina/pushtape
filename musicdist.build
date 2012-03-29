@@ -22,10 +22,12 @@ includes[] = http://drupalcode.org/project/pushtape.git/blob/refs/heads/7.x-1.x:
 ;******************************************************************************
 ;                            Additional features
 ;******************************************************************************
-projects[pushtape_music_audiofile][download][type] = "get"
+projects[pushtape_music_audiofile][download][type] = "file"
+projects[pushtape_music_audiofile][download][version] = "7.x-0.1"
 projects[pushtape_music_audiofile][download][url] = "http://drupal.org/files/pushtape_music_audiofile.zip"
 
 projects[pushtape_music_playlist][download][type] = "get"
+projects[pushtape_music_playlist][version] = "0.1"
 projects[pushtape_music_playlist][download][url] = "http://drupal.org/files/pushtape_music_playlist.zip"
 
 ;******************************************************************************
@@ -99,10 +101,10 @@ libraries[ckeditor][destination] = "libraries"
 ;libraries[profiler][download][url] = "http://ftp.drupal.org/files/projects/profiler-7.x-2.0-beta1.tar.gz"
 
 ;Themes
-
+projects[omegapushtape][type] = "theme"
 projects[omegapushtape][download][type] = "git"
 projects[omegapushtape][download][url] = "discipolo@git.drupal.org:sandbox/discipolo/1474174.git"
-projects[omegapushtape][download][branch] = "master"
+projects[omegapushtape][download][branch] = "7.x-1.x"
 
 
 ;******************************************************************************
