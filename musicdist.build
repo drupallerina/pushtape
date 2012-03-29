@@ -1,10 +1,12 @@
-core = 7.12
 api = 2
+core = 7.x
+
 
 ;******************************************************************************
 ;                            Base Distribution (installprofiles)
 ;******************************************************************************
 projects[drupal][version] = "7.12"
+projects[drupal][type] = "core"
 
 ;projects[pushtape][type] = "profile"
 ;projects[pushtape][download][type] = "git"
