@@ -1,8 +1,5 @@
-core = 7.x
-
+core = 7.12
 api = 2
-
-
 
 ;******************************************************************************
 ;                            Base Distribution (installprofiles)
@@ -35,7 +32,6 @@ projects[pushtape_music_playlist][download][url] = "http://drupal.org/files/push
 ;                            Devel tools
 ;******************************************************************************
 
-
 projects[diff][version] = "2.0"
 projects[libraries][version] = "2.0-alpha2"
 projects[strongarm][version] = "2.0-beta4"
@@ -48,10 +44,6 @@ projects[omega_tools][version] = "3.0-rc4"
 ;                            dependencies will go into additional features
 ;******************************************************************************
 
-
-; Modules
-projects[media][version] = "2.x-dev"
-projects[file_entity][version] = "2.x-dev"
 projects[filefield_sources][version] = "1.7"
 projects[filefield_sources_plupload][version] = "1.x-dev"
 
@@ -112,6 +104,14 @@ projects[omegapushtape][download][type] = "git"
 projects[omegapushtape][download][url] = "discipolo@git.drupal.org:sandbox/discipolo/1474174.git"
 projects[omegapushtape][download][branch] = "master"
 
+
+;******************************************************************************
+;                        Overrides
+;******************************************************************************
+
+
+projects[media][version] = "2.x-dev"
+projects[file_entity][version] = "2.x-dev"
 ;patches
 
 ;projects[pushtape_features][patch][] = "http://drupal.org/files/pushtapemusic_featuretype-1.patch"
