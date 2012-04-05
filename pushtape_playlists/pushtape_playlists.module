@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the pushtape_playlists feature.
+ */
+
+include_once 'pushtape_playlists.features.inc';
