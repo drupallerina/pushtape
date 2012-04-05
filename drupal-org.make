@@ -42,6 +42,14 @@ projects[views] = 3.1
 projects[media] = 2.0-unstable3
 ;projects[pushtape_features] = 1.4
 
+; Devel Tools
+projects[diff][version] = "2.0"
+projects[libraries][version] = "2.0-alpha2"
+projects[strongarm][version] = "2.0-beta4"
+projects[devel][version] = "1.2"
+projects[coder][version] = "1.0"
+projects[omega_tools][version] = "3.0-rc4"
+
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
