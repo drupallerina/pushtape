@@ -1,5 +1,6 @@
 ;******************************************************************************
-; Run this to get discipolos development version of Pushtape from github: drush make 
+; Run this to get discipolos development version of Pushtape from github: 
+; drush make https://raw.github.com/discipolo/pushtape/5a01e479f6f7875c24362a0a909b02b88d0f772e/pushtape-devel.build
 ;******************************************************************************
 
 api = 2
