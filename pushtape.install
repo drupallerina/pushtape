@@ -344,7 +344,7 @@ function pushtape_install() {
   // Enable themes
   theme_enable(array('alpha', 'seven'));
   variable_set('admin_theme', 'seven');
-  variable_set('theme_default', 'alpha');
+  variable_set('theme_default', 'omegapushtape');
   variable_set('site_frontpage', 'releases');
   // variable_set('clean_url', 1);
   //variable_set('site_footer', 'Built with Pushtape');
