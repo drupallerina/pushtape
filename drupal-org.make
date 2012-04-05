@@ -39,7 +39,12 @@ projects[ctools] = 1.0-rc1
 projects[token] = 1.0-rc1
 projects[views] = 3.1
 projects[media] = 1.0-rc3
-projects[pushtape_features] = 1.4
+;projects[pushtape_features] = 1.4
+
+projects[pushtape_features][type] = "profile"
+projects[pushtape_features][download][type] = "git"
+projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
+projects[pushtape_features][download][branch] = "master"
 
 ;@todo - Move this to the libraries directory
 ;library[profiler] = 2.0-beta1
