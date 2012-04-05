@@ -78,7 +78,7 @@ projects[pushtape_features][download][branch] = "master"
 
 ; Defining a theme is no different.
 
-projects[omega] = 3.0
+projects[omega] = 3.1
 
 projects[omegapushtape][type] = "module"
 projects[omegapushtape][download][type] = "git"
