@@ -2,8 +2,8 @@ core = "7.x"
 dependencies[] = "pushtape_music"
 description = "A music publishing platform. Easily publish albums or single tracks."
 name = "Pushtape"
-package = "Pushtape"
-project = "pushtape"
+package = "Pushtape_core"
+project = "pushtape_core"
 version = "7.x-1.0"
 
 stylesheets[all][] = css/pushtape.css
