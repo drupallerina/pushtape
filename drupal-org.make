@@ -32,6 +32,7 @@ api = 2
 ; version string. For example, if you wanted to specify Views 6.x-2.7,
 ; you would use:
 
+projects[entityreference] = 1.0-rc1
 projects[features] = 1.0-rc1
 projects[file_entity] = 2.0-unstable3
 projects[pathauto] = 1.0
