@@ -4,13 +4,13 @@ description = "A music publishing platform. Easily publish albums or single trac
 name = "Pushtape"
 package = "Pushtape_core"
 project = "pushtape_core"
-version = "7.x-1.0"
+version = "7.x-2.0"
 
 stylesheets[all][] = css/pushtape.css
 scripts[] = js/pushtape.js
 
 ; Information added by drupal.org packaging script on 2011-12-16
-version = "7.x-1.x-dev"
+version = "7.x-2.x-dev"
 core = "7.x"
 project = "pushtape_features"
 datestamp = "1324038299"
