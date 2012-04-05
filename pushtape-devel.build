@@ -17,6 +17,6 @@ projects[drupal][type] = "core"
 
 projects[pushtape][type] = "profile"
 projects[pushtape][download][type] = "git"
-projects[pushtape][download][url] = "http://git.drupal.org/project/pushtape.git"
+projects[pushtape][download][url] = "git://github.com/discipolo/pushtape.git"
 projects[pushtape][download][branch] = "7.x-2.x"
 
