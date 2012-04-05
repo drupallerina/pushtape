@@ -33,12 +33,13 @@ api = 2
 ; you would use:
 
 projects[features] = 1.0-beta6
+projects[file_entity] = 2.0-unstable3
 projects[pathauto] = 1.0
 projects[references] = 2.0
 projects[ctools] = 1.0-rc1
 projects[token] = 1.0-rc1
 projects[views] = 3.1
-projects[media] = 1.0-rc3
+projects[media] = 2.0-unstable3
 ;projects[pushtape_features] = 1.4
 
 projects[pushtape_features][type] = "module"
