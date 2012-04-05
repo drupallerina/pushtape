@@ -1,6 +1,6 @@
 ;******************************************************************************
 ; Run this to get discipolos development version of Pushtape from github: 
-; drush make hhttps://raw.github.com/discipolo/pushtape/db17ac29a52b52c8f73db4db2487c11844ad57c2/pushtape-devel.build
+; drush make https://raw.github.com/discipolo/pushtape/b579fabe688f8cfac8c9495886f88ef317e08a65/pushtape-devel.build
 ;******************************************************************************
 
 api = 2
@@ -10,13 +10,16 @@ core = 7.x
 ; Base Distribution (installprofiles)
 ; its possible to use pressflow or any other distribution instead as core/base project
 ; e.g. projects[openacademy][version] = "1.0-beta1" instead of projects[drupal][version] = "7.12"
+; 
 ;******************************************************************************
 
-projects[drupal][version] = "7.12"
-projects[drupal][type] = "core"
+;projects[drupal][version] = "7.12"
+;projects[drupal][type] = "core"
+
+projects[panopoly][version] = "1.0-beta2"
+projects[panopoly][type] = "core"
 
 projects[pushtape][type] = "profile"
 projects[pushtape][download][type] = "git"
 projects[pushtape][download][url] = "git://github.com/discipolo/pushtape.git"
 projects[pushtape][download][branch] = "7.x-2.x"
-
