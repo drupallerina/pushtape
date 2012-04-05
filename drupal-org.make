@@ -53,7 +53,7 @@ projects[omega_tools][version] = "3.0-rc4"
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-projects[pushtape_features][download][branch] = "master"
+projects[pushtape_features][download][branch] = "7.x-1.x"
 
 ;@todo - Move this to the libraries directory
 ;library[profiler] = 2.0-beta1
