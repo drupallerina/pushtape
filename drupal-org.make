@@ -52,7 +52,7 @@ projects[coder][version] = "1.0"
 projects[omega_tools][version] = "3.0-rc4"
 
 ; Playlist addon dependencies (should be included in the feature)
-projects[beautytips][version] = "2.0-alpha4"
+projects[beautytips][version] = "2.0-beta1"
 projects[better_exposed_filters][version] = "3.0-beta1"
 projects[colorbox][version] = "1.2"
 projects[download_file][version] = "1.1"
