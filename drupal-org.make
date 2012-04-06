@@ -38,7 +38,7 @@ projects[file_entity] = 2.0-unstable3
 projects[pathauto] = 1.0
 projects[references] = 2.x-dev
 projects[ctools] = 1.0
-projects[token] = 1.0-rc1
+projects[token] = 1.0
 projects[views] = 3.3
 projects[media] = 2.0-unstable3
 ;projects[pushtape_features] = 1.4 --> using dev version from github below
@@ -46,7 +46,7 @@ projects[media] = 2.0-unstable3
 ; Devel Tools
 projects[diff][version] = "2.0"
 projects[libraries][version] = "2.0-alpha2"
-projects[strongarm][version] = "2.0-beta4"
+projects[strongarm][version] = "2.0-rc1"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
 projects[omega_tools][version] = "3.0-rc4"
