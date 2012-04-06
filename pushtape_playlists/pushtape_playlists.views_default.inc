@@ -40,11 +40,6 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = 1;
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 0;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
-    'keys' => array(
-      'more_options' => array(
-        'bef_filter_description' => '',
-      ),
-    ),
     'tid_2' => array(
       'bef_format' => 'bef',
       'more_options' => array(
@@ -86,8 +81,8 @@ function pushtape_playlists_views_default_views() {
       ),
     ),
   );
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['grouping'] = 'title';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -821,13 +816,8 @@ function pushtape_playlists_views_default_views() {
       ),
     ),
   );
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '10, 25, 50, 100, 200';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['grouping'] = 'title';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -899,7 +889,7 @@ function pushtape_playlists_views_default_views() {
 <a href="/node/add/track">Add track</a>
 </li>
 </ul>';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['header']['area']['format'] = 'plain_text';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -1148,9 +1138,6 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
-    4 => '4',
-    5 => '5',
-    6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1282,7 +1269,7 @@ function pushtape_playlists_views_default_views() {
 </ol>
 </ul>
 <br>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['format'] = 'plain_text';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -1291,7 +1278,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['empty']['area']['label'] = 'No results';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
   $handler->display->display_options['empty']['area']['content'] = '<a class="mp-custom-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>';
-  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  $handler->display->display_options['empty']['area']['format'] = 'plain_text';
   $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Relationship: Taxonomy term: Content with term */
   $handler->display->display_options['relationships']['nid']['id'] = 'nid';
@@ -1403,6 +1390,7 @@ function pushtape_playlists_views_default_views() {
   /* Display: Playlists */
   $handler = $view->new_display('page', 'Playlists', 'playlists');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'playlists';
   $handler->display->display_options['display_description'] = 'Main table view for playlists';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
