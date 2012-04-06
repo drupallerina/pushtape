@@ -3,7 +3,7 @@ api = 2
 
 
 ; Playlist addon dependencies
-projects[beautytips][version] = "2.0-alpha4"
+projects[beautytips][version] = "2.0-beta1"
 projects[better_exposed_filters][version] = "3.0-beta1"
 projects[colorbox][version] = "1.2"
 projects[download_file][version] = "1.1"
