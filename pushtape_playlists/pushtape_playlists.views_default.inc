@@ -600,7 +600,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No results';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
-  $handler->display->display_options['empty']['area']['content'] = '<a class="mp-custom-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>';
+  $handler->display->display_options['empty']['area']['content'] = '<a class="pushtape-playlists-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Relationship: Content: Author */

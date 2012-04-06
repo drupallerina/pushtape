@@ -23,18 +23,18 @@ if ($first_row = $view->result[$row_keys[0]]) {
 
 ?>
 <div class="playlist-wrap">
-  <div class="playlist-header <?php print ' musiclibrary-playlist-playlist-' . $playlist_nid; ?>">
+  <div class="playlist-header <?php print ' pushtape-playlists-playlist-' . $playlist_nid; ?>">
     <?php if (!empty($title)): ?>
       <h2 class="playlist-title"><a href="#" class="collapsed"><?php print $title; ?></a></h2>
     <?php endif; ?>
     <ul class="playlist-links">
-      <li class="playlist-edit"><a class="musiclibrary-playlist-inline" href="<?php print url('mp/nojs/' . $playlist_nid . '/edit'); ?>"><img src="/sites/all/themes/acq_monitorpop/images/editthislist.png"><span>edit</span></a></li>
-      <li class="playlist-delete"><a class="musiclibrary-playlist-inline" href="<?php print url('mp/nojs/' . $playlist_nid . '/delete'); ?>"><img src="/sites/all/themes/acq_monitorpop/images/deletethislist.png"><span>delete</span></a></li>
+      <li class="playlist-edit"><a class="pushtape-playlists-inline" href="<?php print url('mp/nojs/' . $playlist_nid . '/edit'); ?>"><img src="/sites/all/themes/acq_monitorpop/images/editthislist.png"><span>edit</span></a></li>
+      <li class="playlist-delete"><a class="pushtape-playlists-inline" href="<?php print url('mp/nojs/' . $playlist_nid . '/delete'); ?>"><img src="/sites/all/themes/acq_monitorpop/images/deletethislist.png"><span>delete</span></a></li>
       <li class="playlist-zip"><a href="<?php print url('zip_download/' . $playlist_nid); ?>"><img src="/sites/all/themes/acq_monitorpop/images/downloadthislist.png"><span>download</span></a></li>
     </ul>
   </div>
   <div class="playlist-table-wrap">
-    <table <?php if ($classes) { print 'class="'. $classes . ' musiclibrary-playlist-row-playlist-' . $playlist_nid  . '" '; } ?><?php print $attributes; ?>>
+    <table <?php if ($classes) { print 'class="'. $classes . ' pushtape-playlists-row-playlist-' . $playlist_nid  . '" '; } ?><?php print $attributes; ?>>
       <thead>
         <tr>
           <?php $i=0; ?>

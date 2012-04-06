@@ -7,7 +7,7 @@
  * @param array $form_state
  * @return array 
  */
-function pushtape_playlist_track_edit_playlists_form($form, $form_state) {
+function pushtape_playlists_track_edit_playlists_form($form, $form_state) {
   global $user;
   $form = array();
   $track = $form_state['node'];
@@ -73,7 +73,7 @@ function pushtape_playlist_track_edit_playlists_form($form, $form_state) {
   return $form;
 }
 
-function pushtape_playlist_track_edit_playlists_form_submit($form, &$form_state) {
+function pushtape_playlists_track_edit_playlists_form_submit($form, &$form_state) {
   $new_pl_ids = array_values($form_state['values']['playlists']);
   $old_pl_ids = $form_state['complete form']['playlists']['#default_value'];
   $track = $form_state['node'];
@@ -82,7 +82,7 @@ function pushtape_playlist_track_edit_playlists_form_submit($form, &$form_state)
   
   //todo: check to see if a playlist of this name exsts before creating one
   if ($new_playlist_title = $form_state['values']['new_title']) {
-    $new_playlist = pushtape_playlist_playlists_create_playlist($new_playlist_title, $track);
+    $new_playlist = pushtape_playlists_playlists_create_playlist($new_playlist_title, $track);
     $changes['new'][] = $new_playlist->nid;
   }
   
@@ -116,13 +116,13 @@ function pushtape_playlist_track_edit_playlists_form_submit($form, &$form_state)
   
 }
 
-function pushtape_playlist_playlists_get_view($nid) {
+function pushtape_playlists_playlists_get_view($nid) {
   $view = views_get_view('Playlists');
   $html = $view->preview('playlists', array($nid));
   return $html;
 }
 
-function pushtape_playlist_playlists_remove_track($playlist, $track_nid) {
+function pushtape_playlists_playlists_remove_track($playlist, $track_nid) {
   $changes = array();
   $changes['remove'] = array();
   if (is_array($playlist->field_track) && is_array($playlist->field_track['und'])) {
@@ -139,7 +139,7 @@ function pushtape_playlist_playlists_remove_track($playlist, $track_nid) {
   return $changes;
 }
 
-function pushtape_playlist_playlists_edit_form($form, $form_state) {
+function pushtape_playlists_playlists_edit_form($form, $form_state) {
   $default_value = '';
   if (!empty($form_state['node'])) {
     $default_value = $form_state['node']->title;
@@ -156,7 +156,7 @@ function pushtape_playlist_playlists_edit_form($form, $form_state) {
   return $form;
 }
 
-function pushtape_playlist_playlists_edit_form_submit($form, &$form_state) {
+function pushtape_playlists_playlists_edit_form_submit($form, &$form_state) {
   // dpm($form);
   // dpm($form_state);
   $changes = array();
@@ -169,7 +169,7 @@ function pushtape_playlist_playlists_edit_form_submit($form, &$form_state) {
   }
   else {
     $changes['new'] = array();
-    $new_playlist = pushtape_playlist_playlists_create_playlist($form_state['values']['title']);
+    $new_playlist = pushtape_playlists_playlists_create_playlist($form_state['values']['title']);
     if (!empty($new_playlist->nid)) {
       $changes['new'][] = $new_playlist->nid;
     }
@@ -179,7 +179,7 @@ function pushtape_playlist_playlists_edit_form_submit($form, &$form_state) {
 
 
 
-function pushtape_playlist_playlists_delete_form($form, $form_state) {
+function pushtape_playlists_playlists_delete_form($form, $form_state) {
 
   $form['warning'] = array(
     '#type' => 'item',
@@ -195,7 +195,7 @@ function pushtape_playlist_playlists_delete_form($form, $form_state) {
 
 }
 
-function pushtape_playlist_playlists_delete_form_submit($form, &$form_state) {
+function pushtape_playlists_playlists_delete_form_submit($form, &$form_state) {
   //dpm($form);
   //dpm($form_state);
   $changes = array();
@@ -211,7 +211,7 @@ function pushtape_playlist_playlists_delete_form_submit($form, &$form_state) {
 
 
 
-function pushtape_playlist_playlists_create_playlist($title, $track = NULL) {
+function pushtape_playlists_playlists_create_playlist($title, $track = NULL) {
   $new_playlist = new stdClass();
   $new_playlist->type = 'playlist';
   $new_playlist->language = LANGUAGE_NONE;

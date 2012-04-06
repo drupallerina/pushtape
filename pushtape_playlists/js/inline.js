@@ -4,11 +4,11 @@
  * CTools AJAX Responder for inline form.
  */
 (function ($) {
-  Drupal.pushtape_playlist = Drupal.pushtape_playlist || {};
-  Drupal.pushtape_playlist.inline = {};
-  Drupal.pushtape_playlist.inline.active_elements = [];
+  Drupal.pushtape_playlists = Drupal.pushtape_playlists || {};
+  Drupal.pushtape_playlists.inline = {};
+  Drupal.pushtape_playlists.inline.active_elements = [];
 
-  Drupal.pushtape_playlist.inline.submitAjaxForm = function(e) {
+  Drupal.pushtape_playlists.inline.submitAjaxForm = function(e) {
     var url = $(this).attr('action');
     var form = $(this);
     
@@ -19,32 +19,32 @@
   /**
    * AJAX command to dismiss BeautyTip.
    */
-  Drupal.pushtape_playlist.inline.pushtape_playlist_inline_dismiss = function(ajax, response, status) {
-    $('.pushtape-playlist-inline-active').removeClass('pushtape-playlist-inline-active').btOff();
+  Drupal.pushtape_playlists.inline.pushtape_playlists_inline_dismiss = function(ajax, response, status) {
+    $('.pushtape-playlists-inline-active').removeClass('pushtape-playlists-inline-active').btOff();
   };
 
   /**
    * AJAX command to place HTML within a BeautyTip.
    */
-  Drupal.pushtape_playlist.inline.pushtape_playlist_inline_display = function(ajax, response, status) {
-    $('.pushtape-playlist-inline-active').removeClass('pushtape-playlist-inline-active').btOff();
+  Drupal.pushtape_playlists.inline.pushtape_playlists_inline_display = function(ajax, response, status) {
+    $('.pushtape-playlists-inline-active').removeClass('pushtape-playlists-inline-active').btOff();
     var settings = {};
-    settings = Drupal.settings.pushtape_playlist_inline;
+    settings = Drupal.settings.pushtape_playlists_inline;
     settings.trigger = 'none';
     $active_element = $(ajax.element);
-    $active_element.bt(response.data, Drupal.settings.pushtape_playlist_inline).btOn().addClass('pushtape-playlist-inline-active');
+    $active_element.bt(response.data, Drupal.settings.pushtape_playlists_inline).btOn().addClass('pushtape-playlists-inline-active');
     Drupal.attachBehaviors();    
   }
   
   /**
    * AJAX command to copy one element and append it to another.
    */
-  Drupal.pushtape_playlist.inline.pushtape_playlist_copy_to = function(ajax, response, status) {
+  Drupal.pushtape_playlists.inline.pushtape_playlists_copy_to = function(ajax, response, status) {
     $element = $(response.selector).clone();
     $element.addClass(response.add_classes);
     $element.removeClass(response.remove_classes);
-    $element.find(response.link_selector).attr('href', response.link_href).removeClass('pushtape-playlist-inline-processed');
-    $element.find(response.remove_link_selector).attr('href', response.remove_link_href).removeClass('pushtape-playlist-inline-processed');
+    $element.find(response.link_selector).attr('href', response.link_href).removeClass('pushtape-playlists-inline-processed');
+    $element.find(response.remove_link_selector).attr('href', response.remove_link_href).removeClass('pushtape-playlists-inline-processed');
     $(response.destination).append($element);
     Drupal.attachBehaviors();
     $('.sm2-360ui').remove();
@@ -58,9 +58,9 @@
   /**
    * AJAX command to add an empty Playlist to the view.
    */
-  Drupal.pushtape_playlist.inline.pushtape_playlist_add_new_playlist = function(ajax, response, status) {
+  Drupal.pushtape_playlists.inline.pushtape_playlists_add_new_playlist = function(ajax, response, status) {
     var $empty_table = $(response.view_html).find('.playlist-wrap');
-    $('.pushtape-playlist-playlists-view .view-content').prepend($empty_table);
+    $('.pushtape-playlists-playlists-view .view-content').prepend($empty_table);
     Drupal.attachBehaviors($empty_table);
     $('.sm2-360ui').remove();
     $('a.sm2_link').each(function() {
@@ -71,20 +71,20 @@
   
   // Define our custom AJAX commands.
   $(function() {
-    Drupal.ajax.prototype.commands.pushtape_playlist_inline_display   = Drupal.pushtape_playlist.inline.pushtape_playlist_inline_display;
-    Drupal.ajax.prototype.commands.pushtape_playlist_inline_dismiss   = Drupal.pushtape_playlist.inline.pushtape_playlist_inline_dismiss;
-    Drupal.ajax.prototype.commands.pushtape_playlist_copy_to          = Drupal.pushtape_playlist.inline.pushtape_playlist_copy_to;
-    Drupal.ajax.prototype.commands.pushtape_playlist_add_new_playlist = Drupal.pushtape_playlist.inline.pushtape_playlist_add_new_playlist;
+    Drupal.ajax.prototype.commands.pushtape_playlists_inline_display   = Drupal.pushtape_playlists.inline.pushtape_playlists_inline_display;
+    Drupal.ajax.prototype.commands.pushtape_playlists_inline_dismiss   = Drupal.pushtape_playlists.inline.pushtape_playlists_inline_dismiss;
+    Drupal.ajax.prototype.commands.pushtape_playlists_copy_to          = Drupal.pushtape_playlists.inline.pushtape_playlists_copy_to;
+    Drupal.ajax.prototype.commands.pushtape_playlists_add_new_playlist = Drupal.pushtape_playlists.inline.pushtape_playlists_add_new_playlist;
   });
  
   /**
    * Define our Drupal behaviors.
    */
-  Drupal.behaviors.pushtape_playlist_inline = {
+  Drupal.behaviors.pushtape_playlists_inline = {
     attach: function(context) {
-      $('a.pushtape-playlist-inline:not(.pushtape-playlist-inline-processed)', context)
-        .addClass('pushtape-playlist-inline-processed')
-        // .click(Drupal.pushtape_playlist.inline.pushtape_playlist_inline_display)
+      $('a.pushtape-playlists-inline:not(.pushtape-playlists-inline-processed)', context)
+        .addClass('pushtape-playlists-inline-processed')
+        // .click(Drupal.pushtape_playlists.inline.pushtape_playlists_inline_display)
         .each(function () {
           // Create a drupal ajax object
           var element_settings = {};
@@ -101,8 +101,8 @@
       );
 
       // Bind our custom event to the form submit
-      $('.bt-content form:not(.pushtape-playlist-inline-processed)', context)
-        .addClass('pushtape-playlist-inline-processed')
+      $('.bt-content form:not(.pushtape-playlists-inline-processed)', context)
+        .addClass('pushtape-playlists-inline-processed')
         .each(function() {
           var element_settings = {};
           element_settings.url = $(this).attr('action');
@@ -120,13 +120,13 @@
         });
         
         /*
-        $('.pushtape-playlist-playlists-view table:not(.pushtape-playlist-inline-processed)', context)
-          .addClass('pushtape-playlist-inline-processed')
+        $('.pushtape-playlists-playlists-view table:not(.pushtape-playlists-inline-processed)', context)
+          .addClass('pushtape-playlists-inline-processed')
           .each(function() {
             
 
             // Hide rows in tables with no tracks.
-            $table.filter('.pushtape-playlist-row-track-').find('tbody tr').hide();
+            $table.filter('.pushtape-playlists-row-track-').find('tbody tr').hide();
           });
         */  
 

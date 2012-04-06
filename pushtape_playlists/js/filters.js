@@ -1,8 +1,8 @@
 (function ($) {
   
-  Drupal.pushtape_playlist = Drupal.pushtape_playlist || {};
-  Drupal.pushtape_playlist.filters = {};
-  Drupal.pushtape_playlist.filters.cb_onchange = function() {
+  Drupal.pushtape_playlists = Drupal.pushtape_playlists || {};
+  Drupal.pushtape_playlists.filters = {};
+  Drupal.pushtape_playlists.filters.cb_onchange = function() {
     var thischecked = $(this).attr('checked');
     
     // $(this).parents('li').first().find('ul input[type="checkbox"]').attr('checked', thischecked);
@@ -28,22 +28,22 @@
     $.uniform.update();
     
     $(this).parents('form').find('input[type="submit"].ctools-use-ajax').click();
-    $('.view-library .view-content, .view-Playlists .view-content').replaceWith('<div>Please wait...</div>');
+    $('.view-library .view-content, .view-playlists .view-content').replaceWith('<div>Please wait...</div>');
     
   }
   Drupal.behaviors.ZZpushtape_playlist_filters = {
     attach: function(context) {
       $forms = $('#views-exposed-form-library-library, #views-exposed-form-Playlists-playlists');
-      $forms.find('ul li:not(.pushtape-playlist-processed)').each(function() {
-        $(this).addClass('pushtape-playlist-processed')
+      $forms.find('ul li:not(.pushtape-playlists-processed)').each(function() {
+        $(this).addClass('pushtape-playlists-processed')
           .not(':has(input:checked)')
           .find('ul')
           .hide();
         // $(this).has('ul').addClass('mp-filter-parent').has('input:checked').find('div.form-item').first().addClass('mp-filter-cb-disable');
       });
         
-      $forms.find('input[type="checkbox"]:not(.pushtape-playlist-uniform)').uniform().addClass('pushtape-playlist-uniform');
-      $forms.find('input[type="checkbox"]').change(Drupal.pushtape_playlist.filters.cb_onchange);
+      $forms.find('input[type="checkbox"]:not(.pushtape-playlists-uniform)').uniform().addClass('pushtape-playlists-uniform');
+      $forms.find('input[type="checkbox"]').change(Drupal.pushtape_playlists.filters.cb_onchange);
       $forms.find('fieldset:has(:checked)').removeClass('collapsed');
     }
   }

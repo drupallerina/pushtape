@@ -5,10 +5,10 @@
  * 
  * Menu system callbacks for Monitor Pop Customizations.
  */
-function pushtape_playlist_menu_track_edit_playlists($track, $playlist = NULL, $method = 'ajax') {
+function pushtape_playlists_menu_track_edit_playlists($track, $playlist = NULL, $method = 'ajax') {
   ctools_include('ajax');
-  ctools_include('playlists', 'pushtape_playlist', 'includes');
-  ctools_include('inline', 'pushtape_playlist', 'includes');
+  ctools_include('playlists', 'pushtape_playlists', 'includes');
+  ctools_include('inline', 'pushtape_playlists', 'includes');
 
   $form_state = array(
     'ajax'      => ($method == 'ajax'),
@@ -17,7 +17,7 @@ function pushtape_playlist_menu_track_edit_playlists($track, $playlist = NULL, $
     'playlist'  => $playlist
   );
   
-  $output = pushtape_playlist_inline_form_wrapper('pushtape_playlist_track_edit_playlists_form', $form_state);
+  $output = pushtape_playlists_inline_form_wrapper('pushtape_playlists_track_edit_playlists_form', $form_state);
   if (!empty($form_state['executed'])) {
     $output = array();
     $changes = $form_state['changes'];
@@ -32,31 +32,31 @@ function pushtape_playlist_menu_track_edit_playlists($track, $playlist = NULL, $
               // Clone the clicked upon row to a new table and update the classes for the table context.
 
               $add_commands[] = array(
-                'command' => 'pushtape_playlist_copy_to',
-                'selector' => 'tr.pushtape-playlist-row-playlist-' . $playlist->nid . '.pushtape-playlist-row-track-' . $track->nid,
-                'destination' => 'table.pushtape-playlist-row-playlist-' . $nid,
-                'add_classes' => 'pushtape-playlist-row-playlist-' . $nid,
-                'remove_classes' => 'pushtape-playlist-row-playlist-' . $playlist->nid,
-                'link_selector' => '.pushtape-playlist-inline-add',
+                'command' => 'pushtape_playlists_copy_to',
+                'selector' => 'tr.pushtape-playlists-row-playlist-' . $playlist->nid . '.pushtape-playlists-row-track-' . $track->nid,
+                'destination' => 'table.pushtape-playlists-row-playlist-' . $nid,
+                'add_classes' => 'pushtape-playlists-row-playlist-' . $nid,
+                'remove_classes' => 'pushtape-playlists-row-playlist-' . $playlist->nid,
+                'link_selector' => '.pushtape-playlists-inline-add',
                 'link_href' => 'mp/nojs/' . $track->nid . '/playlists/' . $nid,
-                'remove_link_selector' => '.pushtape-playlist-inline-remove',
+                'remove_link_selector' => '.pushtape-playlists-inline-remove',
                 'remove_link_href' => 'mp/nojs/' . $track->nid . '/playlists/' . $nid . '/remove/' . drupal_get_token($nid)
               );
-              $add_commands[] = ajax_command_restripe('table:has(.pushtape-playlist-row-playlist-' . $nid . ')');
+              $add_commands[] = ajax_command_restripe('table:has(.pushtape-playlists-row-playlist-' . $nid . ')');
 
               // $add_commands[] = ctools_ajax_command_reload();
               break;
             case 'remove':
               // Remove any removed tracks.
-              $remove_commands[] = ajax_command_invoke('tr.pushtape-playlist-row-playlist-' . $nid . '.pushtape-playlist-row-track-' . $track->nid, 'fadeOut');
-              $remove_commands[] = ajax_command_remove('tr.pushtape-playlist-row-playlist-' . $nid . '.pushtape-playlist-row-track-' . $track->nid);
-              $remove_commands[] = ajax_command_restripe('table:has(.pushtape-playlist-row-playlist-' . $nid . ')');
+              $remove_commands[] = ajax_command_invoke('tr.pushtape-playlists-row-playlist-' . $nid . '.pushtape-playlists-row-track-' . $track->nid, 'fadeOut');
+              $remove_commands[] = ajax_command_remove('tr.pushtape-playlists-row-playlist-' . $nid . '.pushtape-playlists-row-track-' . $track->nid);
+              $remove_commands[] = ajax_command_restripe('table:has(.pushtape-playlists-row-playlist-' . $nid . ')');
               break;
             case 'new':
 
               $new_commands[] = array(
-                'command' => 'pushtape_playlist_add_new_playlist',
-                'view_html' => pushtape_playlist_playlists_get_view($nid)
+                'command' => 'pushtape_playlists_add_new_playlist',
+                'view_html' => pushtape_playlists_playlists_get_view($nid)
               );
 
               // $new_commands[] = ctools_ajax_command_reload();
@@ -68,57 +68,57 @@ function pushtape_playlist_menu_track_edit_playlists($track, $playlist = NULL, $
     }
     $output = $add_commands;
     $output = array_merge($output, $new_commands);
-    $output[] = pushtape_playlist_inline_command_dismiss();
+    $output[] = pushtape_playlists_inline_command_dismiss();
     $output = array_merge($output, $remove_commands);
   }
 
   print ajax_render($output);
 }
 
-function pushtape_playlist_menu_track_remove_playlists($track, $playlist, $token, $method = 'ajax') {
+function pushtape_playlists_menu_track_remove_playlists($track, $playlist, $token, $method = 'ajax') {
   if (!drupal_valid_token($token, $playlist->nid)) {
     drupal_access_denied();
   }
   
-  ctools_include('playlists', 'pushtape_playlist', 'includes');
-  $changes = pushtape_playlist_playlists_remove_track($playlist, $track->nid);
+  ctools_include('playlists', 'pushtape_playlists', 'includes');
+  $changes = pushtape_playlists_playlists_remove_track($playlist, $track->nid);
   $remove_commands = array();
   if (!empty($changes['remove'])) {
     foreach($changes['remove'] as $nid) {
       /*
       $remove_commands[] = ajax_command_invoke(
-          'tr.pushtape-playlist-row-playlist-' . $nid . '.pushtape-playlist-row-track-' . $track->nid, 
+          'tr.pushtape-playlists-row-playlist-' . $nid . '.pushtape-playlists-row-track-' . $track->nid, 
           'fadeOut', 
           array('function() { $(this).remove(); }')
         );
        * 
        */
-      //$command = ajax_command_remove('tr.pushtape-playlist-row-playlist-' . $nid . '.pushtape-playlist-row-track-' . $track->nid);
-      $remove_commands[] = ajax_command_remove('tr.pushtape-playlist-row-playlist-' . $nid . '.pushtape-playlist-row-track-' . $track->nid, array('effect' => 'fade'));
-      $remove_commands[] = ajax_command_restripe(':has(.pushtape-playlist-row-playlist-' . $nid . ') table');
+      //$command = ajax_command_remove('tr.pushtape-playlists-row-playlist-' . $nid . '.pushtape-playlists-row-track-' . $track->nid);
+      $remove_commands[] = ajax_command_remove('tr.pushtape-playlists-row-playlist-' . $nid . '.pushtape-playlists-row-track-' . $track->nid, array('effect' => 'fade'));
+      $remove_commands[] = ajax_command_restripe(':has(.pushtape-playlists-row-playlist-' . $nid . ') table');
     }
   }
   
   print ajax_render($remove_commands);
 }
 
-function pushtape_playlist_menu_playlists_add($method = 'ajax') {
+function pushtape_playlists_menu_playlists_add($method = 'ajax') {
   ctools_include('ajax');
-  ctools_include('playlists', 'pushtape_playlist', 'includes');
-  ctools_include('inline', 'pushtape_playlist', 'includes');
+  ctools_include('playlists', 'pushtape_playlists', 'includes');
+  ctools_include('inline', 'pushtape_playlists', 'includes');
   
   $form_state = array(
     'ajax'  => ($method == 'ajax'),
   );
-  $output = pushtape_playlist_inline_form_wrapper('pushtape_playlist_playlists_edit_form', $form_state);
+  $output = pushtape_playlists_inline_form_wrapper('pushtape_playlists_playlists_edit_form', $form_state);
   if (!empty($form_state['executed']) && is_array($form_state['changes'])) {
     $changes = $form_state['changes'];
     /*
     foreach($changes['new'] as $nid) {
      
       $output[] = array(
-        'command' => 'pushtape_playlist_add_new_playlist',
-        'view_html' => pushtape_playlist_playlists_get_view($nid)
+        'command' => 'pushtape_playlists_add_new_playlist',
+        'view_html' => pushtape_playlists_playlists_get_view($nid)
       );
       
     }
@@ -126,16 +126,16 @@ function pushtape_playlist_menu_playlists_add($method = 'ajax') {
      */
   //  drupal_set_message('Your playlist has been created.');
     //$output[] = ctools_ajax_command_reload();
-    $output[] = pushtape_playlist_inline_command_dismiss();
+    $output[] = pushtape_playlists_inline_command_dismiss();
   }
 
   print ajax_render($output);
 }
 
-function pushtape_playlist_menu_playlists_edit($node, $method) {
+function pushtape_playlists_menu_playlists_edit($node, $method) {
   ctools_include('ajax');
-  ctools_include('playlists', 'pushtape_playlist', 'includes');
-  ctools_include('inline', 'pushtape_playlist', 'includes');
+  ctools_include('playlists', 'pushtape_playlists', 'includes');
+  ctools_include('inline', 'pushtape_playlists', 'includes');
   
   $output = array();
   if ($node->type == 'playlist') {
@@ -145,11 +145,11 @@ function pushtape_playlist_menu_playlists_edit($node, $method) {
       'node' => $node
     );
     
-    $output = pushtape_playlist_inline_form_wrapper('pushtape_playlist_playlists_edit_form', $form_state);
+    $output = pushtape_playlists_inline_form_wrapper('pushtape_playlists_playlists_edit_form', $form_state);
     if (!empty($form_state['executed']) && is_array($form_state['changes'])) {
-      $output[] = ajax_command_html('.pushtape-playlist-playlist-' . $node->nid . ' .playlist-title a', 
+      $output[] = ajax_command_html('.pushtape-playlists-playlist-' . $node->nid . ' .playlist-title a', 
           $node->title);
-      $output[] = pushtape_playlist_inline_command_dismiss();
+      $output[] = pushtape_playlists_inline_command_dismiss();
     }
   }
   else {
@@ -160,10 +160,10 @@ function pushtape_playlist_menu_playlists_edit($node, $method) {
   print ajax_render($output);
 }
 
-function pushtape_playlist_menu_playlists_delete($node, $method) {
+function pushtape_playlists_menu_playlists_delete($node, $method) {
   ctools_include('ajax');
-  ctools_include('playlists', 'pushtape_playlist', 'includes');
-  ctools_include('inline', 'pushtape_playlist', 'includes');
+  ctools_include('playlists', 'pushtape_playlists', 'includes');
+  ctools_include('inline', 'pushtape_playlists', 'includes');
   
   $output = array();
   if ($node->type == 'playlist') {
@@ -173,10 +173,10 @@ function pushtape_playlist_menu_playlists_delete($node, $method) {
       'node' => $node
     );
     
-    $output = pushtape_playlist_inline_form_wrapper('pushtape_playlist_playlists_delete_form', $form_state);
+    $output = pushtape_playlists_inline_form_wrapper('pushtape_playlists_playlists_delete_form', $form_state);
     if (!empty($form_state['executed']) && is_array($form_state['changes'])) {
-      $output[] = pushtape_playlist_inline_command_dismiss();
-      $output[] = ajax_command_remove('.pushtape-playlist-playlist-' . $node->nid);
+      $output[] = pushtape_playlists_inline_command_dismiss();
+      $output[] = ajax_command_remove('.pushtape-playlists-playlist-' . $node->nid);
     }
   }
   else {
@@ -187,6 +187,6 @@ function pushtape_playlist_menu_playlists_delete($node, $method) {
   print ajax_render($output);
 }
 
-function pushtape_playlist_menu_test() {
+function pushtape_playlists_menu_test() {
   return 'output';
 }

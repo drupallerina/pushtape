@@ -5,7 +5,7 @@
  * Implement an inline form using AJAX.
  */
 
-function pushtape_playlist_inline_add_js() {
+function pushtape_playlists_inline_add_js() {
   // Provide a gate so we only do this once.
   static $done = FALSE;
   if ($done) {
@@ -14,7 +14,7 @@ function pushtape_playlist_inline_add_js() {
   
   // Hulu-style settings
   $bt_settings = array(
-    'pushtape_playlist_inline' => 
+    'pushtape_playlists_inline' => 
       array(
         'fill' => '#BAC008',
         'strokeStyle' => '#666666', 
@@ -41,12 +41,12 @@ function pushtape_playlist_inline_add_js() {
   drupal_add_js('misc/jquery.form.js');
   drupal_add_js('misc/progress.js');
   drupal_add_js('misc/ajax.js');
-  ctools_add_js('excanvas.compiled', 'pushtape_playlist', 'js/excanvas_r3');
+  ctools_add_js('excanvas.compiled', 'pushtape_playlists', 'js/excanvas_r3');
   ctools_add_js('ajax-responder');
-  ctools_add_js('inline', 'pushtape_playlist', 'js');
-  ctools_add_js('acq_monitorpop', 'pushtape_playlist', 'js');
-  ctools_add_js('jquery.bt.min', 'pushtape_playlist', 'js');
-  ctools_add_css('pushtape_playlist.inline', 'pushtape_playlist');
+  ctools_add_js('inline', 'pushtape_playlists', 'js');
+  ctools_add_js('acq_monitorpop', 'pushtape_playlists', 'js');
+  ctools_add_js('jquery.bt.min', 'pushtape_playlists', 'js');
+  ctools_add_css('pushtape_playlist.inline', 'pushtape_playlists');
 
   $done = TRUE;
 }
@@ -59,13 +59,13 @@ function pushtape_playlist_inline_add_js() {
  * @param $html
  *   The html to place within the modal.
  */
-function pushtape_playlist_inline_command_display($title, $html) {
+function pushtape_playlists_inline_command_display($title, $html) {
   if (is_array($html)) {
     $html = drupal_render($html);
   }
   $html = '<h2>' . $title . '</h2>' . $html;
   return array(
-    'command' => 'pushtape_playlist_inline_display',
+    'command' => 'pushtape_playlists_inline_display',
     'data' => $html,
   );
 }
@@ -73,18 +73,18 @@ function pushtape_playlist_inline_command_display($title, $html) {
 /**
  * Dismiss the modal.
  */
-function pushtape_playlist_inline_command_dismiss() {
+function pushtape_playlists_inline_command_dismiss() {
   return array(
-    'command' => 'pushtape_playlist_inline_dismiss',
+    'command' => 'pushtape_playlists_inline_dismiss',
   );
 }
 
 /**
  * Display loading screen in the modal
  */
-function pushtape_playlist_inline_command_loading() {
+function pushtape_playlists_inline_command_loading() {
   return array(
-    'command' => 'pushtape_playlist_inline_loading',
+    'command' => 'pushtape_playlists_inline_loading',
   );
 }
 
@@ -101,7 +101,7 @@ function pushtape_playlist_inline_command_loading() {
  * @param $class
  *   Any class to apply to the link. @todo this should be a options array.
  */
-function pushtape_playlist_inline_image_button($image, $dest, $alt, $class = '') {
+function pushtape_playlists_inline_image_button($image, $dest, $alt, $class = '') {
   return ctools_ajax_text_button(theme('image', $image), $dest, $alt, $class, 'pushtape-playlist-inline');
 }
 
@@ -121,7 +121,7 @@ function pushtape_playlist_inline_image_button($image, $dest, $alt, $class = '')
  * @param $class
  *   Any class to apply to the link. @todo this should be a options array.
  */
-function pushtape_playlist_inline_text_button($text, $dest, $alt, $class = '') {
+function pushtape_playlists_inline_text_button($text, $dest, $alt, $class = '') {
   return ctools_ajax_text_button($text, $dest, $alt, $class, 'pushtape-playlist-inline');
 }
 
@@ -132,14 +132,14 @@ function pushtape_playlist_inline_text_button($text, $dest, $alt, $class = '') {
  *
  * @return
  *   The output of the form, if it was rendered. If $form_state['ajax']
- *   is set, this will use pushtape_playlist_inline_form_render so it will be
+ *   is set, this will use pushtape_playlists_inline_form_render so it will be
  *   a $command object suitable for ctools_ajax_render already.
  *
  *   The return will be NULL if the form was successfully submitted unless
  *   you specifically set re_render = TRUE. If ajax is set the
  *   form will never be redirected.
  */
-function pushtape_playlist_inline_form_wrapper($form_id, &$form_state) {
+function pushtape_playlists_inline_form_wrapper($form_id, &$form_state) {
   // This won't override settings already in.
   $form_state += array(
     're_render' => FALSE,
@@ -149,7 +149,7 @@ function pushtape_playlist_inline_form_wrapper($form_id, &$form_state) {
   $output = drupal_build_form($form_id, $form_state);
   
   if (!empty($form_state['ajax']) && empty($form_state['executed'])) {
-    return pushtape_playlist_inline_form_render($form_state, $output);
+    return pushtape_playlists_inline_form_render($form_state, $output);
   }
 
   return $output;
@@ -158,7 +158,7 @@ function pushtape_playlist_inline_form_wrapper($form_id, &$form_state) {
 /**
  * Render a form into an AJAX display.
  */
-function pushtape_playlist_inline_form_render($form_state, $output) {
+function pushtape_playlists_inline_form_render($form_state, $output) {
   if (is_array($output)) {
     $output = drupal_render($output);
   }
@@ -174,7 +174,7 @@ function pushtape_playlist_inline_form_render($form_state, $output) {
     $commands[] = ctools_ajax_command_settings($form_state['js settings']);
   }
 
-  $commands[] = pushtape_playlist_inline_command_display($title, $output);
+  $commands[] = pushtape_playlists_inline_command_display($title, $output);
   return $commands;
 }
 
@@ -183,9 +183,9 @@ function pushtape_playlist_inline_form_render($form_state, $output) {
  *
  * This is primarily used for error displays, since usually modals will
  * contain forms.
-function pushtape_playlist_inline_render($title, $output) {
+function pushtape_playlists_inline_render($title, $output) {
   $commands = array();
-  $commands[] = pushtape_playlist_inline_command_display($form_state['active_elem_index'], $title, $output);
+  $commands[] = pushtape_playlists_inline_command_display($form_state['active_elem_index'], $title, $output);
   // ctools_include('ajax');
   // ctools_ajax_render($commands);
   ajax_render($commands);

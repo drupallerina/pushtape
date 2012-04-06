@@ -50,13 +50,13 @@ function pushtape_playlists_node_info() {
  *
  * @return An array of menu items.
  */
-function pushtape_playlist_menu() {
+function pushtape_playlists_menu() {
   $items = array();
   
   $items['mp/%ctools_js/%node/playlists'] = array(
     'title' => 'Add/Remove From Playlists',
     'description' => 'Form to add or remove a specific track from one or more playlists.',
-    'page callback' => 'pushtape_playlist_menu_track_edit_playlists',
+    'page callback' => 'pushtape_playlists_menu_track_edit_playlists',
     'page arguments' => array(2, 4, 1),
     'access arguments' => array('edit own playlist content'),
     'file' => 'includes/menu.inc',
@@ -65,7 +65,7 @@ function pushtape_playlist_menu() {
   $items['mp/%ctools_js/%node/playlists/%node'] = array(
     'title' => 'Add/Remove From Playlists',
     'description' => 'Form to add or remove a specific track from one or more playlists.',
-    'page callback' => 'pushtape_playlist_menu_track_edit_playlists',
+    'page callback' => 'pushtape_playlists_menu_track_edit_playlists',
     'page arguments' => array(2, 4, 1),
     'access arguments' => array('edit own playlist content'),
     'file' => 'includes/menu.inc',
@@ -74,7 +74,7 @@ function pushtape_playlist_menu() {
   $items['mp/%ctools_js/%node/playlists/%node/remove/%'] = array(
     'title' => 'Remove',
     'description' => 'Form to add or remove a specific track from one or more playlists.',
-    'page callback' => 'pushtape_playlist_menu_track_remove_playlists',
+    'page callback' => 'pushtape_playlists_menu_track_remove_playlists',
     'page arguments' => array(2, 4, 6, 1),
     'access arguments' => array('edit own playlist content'),
     'file' => 'includes/menu.inc',
@@ -83,7 +83,7 @@ function pushtape_playlist_menu() {
   $items['mp/%ctools_js/add/playlists'] = array(
     'title' => 'Create playlist',
     'description' => 'Form to create a new playlist',
-    'page callback' => 'pushtape_playlist_menu_playlists_add',
+    'page callback' => 'pushtape_playlists_menu_playlists_add',
     'page arguments' => array(1),
     'access arguments' => array('edit own playlist content'),
     'file' => 'includes/menu.inc',
@@ -92,7 +92,7 @@ function pushtape_playlist_menu() {
   $items['mp/%ctools_js/%node/edit'] = array(
     'title' => 'Rename Playlist',
     'description' => 'Form to edit a playlist.',
-    'page callback' => 'pushtape_playlist_menu_playlists_edit',
+    'page callback' => 'pushtape_playlists_menu_playlists_edit',
     'page arguments' => array(2, 1),
     'access arguments' => array('edit own playlist content'),
     'file' => 'includes/menu.inc',
@@ -101,7 +101,7 @@ function pushtape_playlist_menu() {
   $items['mp/%ctools_js/%node/delete'] = array(
     'title' => 'Delete Playlist',
     'description' => 'Form to delete a playlist.',
-    'page callback' => 'pushtape_playlist_menu_playlists_delete',
+    'page callback' => 'pushtape_playlists_menu_playlists_delete',
     'page arguments' => array(2, 1),
     'access arguments' => array('delete own playlist content'),
     'file' => 'includes/menu.inc',
@@ -110,7 +110,7 @@ function pushtape_playlist_menu() {
   $items['mp/test'] = array(
     'title' => 'test',
     'description' => 'test',
-    'page callback' => 'pushtape_playlist_menu_test',
+    'page callback' => 'pushtape_playlists_menu_test',
     'access arguments' => array('access content'),
     'file' => 'includes/menu.inc',
   );
@@ -123,7 +123,7 @@ function pushtape_playlist_menu() {
 /**
  * Implementation of hook_form_alter().
  */
-function pushtape_playlist_form_views_exposed_form_form_alter(&$form, &$form_state, $form_id) {
+function pushtape_playlists_form_views_exposed_form_form_alter(&$form, &$form_state, $form_id) {
   switch($form['#id']) {
     case 'views-exposed-form-playlists-playlists':
     case 'views-exposed-form-library-library':
@@ -137,7 +137,7 @@ function pushtape_playlist_form_views_exposed_form_form_alter(&$form, &$form_sta
 }
 
 /*
-function pushtape_playlist_preprocess_jplayer(&$vars) {
+function pushtape_playlists_preprocess_jplayer(&$vars) {
   // Determine a unique player ID.
   $ids = entity_extract_ids($vars['entity_type'], $vars['entity']);
   $vars['player_id'] = _jplayer_check_id('jplayer-' . $vars['entity_type'] . '-' . $ids[0] . '-' . str_replace('_', '-', $vars['field_name']));
@@ -182,14 +182,14 @@ function pushtape_playlist_preprocess_jplayer(&$vars) {
  * 
  * @param views_view $view 
  */
-function pushtape_playlist_views_pre_render($view) {
+function pushtape_playlists_views_pre_render($view) {
     switch(strtolower($view->name)) {
    case 'playlists':
    case 'library':
    
      // Modal-ify our links.
       ctools_include('inline', 'pushtape_playlist');
-      pushtape_playlist_inline_add_js();
+      pushtape_playlists_inline_add_js();
      
      // Customizations to the exposed filters.
       $path = libraries_get_path('uniform');
@@ -205,18 +205,18 @@ function pushtape_playlist_views_pre_render($view) {
         drupal_add_js($path . '/jquery.uniform.js');
       }
       
-      drupal_add_css(drupal_get_path('module', 'pushtape_playlist') . '/css/pushtape_playlist.filters.css', array('weight' => 100));
+      drupal_add_css(drupal_get_path('module', 'pushtape_playlist') . '/css/pushtape_playlists.filters.css', array('weight' => 100));
       drupal_add_js(drupal_get_path('module', 'pushtape_playlist') . '/js/filters.js');
       break;
   }
 }
 
-function pushtape_playlist_views_data_alter(&$data) {
-  $data['node']['term_node_tid']['field']['path'] = drupal_get_path('module', 'pushtape_playlist') . '/views/handlers';
-  $data['node']['term_node_tid']['field']['handler'] = 'pushtape_playlist_views_handler_field_term_node_tid';
+function pushtape_playlists_views_data_alter(&$data) {
+  $data['node']['term_node_tid']['field']['path'] = drupal_get_path('module', 'pushtape_features') . '/pushtape_playlist/views/handlers';
+  $data['node']['term_node_tid']['field']['handler'] = 'pushtape_playlists_views_handler_field_term_node_tid';
 }
 
-function pushtape_playlist_views_post_execute($view) {
+function pushtape_playlists_views_post_execute($view) {
   //global $queries;
   //dpm($queries);
 }
@@ -224,7 +224,7 @@ function pushtape_playlist_views_post_execute($view) {
 /**
  * Implementation of hook_views_query_alter().
  
-function pushtape_playlist_views_query_alter(&$view, &$query) {
+function pushtape_playlists_views_query_alter(&$view, &$query) {
   global $user;
   if ($view->name == 'playlists') {
     $view->query->add_where(1,'node.type','playlist','=');
@@ -234,14 +234,14 @@ function pushtape_playlist_views_query_alter(&$view, &$query) {
   }
 } */
 
-function pushtape_playlist_preprocess_views_view(&$vars) {
+function pushtape_playlists_preprocess_views_view(&$vars) {
   $variables['theme_hook_suggestions'][] = 'views_view_table';
 }
 
 /**
 * Implementation of hook_theme().
 */
-function pushtape_playlist_theme() {
+function pushtape_playlists_theme() {
   return array(
     'views_view_table__playlists' => array (
       'arguments' => array(),
@@ -250,7 +250,7 @@ function pushtape_playlist_theme() {
       'preprocess functions' => array(
         'template_preprocess',
         'template_preprocess_views_view_table',
-        'pushtape_playlist_preprocess_views_view_table',
+        'pushtape_playlists_preprocess_views_view_table',
       ),
     ),
   );

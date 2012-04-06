@@ -181,24 +181,6 @@ function pushtape_music_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  $translatables['albums'] = array(
-    t('Master'),
-    t('Albums'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('No releases yet'),
-    t('No releases yet. Add a <a href="/node/add/track">new track!</a>'),
-    t('Type'),
-    t('Page'),
-    t('Block'),
-  );
   $export['albums'] = $view;
 
   $view = new view;
@@ -391,23 +373,6 @@ function pushtape_music_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  $translatables['releases'] = array(
-    t('Master'),
-    t('releases'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('No releases yet'),
-    t('No releases yet. Add a <a href="/node/add/track">new track!</a>'),
-    t('Page'),
-    t('Block'),
-  );
   $export['releases'] = $view;
 
   $view = new view;
@@ -559,21 +524,6 @@ function pushtape_music_views_default_views() {
   $handler->display->display_options['filters']['field_album_nid']['table'] = 'field_data_field_album';
   $handler->display->display_options['filters']['field_album_nid']['field'] = 'field_album_nid';
   $handler->display->display_options['filters']['field_album_nid']['operator'] = 'empty';
-  $translatables['tracks'] = array(
-    t('Master'),
-    t('Tracks'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Page'),
-    t('Block'),
-  );
   $export['tracks'] = $view;
 
   return $export;
