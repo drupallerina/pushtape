@@ -188,7 +188,7 @@ function pushtape_playlists_views_pre_render($view) {
    case 'library':
    
      // Modal-ify our links.
-      ctools_include('inline', 'pushtape_features', 'pushtape_playlists');
+      ctools_include('inline', 'pushtape_playlists');
       pushtape_playlists_inline_add_js();
      
      // Customizations to the exposed filters.
