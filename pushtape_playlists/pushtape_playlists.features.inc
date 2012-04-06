@@ -19,13 +19,13 @@ function pushtape_playlists_ctools_plugin_api() {
  */
 function pushtape_playlists_views_api() {  
   //  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
+ // if ($module == "views" && $api == "views_default") {
     return array(
     "version" => "3.0",
     "api" => "3",
  //   "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
     );
-  }
+  //}
 }
 
 /**
