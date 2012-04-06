@@ -91,33 +91,38 @@ function pushtape_music_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-album-field_artist'
-  $fields['node-album-field_artist'] = array(
+  // Exported field: 'node-album-field_artist_term'
+  $fields['node-album-field_artist_term'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_artist',
+      'field_name' => 'field_artist_term',
       'foreign keys' => array(
-        'format' => array(
+        'tid' => array(
           'columns' => array(
-            'format' => 'format',
+            'tid' => 'tid',
           ),
-          'table' => 'filter_format',
+          'table' => 'taxonomy_term_data',
         ),
       ),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'tid' => array(
+          0 => 'tid',
         ),
       ),
-      'module' => 'text',
+      'module' => 'taxonomy',
       'settings' => array(
-        'max_length' => '255',
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'artist',
+            'parent' => '0',
+          ),
+        ),
       ),
-      'translatable' => '1',
-      'type' => 'text',
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
       'bundle' => 'album',
@@ -126,18 +131,11 @@ function pushtape_music_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
-          'module' => 'text',
+          'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'text_plain',
-          'weight' => '2',
-        ),
-        'full' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 6,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -147,21 +145,18 @@ function pushtape_music_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_artist',
-      'label' => 'Artist',
+      'field_name' => 'field_artist_term',
+      'label' => 'artist',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '4',
+        'module' => 'hs_taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_hs',
+        'weight' => '5',
       ),
     ),
   );
@@ -332,7 +327,7 @@ function pushtape_music_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -412,7 +407,7 @@ function pushtape_music_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -1469,6 +1464,7 @@ function pushtape_music_field_default_fields() {
   t('Tempo');
   t('Tracklist');
   t('Upload or add audio from the media library.');
+  t('artist');
 
   return $fields;
 }
