@@ -6,7 +6,7 @@
 */
 function pushtape_install() {
   // pulse, reverb, impulse
-  /*
+  
   // Add text formats.
   $filtered_html_format = array(
     'format' => 'filtered_html', 
@@ -62,7 +62,7 @@ function pushtape_install() {
   );
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
-
+/*
   // Enable some standard blocks.
   $default_theme = 'omega';
   $admin_theme = 'seven';
