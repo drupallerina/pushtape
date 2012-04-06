@@ -34,15 +34,15 @@
   Drupal.behaviors.ZZpushtape_playlist_filters = {
     attach: function(context) {
       $forms = $('#views-exposed-form-library-library, #views-exposed-form-Playlists-playlists');
-      $forms.find('ul li:not(.musiclibrary-playlist-processed)').each(function() {
-        $(this).addClass('musiclibrary-playlist-processed')
+      $forms.find('ul li:not(.pushtape-playlist-processed)').each(function() {
+        $(this).addClass('pushtape-playlist-processed')
           .not(':has(input:checked)')
           .find('ul')
           .hide();
         // $(this).has('ul').addClass('mp-filter-parent').has('input:checked').find('div.form-item').first().addClass('mp-filter-cb-disable');
       });
         
-      $forms.find('input[type="checkbox"]:not(.musiclibrary-playlist-uniform)').uniform().addClass('musiclibrary-playlist-uniform');
+      $forms.find('input[type="checkbox"]:not(.pushtape-playlist-uniform)').uniform().addClass('pushtape-playlist-uniform');
       $forms.find('input[type="checkbox"]').change(Drupal.pushtape_playlist.filters.cb_onchange);
       $forms.find('fieldset:has(:checked)').removeClass('collapsed');
     }

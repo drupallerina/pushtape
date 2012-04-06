@@ -20,19 +20,19 @@
    * AJAX command to dismiss BeautyTip.
    */
   Drupal.pushtape_playlist.inline.pushtape_playlist_inline_dismiss = function(ajax, response, status) {
-    $('.musiclibrary-playlist-inline-active').removeClass('musiclibrary-playlist-inline-active').btOff();
+    $('.pushtape-playlist-inline-active').removeClass('pushtape-playlist-inline-active').btOff();
   };
 
   /**
    * AJAX command to place HTML within a BeautyTip.
    */
   Drupal.pushtape_playlist.inline.pushtape_playlist_inline_display = function(ajax, response, status) {
-    $('.musiclibrary-playlist-inline-active').removeClass('musiclibrary-playlist-inline-active').btOff();
+    $('.pushtape-playlist-inline-active').removeClass('pushtape-playlist-inline-active').btOff();
     var settings = {};
     settings = Drupal.settings.pushtape_playlist_inline;
     settings.trigger = 'none';
     $active_element = $(ajax.element);
-    $active_element.bt(response.data, Drupal.settings.pushtape_playlist_inline).btOn().addClass('musiclibrary-playlist-inline-active');
+    $active_element.bt(response.data, Drupal.settings.pushtape_playlist_inline).btOn().addClass('pushtape-playlist-inline-active');
     Drupal.attachBehaviors();    
   }
   
@@ -43,8 +43,8 @@
     $element = $(response.selector).clone();
     $element.addClass(response.add_classes);
     $element.removeClass(response.remove_classes);
-    $element.find(response.link_selector).attr('href', response.link_href).removeClass('musiclibrary-playlist-inline-processed');
-    $element.find(response.remove_link_selector).attr('href', response.remove_link_href).removeClass('musiclibrary-playlist-inline-processed');
+    $element.find(response.link_selector).attr('href', response.link_href).removeClass('pushtape-playlist-inline-processed');
+    $element.find(response.remove_link_selector).attr('href', response.remove_link_href).removeClass('pushtape-playlist-inline-processed');
     $(response.destination).append($element);
     Drupal.attachBehaviors();
     $('.sm2-360ui').remove();
@@ -60,7 +60,7 @@
    */
   Drupal.pushtape_playlist.inline.pushtape_playlist_add_new_playlist = function(ajax, response, status) {
     var $empty_table = $(response.view_html).find('.playlist-wrap');
-    $('.musiclibrary-playlist-playlists-view .view-content').prepend($empty_table);
+    $('.pushtape-playlist-playlists-view .view-content').prepend($empty_table);
     Drupal.attachBehaviors($empty_table);
     $('.sm2-360ui').remove();
     $('a.sm2_link').each(function() {
@@ -82,8 +82,8 @@
    */
   Drupal.behaviors.pushtape_playlist_inline = {
     attach: function(context) {
-      $('a.musiclibrary-playlist-inline:not(.musiclibrary-playlist-inline-processed)', context)
-        .addClass('musiclibrary-playlist-inline-processed')
+      $('a.pushtape-playlist-inline:not(.pushtape-playlist-inline-processed)', context)
+        .addClass('pushtape-playlist-inline-processed')
         // .click(Drupal.pushtape_playlist.inline.pushtape_playlist_inline_display)
         .each(function () {
           // Create a drupal ajax object
@@ -101,8 +101,8 @@
       );
 
       // Bind our custom event to the form submit
-      $('.bt-content form:not(.musiclibrary-playlist-inline-processed)', context)
-        .addClass('musiclibrary-playlist-inline-processed')
+      $('.bt-content form:not(.pushtape-playlist-inline-processed)', context)
+        .addClass('pushtape-playlist-inline-processed')
         .each(function() {
           var element_settings = {};
           element_settings.url = $(this).attr('action');
@@ -120,13 +120,13 @@
         });
         
         /*
-        $('.musiclibrary-playlist-playlists-view table:not(.musiclibrary-playlist-inline-processed)', context)
-          .addClass('musiclibrary-playlist-inline-processed')
+        $('.pushtape-playlist-playlists-view table:not(.pushtape-playlist-inline-processed)', context)
+          .addClass('pushtape-playlist-inline-processed')
           .each(function() {
             
 
             // Hide rows in tables with no tracks.
-            $table.filter('.musiclibrary-playlist-row-track-').find('tbody tr').hide();
+            $table.filter('.pushtape-playlist-row-track-').find('tbody tr').hide();
           });
         */  
 

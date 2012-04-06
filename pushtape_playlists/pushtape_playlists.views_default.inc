@@ -475,7 +475,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Add or remove this track to new or existing playlists.';
-  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'musiclibrary-playlist-inline';
+  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'pushtape-playlist-inline';
   $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
@@ -781,7 +781,7 @@ function pushtape_playlists_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Playlist';
-  $handler->display->display_options['css_class'] = 'musiclibrary-playlist-playlists-view';
+  $handler->display->display_options['css_class'] = 'pushtape-playlist-playlists-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -864,7 +864,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = '<ul>
 <ol>
-<a class="musiclibrary-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
+<a class="pushtape-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
 </ol>
 </ul>
 <br>';
@@ -999,7 +999,7 @@ function pushtape_playlists_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['row_class'] = 'library musiclibrary-playlist-row-track-[nid_1] musiclibrary-playlist-row-playlist-[nid]';
+  $handler->display->display_options['style_options']['row_class'] = 'library pushtape-playlist-row-track-[nid_1] pushtape-playlist-row-playlist-[nid]';
   $handler->display->display_options['style_options']['columns'] = array(
     'nid' => 'nid',
     'nid_1' => 'nid_1',
@@ -1515,7 +1515,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'musiclibrary-playlist-inline';
+  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'pushtape-playlist-inline';
   $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
@@ -1738,7 +1738,7 @@ function pushtape_playlists_views_default_views() {
     t('more'),
     t('<ul>
 <ol>
-<a class="musiclibrary-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
+<a class="pushtape-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
 </ol>
 </ul>
 <br>'),

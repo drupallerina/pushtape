@@ -102,7 +102,7 @@ function pushtape_playlist_inline_command_loading() {
  *   Any class to apply to the link. @todo this should be a options array.
  */
 function pushtape_playlist_inline_image_button($image, $dest, $alt, $class = '') {
-  return ctools_ajax_text_button(theme('image', $image), $dest, $alt, $class, 'musiclibrary-playlist-inline');
+  return ctools_ajax_text_button(theme('image', $image), $dest, $alt, $class, 'pushtape-playlist-inline');
 }
 
 /**
@@ -122,7 +122,7 @@ function pushtape_playlist_inline_image_button($image, $dest, $alt, $class = '')
  *   Any class to apply to the link. @todo this should be a options array.
  */
 function pushtape_playlist_inline_text_button($text, $dest, $alt, $class = '') {
-  return ctools_ajax_text_button($text, $dest, $alt, $class, 'musiclibrary-playlist-inline');
+  return ctools_ajax_text_button($text, $dest, $alt, $class, 'pushtape-playlist-inline');
 }
 
 /**
