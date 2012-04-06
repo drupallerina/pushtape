@@ -8,22 +8,22 @@
  * Implements hook_ctools_plugin_api().
  */
 function pushtape_playlists_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "field_group" && $api == "field_group") {
+//  list($module, $api) = func_get_args();
+//  if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
-  }
+//  }
 }
 
 /**
  * Implements hook_views_api().
  */
 function pushtape_playlists_views_api() {  
-    list($module, $api) = func_get_args();
+  //  list($module, $api) = func_get_args();
   if ($module == "views" && $api == "views_default") {
     return array(
     "version" => "3.0",
     "api" => "3",
-    "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
+ //   "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
     );
   }
 }
@@ -223,7 +223,7 @@ function pushtape_playlist_views_post_execute($view) {
 
 /**
  * Implementation of hook_views_query_alter().
-  */
+ 
 function pushtape_playlist_views_query_alter(&$view, &$query) {
   global $user;
   if ($view->name == 'playlists') {
@@ -232,7 +232,7 @@ function pushtape_playlist_views_query_alter(&$view, &$query) {
     $view->query->add_where(1, 'node.uid',$user->uid,'=');
     $view->query->set_group_operator('OR');
   }
-}
+} */
 
 function pushtape_playlist_preprocess_views_view(&$vars) {
   $variables['theme_hook_suggestions'][] = 'views_view_table';
