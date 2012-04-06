@@ -23,7 +23,6 @@ function pushtape_playlists_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'library';
-  $handler->display->display_options['use_ajax'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1001,7 +1000,6 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'empty';
   $handler->display->display_options['arguments']['nid']['title_enable'] = 1;
   $handler->display->display_options['arguments']['nid']['title'] = '%1';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
