@@ -26,65 +26,16 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
+    4 => '4',
+    6 => '6',
+    5 => '5',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Update';
-  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = 1;
-  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 0;
-  $handler->display->display_options['exposed_form']['options']['bef'] = array(
-    'keys' => array(
-      'more_options' => array(
-        'bef_filter_description' => '',
-      ),
-    ),
-    'tid_2' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'tid' => array(
-      'bef_format' => 'bef_ul',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'tid_1' => array(
-      'bef_format' => 'bef_ul',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'field_instruments_term_tid' => array(
-      'bef_format' => 'bef_ul',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'field_tempo_term_tid' => array(
-      'bef_format' => 'bef_ul',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-  );
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['grouping'] = 'title';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -153,8 +104,6 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['empty']['area']['label'] = 'No results';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
   $handler->display->display_options['empty']['area']['content'] = 'Please add some more search terms';
-  $handler->display->display_options['empty']['area']['format'] = 'plain_text';
-  $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Relationship: Taxonomy term: Content with term */
   $handler->display->display_options['relationships']['nid']['id'] = 'nid';
   $handler->display->display_options['relationships']['nid']['table'] = 'taxonomy_index';
@@ -441,6 +390,78 @@ function pushtape_playlists_views_default_views() {
     'tags' => 0,
     'tempo' => 0,
   );
+  /* Field: Genre */
+  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['ui_name'] = 'Genre';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = 'genre';
+  $handler->display->display_options['fields']['term_node_tid']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['text'] = '<a href="/library?tid%5B%5D=[term_node_tid-tid]">[term_node_tid-name]</a>';
+  $handler->display->display_options['fields']['term_node_tid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['link_to_taxonomy'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['limit'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
+    'genre' => 'genre',
+    'workbench_access' => 0,
+    'artist' => 0,
+    'album' => 0,
+    'instruments' => 0,
+    'keywords' => 0,
+    'mood' => 0,
+    'tags' => 0,
+    'tempo' => 0,
+  );
+  /* Field: Mood */
+  $handler->display->display_options['fields']['term_node_tid_1']['id'] = 'term_node_tid_1';
+  $handler->display->display_options['fields']['term_node_tid_1']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid_1']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid_1']['ui_name'] = 'Mood';
+  $handler->display->display_options['fields']['term_node_tid_1']['label'] = 'mood';
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['text'] = '<a href="/library?tid_1%5B%5D=[term_node_tid_1-tid]">[term_node_tid_1-name]</a>';
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['link_to_taxonomy'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['limit'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['vocabularies'] = array(
+    'mood' => 'mood',
+    'workbench_access' => 0,
+    'artist' => 0,
+    'album' => 0,
+    'genre' => 0,
+    'instruments' => 0,
+    'keywords' => 0,
+    'tags' => 0,
+    'tempo' => 0,
+  );
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -586,6 +607,18 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Keywords */
+  $handler->display->display_options['filters']['keys']['id'] = 'keys';
+  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
+  $handler->display->display_options['filters']['keys']['field'] = 'keys';
+  $handler->display->display_options['filters']['keys']['ui_name'] = 'Keywords';
+  $handler->display->display_options['filters']['keys']['group'] = 0;
+  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['label'] = 'Search Library';
+  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
+  $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -631,6 +664,25 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'genre';
   $handler->display->display_options['filters']['tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['tid']['error_message'] = 1;
+  /* Filter criterion: Filter by Mood */
+  $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid_1']['ui_name'] = 'Filter by Mood';
+  $handler->display->display_options['filters']['tid_1']['operator'] = 'and';
+  $handler->display->display_options['filters']['tid_1']['group'] = 0;
+  $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Mood';
+  $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['tid_1']['reduce_duplicates'] = 1;
+  $handler->display->display_options['filters']['tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'mood';
+  $handler->display->display_options['filters']['tid_1']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['tid_1']['error_message'] = 1;
   /* Filter criterion: Filter by Instruments */
   $handler->display->display_options['filters']['field_instruments_term_tid']['id'] = 'field_instruments_term_tid';
   $handler->display->display_options['filters']['field_instruments_term_tid']['table'] = 'field_data_field_instruments_term';
@@ -677,6 +729,43 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['tab_options']['title'] = 'Tracks';
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'main-menu';
+  $translatables['library'] = array(
+    t('Master'),
+    t('Playlist'),
+    t('more'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('No results'),
+    t('Please add some more search terms'),
+    t('node'),
+    t('Artist'),
+    t('All'),
+    t('Genre'),
+    t('Mood'),
+    t('Library (page)'),
+    t('Table view for the music library'),
+    t('play'),
+    t('title'),
+    t('artist'),
+    t('<a href="/library?tid_5%5B%5D=[term_node_tid_5-tid]">[term_node_tid_5-name]</a>'),
+    t('genre'),
+    t('<a href="/library?tid%5B%5D=[term_node_tid-tid]">[term_node_tid-name]</a>'),
+    t('mood'),
+    t('<a href="/library?tid_1%5B%5D=[term_node_tid_1-tid]">[term_node_tid_1-name]</a>'),
+    t('playlist'),
+    t('<img src="/sites/default/files/icons/addtoplaylist.png" alt="Add to Playlist" />'),
+    t('mp/nojs/[nid]/playlists'),
+    t('Add or remove this track to new or existing playlists.'),
+    t('instruments'),
+    t('<a href="/library?tid_3%5B%5D=[term_node_tid_3-tid]">[term_node_tid_3-name]</a>'),
+    t('tempo'),
+    t('<a href="/library?tid_4%5B%5D=[term_node_tid_4-tid]">[term_node_tid_4-name]</a>'),
+    t('keywords'),
+    t('Search Library'),
+    t('Instruments'),
+    t('Tempo'),
+  );
   $export['library'] = $view;
 
   $view = new view;
@@ -697,42 +786,14 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
+    4 => '4',
+    5 => '5',
+    6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Update';
-  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = 1;
-  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 0;
-  $handler->display->display_options['exposed_form']['options']['bef'] = array(
-    'tid_2' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => 1,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'field_instruments_term_tid' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => 1,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-    'field_tempo_term_tid' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => 1,
-        'bef_collapsible' => 1,
-        'bef_filter_description' => '',
-      ),
-    ),
-  );
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -807,7 +868,7 @@ function pushtape_playlists_views_default_views() {
 </ol>
 </ul>
 <br>';
-  $handler->display->display_options['header']['area']['format'] = 'html';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -815,8 +876,8 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No results';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
-  $handler->display->display_options['empty']['area']['content'] = '<a class="mp-custom-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>';
-  $handler->display->display_options['empty']['area']['format'] = 'html';
+  $handler->display->display_options['empty']['area']['content'] = '<a class="pushtape-playlists-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Relationship: Taxonomy term: Content with term */
   $handler->display->display_options['relationships']['nid']['id'] = 'nid';
@@ -1231,6 +1292,80 @@ function pushtape_playlists_views_default_views() {
     'keywords' => 0,
     'album' => 0,
   );
+  /* Field: Genre */
+  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['fields']['term_node_tid']['ui_name'] = 'Genre';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = 'genre';
+  $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['text'] = '<a href="/playlists?tid%5B%5D=[term_node_tid-tid]">[term_node_tid-name]</a>';
+  $handler->display->display_options['fields']['term_node_tid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['hide_alter_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['link_to_taxonomy'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['limit'] = 1;
+  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
+    'genre' => 'genre',
+    'mood' => 0,
+    'instruments' => 0,
+    'tempo' => 0,
+    'keywords' => 0,
+    'artist' => 0,
+    'album' => 0,
+  );
+  /* Field: Mood */
+  $handler->display->display_options['fields']['term_node_tid_1']['id'] = 'term_node_tid_1';
+  $handler->display->display_options['fields']['term_node_tid_1']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid_1']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid_1']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['fields']['term_node_tid_1']['ui_name'] = 'Mood';
+  $handler->display->display_options['fields']['term_node_tid_1']['label'] = 'mood';
+  $handler->display->display_options['fields']['term_node_tid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['text'] = '<a href="/playlists?tid_1%5B%5D=[term_node_tid_1-tid]">[term_node_tid_1-name]</a>';
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['hide_alter_empty'] = 0;
+  $handler->display->display_options['fields']['term_node_tid_1']['link_to_taxonomy'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['limit'] = 1;
+  $handler->display->display_options['fields']['term_node_tid_1']['vocabularies'] = array(
+    'mood' => 'mood',
+    'genre' => 0,
+    'instruments' => 0,
+    'tempo' => 0,
+    'keywords' => 0,
+    'artist' => 0,
+    'album' => 0,
+  );
   /* Field: Instruments */
   $handler->display->display_options['fields']['term_node_tid_3']['id'] = 'term_node_tid_3';
   $handler->display->display_options['fields']['term_node_tid_3']['table'] = 'node';
@@ -1433,7 +1568,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['nothing_1']['alter']['trim_whitespace'] = 0;
   $handler->display->display_options['fields']['nothing_1']['alter']['alt'] = 'Remove track from playlist';
-  $handler->display->display_options['fields']['nothing_1']['alter']['link_class'] = 'pushtape_playlist-inline';
+  $handler->display->display_options['fields']['nothing_1']['alter']['link_class'] = 'musiclibrary_playlist-inline';
   $handler->display->display_options['fields']['nothing_1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nothing_1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nothing_1']['alter']['ellipsis'] = 1;
@@ -1467,6 +1602,19 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['filters']['status_1']['field'] = 'status';
   $handler->display->display_options['filters']['status_1']['value'] = '1';
   $handler->display->display_options['filters']['status_1']['group'] = 0;
+  /* Filter criterion: Keywords */
+  $handler->display->display_options['filters']['keys']['id'] = 'keys';
+  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
+  $handler->display->display_options['filters']['keys']['field'] = 'keys';
+  $handler->display->display_options['filters']['keys']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['filters']['keys']['ui_name'] = 'Keywords';
+  $handler->display->display_options['filters']['keys']['group'] = 0;
+  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['label'] = 'Search Criteria';
+  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
+  $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -1484,17 +1632,54 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['filters']['tid_2']['group'] = 0;
   $handler->display->display_options['filters']['tid_2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_2']['expose']['operator_id'] = 'tid_2_op';
-  $handler->display->display_options['filters']['tid_2']['expose']['label'] = 'Has taxonomy term';
-  $handler->display->display_options['filters']['tid_2']['expose']['use_operator'] = FALSE;
+  $handler->display->display_options['filters']['tid_2']['expose']['label'] = 'Artist';
   $handler->display->display_options['filters']['tid_2']['expose']['operator'] = 'tid_2_op';
-  $handler->display->display_options['filters']['tid_2']['expose']['identifier'] = 'tid_2';
-  $handler->display->display_options['filters']['tid_2']['expose']['required'] = FALSE;
-  $handler->display->display_options['filters']['tid_2']['expose']['remember'] = FALSE;
-  $handler->display->display_options['filters']['tid_2']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['tid_2']['expose']['identifier'] = 'tid_5';
+  $handler->display->display_options['filters']['tid_2']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['tid_2']['expose']['reduce'] = 0;
   $handler->display->display_options['filters']['tid_2']['reduce_duplicates'] = 1;
   $handler->display->display_options['filters']['tid_2']['type'] = 'select';
   $handler->display->display_options['filters']['tid_2']['vocabulary'] = 'artist';
   $handler->display->display_options['filters']['tid_2']['error_message'] = 1;
+  /* Filter criterion: Filter by Genre */
+  $handler->display->display_options['filters']['tid']['id'] = 'tid';
+  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['filters']['tid']['ui_name'] = 'Filter by Genre';
+  $handler->display->display_options['filters']['tid']['operator'] = 'and';
+  $handler->display->display_options['filters']['tid']['group'] = 0;
+  $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Genre';
+  $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
+  $handler->display->display_options['filters']['tid']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['tid']['reduce_duplicates'] = 1;
+  $handler->display->display_options['filters']['tid']['type'] = 'select';
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'genre';
+  $handler->display->display_options['filters']['tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['tid']['error_message'] = 1;
+  /* Filter criterion: Filter by Mood */
+  $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid_1']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['filters']['tid_1']['ui_name'] = 'Filter by Mood';
+  $handler->display->display_options['filters']['tid_1']['group'] = 0;
+  $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Mood';
+  $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['tid_1']['reduce_duplicates'] = 1;
+  $handler->display->display_options['filters']['tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'mood';
+  $handler->display->display_options['filters']['tid_1']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['tid_1']['error_message'] = 1;
   /* Filter criterion: Filter by Instruments */
   $handler->display->display_options['filters']['field_instruments_term_tid']['id'] = 'field_instruments_term_tid';
   $handler->display->display_options['filters']['field_instruments_term_tid']['table'] = 'field_data_field_instruments_term';
@@ -1547,6 +1732,56 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['tab_options']['title'] = 'Tracks';
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'main-menu';
+  $translatables['playlists'] = array(
+    t('Master'),
+    t('Playlist'),
+    t('more'),
+    t('<ul>
+<ol>
+<a class="pushtape-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
+</ol>
+</ul>
+<br>'),
+    t('No results'),
+    t('<a class="pushtape-playlists-inline" href="mp/nojs/add/playlists">You currently have no playlists. Please create one.</a>'),
+    t('node'),
+    t('Artist'),
+    t('All'),
+    t('Genre'),
+    t('Mood'),
+    t('Playlists'),
+    t('Main table view for playlists'),
+    t('field_tracklist'),
+    t('author'),
+    t('Nid'),
+    t('play'),
+    t('title'),
+    t('artist'),
+    t('<a href="/playlists?tid_5%5B%5D=[term_node_tid_5-tid]">[term_node_tid_5-name]</a>'),
+    t('genre'),
+    t('<a href="/playlists?tid%5B%5D=[term_node_tid-tid]">[term_node_tid-name]</a>'),
+    t('mood'),
+    t('<a href="/playlists?tid_1%5B%5D=[term_node_tid_1-tid]">[term_node_tid_1-name]</a>'),
+    t('instruments'),
+    t('<a href="/playlists?tid_3%5B%5D=[term_node_tid_3-tid]">[term_node_tid_3-name]</a>'),
+    t('tempo'),
+    t('<a href="/playlists?tid_4%5B%5D=[term_node_tid_4-tid]">[term_node_tid_4-name]</a>'),
+    t('keywords'),
+    t('Path'),
+    t('edit track'),
+    t('<img src="/sites/default/files/icons/edit-track.png" alt="Edit Track" />'),
+    t('mp/nojs/[nid_1]/playlists/[nid]'),
+    t('download'),
+    t('<a href="/download/file/fid/[field_audio_1-fid]"><img src="/sites/default/files/icons/downloadicon.png"></a>'),
+    t('remove'),
+    t('<img src="/sites/default/files/icons/removeicon.png" alt="Remove Track from Playlist" />'),
+    t('mp/nojs/[nid_1]/playlists/[nid]/remove/[token]'),
+    t('Remove track from playlist'),
+    t('%1'),
+    t('Search Criteria'),
+    t('Instruments'),
+    t('Tempo'),
+  );
   $export['playlists'] = $view;
 
   return $export;
