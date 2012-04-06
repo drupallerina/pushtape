@@ -23,7 +23,7 @@ function pushtape_playlists_views_api() {
     return array(
     "version" => "3.0",
     "api" => "3",
-    "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
+//    "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
     );
   }
 }
