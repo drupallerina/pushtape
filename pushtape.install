@@ -275,7 +275,7 @@ function pushtape_install() {
   
   
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'alpha');
+  $default_theme = variable_get('theme_default', 'omegapushtape');
   $values = array(
     array(
       'module' => 'system', 
