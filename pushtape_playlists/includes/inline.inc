@@ -46,7 +46,7 @@ function pushtape_playlists_inline_add_js() {
   ctools_add_js('inline', 'pushtape_playlists', 'js');
   ctools_add_js('acq_monitorpop', 'pushtape_playlists', 'js');
   ctools_add_js('jquery.bt.min', 'pushtape_playlists', 'js');
-  ctools_add_css('pushtape_playlist.inline', 'pushtape_playlists');
+  ctools_add_css('pushtape_playlists.inline', 'pushtape_playlists');
 
   $done = TRUE;
 }

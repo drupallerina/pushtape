@@ -188,7 +188,7 @@ function pushtape_playlists_views_pre_render($view) {
    case 'library':
    
      // Modal-ify our links.
-      ctools_include('inline', 'pushtape_playlists');
+      ctools_include('inline', 'pushtape_features', 'pushtape_playlists');
       pushtape_playlists_inline_add_js();
      
      // Customizations to the exposed filters.
@@ -205,8 +205,8 @@ function pushtape_playlists_views_pre_render($view) {
         drupal_add_js($path . '/jquery.uniform.js');
       }
       
-      drupal_add_css(drupal_get_path('module', 'pushtape_playlists') . '/css/pushtape_playlists.filters.css', array('weight' => 100));
-      drupal_add_js(drupal_get_path('module', 'pushtape_playlists') . '/js/filters.js');
+      drupal_add_css(drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists/css/pushtape_playlists.filters.css', array('weight' => 100));
+      drupal_add_js(drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists/js/filters.js');
       break;
   }
 }
