@@ -413,11 +413,14 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'add';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<img src="/sites/default/files/icons/addtoplaylist.png" alt="Add to Playlist" />';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'mp/nojs/[nid]/playlists';
   $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Add or remove this track to new or existing playlists.';
+  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'pushtape-playlists-inline';
   $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
