@@ -8,10 +8,10 @@
  * Implements hook_ctools_plugin_api().
  */
 function pushtape_playlists_ctools_plugin_api() {
- // list($module, $api) = func_get_args();
- // if ($module == "field_group" && $api == "field_group") {
+  list($module, $api) = func_get_args();
+  if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
-  //}
+  }
 }
 
 /**
@@ -23,7 +23,7 @@ function pushtape_playlists_views_api() {
     return array(
     "version" => "3.0",
     "api" => "3",
- //   "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
+    "path" => drupal_get_path('module', 'pushtape_features') . '/pushtape_playlists' ,
     );
   }
 }
