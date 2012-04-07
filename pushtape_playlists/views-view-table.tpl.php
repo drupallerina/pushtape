@@ -39,19 +39,10 @@ if ($first_row = $view->result[$row_keys[0]]) {
         <tr>
           <?php $i=0; ?>
           <?php foreach ($header as $field => $label): ?>
-            <?php
-            if(in_array($field, array('field_audio','nothing','field_audio_1','nothing_1'))) {
-              $width=40;
-              $pct=1;
-            }
-            elseif(in_array($field,array('title','term_node_tid_5'))) {
-              $width=150;
-              $pct=40;
-            }
-            ?>
-            <th width="<?php print $pct; ?>%"<?php if ($header_classes[$field]) { print ' class="'. $header_classes[$field] . '" '; } ?> style="white-space:nowrap;">
+           
+            <th <?php if ($header_classes[$field]) { print ' class="'. $header_classes[$field] . '" '; } ?> style="white-space:nowrap;">
               <?php print $label; ?>
-              <br /><img src="/sites/all/themes/acq_monitorpop/images/spacer.gif" width="<?php print $width; ?>" height="1">
+              <br /><img src="./images/spacer.gif" height="1">
             </th>
             <?php $i++; ?>
           <?php endforeach; ?>
@@ -63,7 +54,7 @@ if ($first_row = $view->result[$row_keys[0]]) {
           <tr class="<?php print implode(' ', $row_classes[$count]); ?>">
             <?php $i=0; ?>
             <?php foreach ($row as $field => $content): ?>
-              <?php /*$content = str_replace(urlencode('[token]'), drupal_get_token($playlist_nid), $content); */?>
+              <?php $content = str_replace(urlencode('[token]'), drupal_get_token($playlist_nid), $content); ?>
               <td <?php if ($field_classes[$field][$count]) { print 'class="'. $field_classes[$field][$count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$count]); ?>>
                 <?php print $content; ?>
               </td>
