@@ -462,6 +462,13 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'title',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['row_class'] = 'library pushtape-playlist-row-track-[nid_1] pushtape-playlist-row-playlist-[nid]';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -480,10 +487,10 @@ function pushtape_playlists_views_default_views() {
     'nothing' => 'nothing',
     'nothing_1' => 'nothing_1',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'title';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -582,7 +589,8 @@ function pushtape_playlists_views_default_views() {
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['summary'] = 'list of tracks';
+  $handler->display->display_options['style_options']['empty_table'] = 1;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
@@ -640,7 +648,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 0;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
   $handler->display->display_options['fields']['nid_1']['table'] = 'node';
@@ -766,6 +774,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['field_audio']['table'] = 'field_data_field_audio';
   $handler->display->display_options['fields']['field_audio']['field'] = 'field_audio';
   $handler->display->display_options['fields']['field_audio']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['fields']['field_audio']['label'] = 'play';
   $handler->display->display_options['fields']['field_audio']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_audio']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_audio']['alter']['absolute'] = 0;
@@ -787,10 +796,10 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['field_audio']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_audio']['type'] = 'soundmanager2_ui360';
   $handler->display->display_options['fields']['field_audio']['settings'] = array(
-    'inline' => 0,
-    'visualization' => 1,
+    'inline' => 1,
+    'visualization' => 0,
     'waveform' => 1,
-    'eq' => 1,
+    'eq' => 0,
     'amplifier' => 1,
     'diameter' => '25',
   );
@@ -849,6 +858,7 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['relationship'] = 'field_tracklist_nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['absolute'] = 0;
@@ -1029,6 +1039,7 @@ function pushtape_playlists_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'playlists');
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'playlists';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'playlists';
