@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Form API form builder function.
@@ -171,7 +172,8 @@ function pushtape_playlists_playlists_edit_form_submit($form, &$form_state) {
     $changes['new'] = array();
     $new_playlist = pushtape_playlists_playlists_create_playlist($form_state['values']['title']);
     if (!empty($new_playlist->nid)) {
-      $changes['new'][] = $new_playlist->nid;
+node_save($new_playlist);      
+$changes['new'][] = $new_playlist->nid;
     }
   }
   $form_state['changes'] = $changes;

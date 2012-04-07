@@ -595,13 +595,9 @@ function pushtape_playlists_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'add playlist';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<ul>
-<ol>
-<a class="pushtape-playlist-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" /></a>
-</ol>
-</ul>
-<br>';
+  $handler->display->display_options['header']['area']['content'] = '<a class="pushtape-playlists-inline" href="mp/nojs/add/playlists"><img src="/sites/default/files/icons/createnewlist.png" alt="Create New Playlist" />Create New Playlist</a>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
