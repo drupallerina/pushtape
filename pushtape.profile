@@ -62,7 +62,7 @@ function pushtape_install_tasks($install_state) {
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $panopoly_server);
   $tasks['apps_profile_apps_select_form_panopoly']['display_name'] = t('Install apps for Panopoly');
-
+/*
   // Setup the Pushtape Apps install task
   $pushtape_server = array(
     'machine name' => 'pushtape',
@@ -76,7 +76,7 @@ function pushtape_install_tasks($install_state) {
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $pushtape_server);
   $tasks['apps_profile_apps_select_form_pushtape']['display_name'] = t('Install apps for Pushtape');
-
+*/
   // Setup the theme selection and configuration tasks
   $tasks['pushtape_theme_form'] = array(
     'display_name' => t('Choose a theme'),
