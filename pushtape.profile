@@ -95,9 +95,9 @@ function pushtape_install_tasks($install_state) {
     'display_name' => t('Prepare site'),
     'type' => 'form',
   );
-
+ }
   return $tasks;
-  }
+ 
 }
 
 /**
