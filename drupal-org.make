@@ -26,12 +26,13 @@ projects[media] = 2.0-unstable3
 
 ; panopoly
 
-projects[] = fieldable_panels_panes
-projects[] = link
-projects[] = media_vimeo
-projects[] = panels
-projects[] = simple_gmap
-projects[] = tablefield
+projects[fieldable_panels_panes] = 1.0
+projects[link] = 1.0
+projects[media_vimeo] = 1.0-beta5
+projects[media_soundcloud] = 1.0-alpha1
+projects[panels] = 3.2
+projects[simple_gmap] = 1.0-rc1
+projects[tablefield] = 2.0-beta6
 
 projects[apps][subdir] = contrib
 projects[apps][type] = module
