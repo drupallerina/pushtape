@@ -26,7 +26,6 @@ projects[media] = 2.0-unstable3
 
 ; panopoly
 
-projects[] = entity
 projects[] = fieldable_panels_panes
 projects[] = link
 projects[] = media_vimeo
