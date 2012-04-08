@@ -13,25 +13,6 @@ api = 2
 
 ; OPTIONAL ATTRIBUTES
 
-; Here you see the format of an array in a .make file. Text enclosed
-; in brackets are array keys, and each set to the right of the last is
-; a layer deeper in the array. Note that the root array element is
-; not enclosed in brackets:
-; root_element[first_key][next_key] = value
-
-; The projects attribute is where you define the modules/themes that
-; are to be packaged with the profile. The first key is the short name
-; of the project (as seen in the drupal.org/project/{projectshortname}
-; URI). Note that you *must* specify an exact version of a module or
-; theme (one that points to an 'official' release node) -- you cannot
-; use development releases!
-
-; These projects are defined using the short form definition. You can
-; use this form if you only want to declare the version of the project.
-; The version is the value to the right of the core Drupal version in a full
-; version string. For example, if you wanted to specify Views 6.x-2.7,
-; you would use:
-
 projects[features] = 1.0-rc1
 projects[file_entity] = 2.0-unstable3
 projects[pathauto] = 1.0
@@ -43,6 +24,19 @@ projects[media] = 2.0-unstable3
 ;projects[pushtape_features] = 1.4
 
 ; Devel Tools
+
+projects[apps][subdir] = contrib
+projects[apps][type] = module
+projects[apps][version] = 1.x-dev
+projects[apps][patch][1479164] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
+projects[apps][patch][1479536] = http://drupal.org/files/apps-multiple-install-servers-1479536-4.patch
+projects[apps][patch][1480912] = http://drupal.org/files/apps-clean-up-the-cleanup.patch
+projects[apps][patch][1482684] = http://drupal.org/files/apps-single-item-style.patch
+projects[apps][patch][1484300] = http://drupal.org/files/apps-check-empty-multiple-servers.patch
+projects[apps][download][type] = git
+projects[apps][download][revision] = b1cf924
+projects[apps][download][branch] = 7.x-1.x
+
 projects[diff][version] = "2.0"
 projects[libraries][version] = "2.0-alpha2"
 projects[strongarm][version] = "2.0-beta4"
@@ -54,27 +48,6 @@ projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
 projects[pushtape_features][download][branch] = "7.x-1.x"
-
-;@todo - Move this to the libraries directory
-;library[profiler] = 2.0-beta1
-
-; For pre-releases, like Image 6.x-1.0-beta3, use this format:
-;projects[image] = 1.0-beta3
-
-; projects[pathauto] = 1.2
-; projects[token] = 1.12
-; projects[logintoboggan] = 1.6
-
-
-; To define more attributes for a specific project than just the version,
-; create another layer of array keys. In the example below, both the
-; projects will be placed in a subdirectory of the modules folder.
-; Note that if the long form is used, the version key must be defined
-; for the project!
-; projects[cck][version] = 2.6
-; projects[cck][subdir] = cck_related_modules
-; projects[filefield][version] = 3.2
-; projects[filefield][subdir] = cck_related_modules
 
 ; Defining a theme is no different.
 
