@@ -24,7 +24,7 @@ dependencies[] = references
 dependencies[] = ctools
 dependencies[] = token
 dependencies[] = views
-dependencies[] = media
+;dependencies[] = media
 
 ;Install Profile
 dependencies[] = pushtape_core
