@@ -1,6 +1,7 @@
-##7.x-1.x branch #
+#this project #
 
 - is tracking the changes from http://git.drupal.org/project/pushtape.git
+- attempting to extened it in different ways
 
 ##the 2.x branch #
 
