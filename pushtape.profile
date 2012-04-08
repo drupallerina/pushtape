@@ -180,7 +180,7 @@ function pushtape_apps_servers_info() {
     'pushtape' => array(
       'title' => 'Pushtape',
       'description' => "Apps for Pushtape",
-      'manifest' => 'http://koolkats.rosenstrauch.com/pushtape',
+      'manifest' => 'http://koolkats.rosenstrauch.com/app/pushtape',
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x-panopolybased',
       'server_name' => $_SERVER['SERVER_NAME'],
