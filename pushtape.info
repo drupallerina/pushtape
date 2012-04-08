@@ -15,7 +15,6 @@ dependencies[] = taxonomy
 dependencies[] = toolbar
 dependencies[] = field_ui
 dependencies[] = file
-dependencies[] = rdf
 
 ;Contrib
 dependencies[] = features
