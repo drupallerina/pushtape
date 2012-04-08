@@ -1,7 +1,7 @@
 name = "pushtape_core"
 core = "7.x"
 apps[server] = development
-apps[manifests][] = app/manifest.app
+apps[local][manifests][] = app/manifest.app
 dependencies[] = "pushtape_music"
 description = "A music publishing platform. Easily publish albums or single tracks."
 name = "Pushtape"

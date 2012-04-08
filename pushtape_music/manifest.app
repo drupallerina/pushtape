@@ -12,6 +12,5 @@ dependencies[ctools] = ctools 1.0-alpha4
 dependencies[date] = "2.0-alpha5"
 dependencies[features] = "1.0-beta4"
 dependencies[strongarm] = "2.0-beta4"
-
 downloadables[views 3.0-beta3] = http://ftp.drupal.org/files/projects/views-7.x-3.0-beta3.tar.gz
 downloadables[ctools 1.0-alpha4] = http://ftp.drupal.org/files/projects/ctools-7.x-1.0-alpha4.tar.gz
