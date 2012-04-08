@@ -342,7 +342,7 @@ function pushtape_install() {
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
   
   // Enable themes
-  theme_enable(array('alpha', 'seven'));
+  theme_enable(array('omega_pushtape', 'seven'));
   variable_set('admin_theme', 'seven');
   variable_set('theme_default', 'omega_pushtape');
   variable_set('site_frontpage', 'releases');
