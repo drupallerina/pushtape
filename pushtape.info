@@ -26,7 +26,7 @@ dependencies[] = views
 ;dependencies[] = media
 
 ;Install Profile
-dependencies[] = pushtape_core
+;dependencies[] = pushtape_core
 ;dependencies[] = pushtape_music
 
 files[] = pushtape.profile
