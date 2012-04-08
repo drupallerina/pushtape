@@ -33,9 +33,6 @@ projects[] = media_vimeo
 projects[] = panels
 projects[] = simple_gmap
 projects[] = tablefield
-projects[] = hierarchical_select
-projects[] = hs_taxonomy
-projects[] = tablefield
 
 projects[apps][subdir] = contrib
 projects[apps][type] = module
