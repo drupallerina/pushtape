@@ -33,7 +33,10 @@ function pushtape_form_alter(&$form, $form_state, $form_id) {
 function pushtape_install_tasks($install_state) {
   // Kick off the tasks
   $tasks = array();
-
+  
+  // is there such a switch? make it run with aegir?
+  if ($install_state['interactive']) {
+      
   // Summon the power of the Apps module
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
@@ -94,6 +97,7 @@ function pushtape_install_tasks($install_state) {
   );
 
   return $tasks;
+  }
 }
 
 /**
