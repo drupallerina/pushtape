@@ -47,7 +47,7 @@ projects[omega_tools][version] = "3.0-rc4"
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-projects[pushtape_features][download][branch] = "7.x-1.x"
+projects[pushtape_features][download][branch] = "7.x-1.x-apps"
 
 ; Defining a theme is no different.
 
