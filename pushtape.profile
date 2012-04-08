@@ -95,9 +95,18 @@ function pushtape_install_tasks($install_state) {
     'display_name' => t('Prepare site'),
     'type' => 'form',
   );
- }
+  
   return $tasks;
+ }
  
+ else {
+     return $tasks;
+   // Once more for good measure
+  drupal_flush_all_caches();
+
+  // And away we go
+  drupal_goto('<front>');
+ }
 }
 
 /**
