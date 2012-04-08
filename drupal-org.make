@@ -27,14 +27,14 @@ projects[media] = 2.0-unstable3
 
 projects[apps][subdir] = contrib
 projects[apps][type] = module
-projects[apps][version] = 1.x-dev
+;projects[apps][version] = 1.x-dev
 projects[apps][patch][1479164] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
 projects[apps][patch][1479536] = http://drupal.org/files/apps-multiple-install-servers-1479536-4.patch
 projects[apps][patch][1480912] = http://drupal.org/files/apps-clean-up-the-cleanup.patch
 projects[apps][patch][1482684] = http://drupal.org/files/apps-single-item-style.patch
 projects[apps][patch][1484300] = http://drupal.org/files/apps-check-empty-multiple-servers.patch
 projects[apps][download][type] = git
-projects[apps][download][revision] = b1cf924
+;projects[apps][download][revision] = b1cf924
 projects[apps][download][branch] = 7.x-1.x
 
 projects[diff][version] = "2.0"
