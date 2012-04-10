@@ -34,7 +34,7 @@ function pushtape_install_tasks($install_state) {
   // Kick off the tasks
   $tasks = array();
   
-  // is there such a switch? make it run with aegir?
+  // is there such a switch?experimental workarond to make it run with aegir? http://drupal.org/node/1500120 http://drupal.org/node/1491258
   if ($install_state['interactive']) {
       
   // Summon the power of the Apps module
@@ -98,7 +98,7 @@ function pushtape_install_tasks($install_state) {
   
   return $tasks;
  }
- /* not interactive? aegir fix*/
+ /* not interactive? aegir fix part 2*/
  else {
      return $tasks;
    // Once more for good measure
