@@ -98,7 +98,7 @@ function pushtape_install_tasks($install_state) {
   
   return $tasks;
  }
- 
+ /* not interactive? aegir fix*/
  else {
      return $tasks;
    // Once more for good measure
