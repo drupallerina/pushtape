@@ -13,7 +13,7 @@ api = 2
 
 ; OPTIONAL ATTRIBUTES
 
-
+;TODO: ADD APPS CONNECTOR MODULE
 
 
 ; Contrib - Foundation
