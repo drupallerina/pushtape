@@ -363,10 +363,10 @@ projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
 projects[omega_tools][version] = "3.0-rc4"
 
-projects[pushtape_features][type] = "module"
-projects[pushtape_features][download][type] = "git"
-projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-projects[pushtape_features][download][branch] = "7.x-2.x"
+;projects[pushtape_features][type] = "module"
+;projects[pushtape_features][download][type] = "git"
+;projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
+;projects[pushtape_features][download][branch] = "7.x-2.x"
 
 ; Defining a theme is no different.
 
