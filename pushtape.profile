@@ -185,7 +185,7 @@ function pushtape_locale_selection(&$install_state) {
  * Implements hook_appstore_stores_info()
  */
 function pushtape_apps_servers_info() {
-  $profile = variable_get('install_profile', 'pushtape');
+  $profile = variable_get('install_profile', 'panopoly');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   return array(
     /*'pushtape' => array(
