@@ -193,7 +193,7 @@ function pushtape_apps_servers_info() {
       'description' => "Apps for Pushtape",
       'manifest' => 'http://apps.rosenstrauch.com/apps/query/pushtape',
       'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x-panopolybased',
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x',
       'server_name' => $_SERVER['SERVER_NAME'],
       'server_ip' => $_SERVER['SERVER_ADDR'],
     ),
