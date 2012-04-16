@@ -13,8 +13,8 @@ api = 2
 
 ; OPTIONAL ATTRIBUTES
 
-;TODO: ADD APPS CONNECTOR MODULE
-
+;include panopoly make
+include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
 
 ; Contrib - Foundation
 projects[ctools][subdir] = contrib
