@@ -185,18 +185,18 @@ function pushtape_locale_selection(&$install_state) {
  * Implements hook_appstore_stores_info()
  */
 function pushtape_apps_servers_info() {
-  $profile = variable_get('install_profile', 'panopoly');
+  $profile = variable_get('install_profile', 'pushtape');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   return array(
-    /*'pushtape' => array(
+    'pushtape' => array(
       'title' => 'Pushtape',
       'description' => "Apps for Pushtape",
-      'manifest' => 'http://koolkats.rosenstrauch.com/app/pushtape',
+      'manifest' => 'http://apps.rosenstrauch.com/apps/query/pushtape',
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x-panopolybased',
       'server_name' => $_SERVER['SERVER_NAME'],
       'server_ip' => $_SERVER['SERVER_ADDR'],
-    ),*/
+    ),
     'panopoly' => array(
       'title' => 'Panopoly',
       'description' => 'Apps for Panopoly',
