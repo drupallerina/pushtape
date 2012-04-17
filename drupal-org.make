@@ -50,17 +50,19 @@ projects[strongarm][version] = "2.0-rc1"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.0"
 projects[omega_tools][version] = "3.0-rc4"
+projects[delta][version] = "3.0-beta9"
+
 
 ; Playlist addon dependencies (should be included in the feature)
-projects[beautytips][version] = "2.0-beta1"
-projects[better_exposed_filters][version] = "3.0-beta1"
-projects[colorbox][version] = "1.2"
-projects[download_file][version] = "1.1"
+;projects[beautytips][version] = "2.0-beta1"
+;projects[better_exposed_filters][version] = "3.0-beta1"
+;projects[colorbox][version] = "1.2"
+;projects[download_file][version] = "1.1"
 projects[entity][version] = "1.0-rc1"
-projects[field_group][version] = "1.1"
-projects[hierarchical_select][version] = "3.x-dev"
+;projects[field_group][version] = "1.1"
+;projects[hierarchical_select][version] = "3.x-dev"
 projects[soundmanager2][version] = "2.x-dev"
-projects[uniform][version] = "1.10"
+;projects[uniform][version] = "1.10"
 projects[views_bulk_operations][version] = "3.0-rc1"
 
 ; Libraries
@@ -71,48 +73,10 @@ libraries[soundmanager2][download][url] = "http://www.schillmania.com/projects/s
 libraries[soundmanager2][directory_name] = "soundmanager2"
 libraries[soundmanager2][type] = "library"
 
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
-libraries[uniform][download][type] = "git"
-libraries[uniform][download][url] = "https://github.com/pixelmatrix/uniform.git"
-libraries[uniform][directory_name] = "uniform"
-libraries[uniform][type] = "library"
-
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
-libraries[colorbox][download][type] = "get"
-libraries[colorbox][download][url] = "http://www.jacklmoore.com/colorbox/colorbox.zip"
-libraries[colorbox][directory_name] = "colorbox"
-libraries[colorbox][type] = "library"
-
-
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
 projects[pushtape_features][download][branch] = "7.x-2.x"
-
-;@todo - Move this to the libraries directory
-;library[profiler] = 2.0-beta1
-
-; For pre-releases, like Image 6.x-1.0-beta3, use this format:
-;projects[image] = 1.0-beta3
-
-; projects[pathauto] = 1.2
-; projects[token] = 1.12
-; projects[logintoboggan] = 1.6
-
-
-; To define more attributes for a specific project than just the version,
-; create another layer of array keys. In the example below, both the
-; projects will be placed in a subdirectory of the modules folder.
-; Note that if the long form is used, the version key must be defined
-; for the project!
-; projects[cck][version] = 2.6
-; projects[cck][subdir] = cck_related_modules
-; projects[filefield][version] = 3.2
-; projects[filefield][subdir] = cck_related_modules
-
-; Defining a theme is no different.
 
 projects[omega] = 3.1
 
