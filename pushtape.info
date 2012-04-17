@@ -30,6 +30,7 @@ dependencies[] = views_ui
 dependencies[] = token
 dependencies[] = ds
 dependencies[] = ds_extras
+dependencies[] = context
 
 ; Contrib - Field UI and Content Types
 dependencies[] = tablefield

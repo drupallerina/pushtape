@@ -358,6 +358,9 @@ libraries[colorbox][type] = "library"
 projects[diff][subdir] = devel
 projects[diff][version] = "2.0"
 
+projects[context][subdir] = devel
+projects[context][version] = "3.0-beta2"
+
 projects[libraries][subdir] = devel
 projects[libraries][version] = "2.0-alpha2"
 
