@@ -53,7 +53,7 @@ projects[views][version] = 3.3
 projects[views][type] = module
 projects[views][subdir] = contrib
 
-projects[token][version] = 1.0-rc1
+projects[token][version] = 1.0
 projects[token][type] = module
 projects[token][subdir] = contrib
 
@@ -74,7 +74,7 @@ projects[link][version] = 1.0
 projects[link][type] = module
 projects[link][subdir] = contrib
 
-projects[date][version] = 2.2
+projects[date][version] = 2.3
 projects[date][type] = module
 projects[date][subdir] = contrib
 
@@ -108,7 +108,7 @@ projects[office_hours][download][type] = git
 projects[office_hours][download][revision] = ff04ef1
 projects[office_hours][download][branch] = 7.x-1.x
 
-projects[entityreference][version] = 1.0-beta5
+projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
 
@@ -157,7 +157,7 @@ projects[media_youtube][version] = 1.0-beta3
 projects[media_youtube][type] = module
 projects[media_youtube][subdir] = contrib
 
-projects[media_vimeo][version] = 1.0-beta4
+projects[media_vimeo][version] = 1.0-beta5
 projects[media_vimeo][type] = module
 projects[media_vimeo][subdir] = contrib
 
@@ -204,7 +204,7 @@ projects[image_resize_filter][version] = 1.13
 projects[image_resize_filter][type] = module
 projects[image_resize_filter][subdir] = contrib
 
-projects[date_popup_authored][version] = 1.1-beta2
+projects[date_popup_authored][version] = 1.1
 projects[date_popup_authored][subdir] = contrib
 projects[date_popup_authored][type] = module
 
@@ -267,12 +267,12 @@ projects[uuid_features][download][type] = git
 projects[uuid_features][download][revision] = bea7d9d
 projects[uuid_features][download][branch] = 7.x-1.x
 
-projects[defaultcontent][version] = 1.0-alpha5
+projects[defaultcontent][version] = 1.0-alpha6
 projects[defaultcontent][type] = module
 projects[defaultcontent][subdir] = contrib
-projects[defaultcontent][patch][1263536] = http://drupal.org/files/base64_encode_files-1263536-1_0.patch
+;projects[defaultcontent][patch][1263536] = http://drupal.org/files/base64_encode_files-1263536-1_0.patch
 
-projects[strongarm][version] = 2.0-beta5
+projects[strongarm][version] = 2.0-rc1
 projects[strongarm][type] = module
 projects[strongarm][subdir] = contrib
 
