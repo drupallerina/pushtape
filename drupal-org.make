@@ -355,12 +355,22 @@ libraries[colorbox][type] = "library"
 
 ; Devel Tools
 
-
+projects[diff][subdir] = devel
 projects[diff][version] = "2.0"
+
+projects[libraries][subdir] = devel
 projects[libraries][version] = "2.0-alpha2"
+
+projects[strongarm][subdir] = devel
 projects[strongarm][version] = "2.0-beta4"
+
+projects[devel][subdir] = devel
 projects[devel][version] = "1.2"
+
+projects[coder][subdir] = devel
 projects[coder][version] = "1.0"
+
+projects[omega_tools][subdir] = devel
 projects[omega_tools][version] = "3.0-rc4"
 
 ;projects[pushtape_features][type] = "module"
