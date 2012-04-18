@@ -13,8 +13,6 @@ api = 2
 
 ; OPTIONAL ATTRIBUTES
 
-;include panopoly make
-include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
 
 ; Contrib - Foundation
 projects[ctools][subdir] = contrib
@@ -384,3 +382,6 @@ projects[omega_pushtape][type] = "theme"
 projects[omega_pushtape][download][type] = "git"
 projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
 projects[omega_pushtape][download][branch] = "7.x-1.x"
+
+;include panopoly make
+include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
