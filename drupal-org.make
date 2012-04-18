@@ -374,7 +374,7 @@ libraries[colorbox][type] = "library"
 ;projects[pushtape_features][type] = "module"
 ;projects[pushtape_features][download][type] = "git"
 ;projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-;projects[pushtape_features][download][branch] = "7.x-2.x"
+;projects[pushtape_features][download][branch] = "7.x-2.x-apps"
 
 ; Defining a theme is no different.
 
