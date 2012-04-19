@@ -73,7 +73,7 @@ function pushtape_install_tasks($install_state) {
       'pushtape_core',
       ),
     'required apps' => array(
-      'pushtape_core',
+//      'pushtape_core',
     ),
     'default content callback' => 'pushtape_default_content',
   );
