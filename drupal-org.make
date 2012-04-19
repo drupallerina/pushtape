@@ -99,12 +99,12 @@ projects[field_group][version] = 1.1
 projects[field_group][type] = module
 projects[field_group][subdir] = contrib
 
-projects[office_hours][version] = 1.x-dev
-projects[office_hours][type] = module
-projects[office_hours][subdir] = contrib
-projects[office_hours][download][type] = git
+;projects[office_hours][version] = 1.x-dev
+;projects[office_hours][type] = module
+;projects[office_hours][subdir] = contrib
+;projects[office_hours][download][type] = git
 ;projects[office_hours][download][revision] = ff04ef1
-projects[office_hours][download][branch] = 7.x-1.x
+;projects[office_hours][download][branch] = 7.x-1.x
 
 projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module

@@ -45,9 +45,9 @@ dependencies[] = simple_gmap
 dependencies[] = email
 dependencies[] = phone
 dependencies[] = field_group
-dependencies[] = office_hours
+;dependencies[] = office_hours
 dependencies[] = node_reference
-dependencies[] = biblio
+;dependencies[] = biblio
 dependencies[] = calendar
 dependencies[] = file_entity
 
