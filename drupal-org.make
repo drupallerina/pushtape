@@ -37,14 +37,14 @@ projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][version] = 1.x-dev
 projects[fieldable_panels_panes][type] = module
 projects[fieldable_panels_panes][download][type] = git
-projects[fieldable_panels_panes][download][revision] = 3833248
+;projects[fieldable_panels_panes][download][revision] = 3833248
 projects[fieldable_panels_panes][download][branch] = 7.x-1.x
 
 projects[pm_existing_pages][version] = 1.x-dev
 projects[pm_existing_pages][type] = module
 projects[pm_existing_pages][subdir] = contrib
 projects[pm_existing_pages][download][type] = git
-projects[pm_existing_pages][download][revision] = 8be3b27
+;projects[pm_existing_pages][download][revision] = 8be3b27
 projects[pm_existing_pages][download][branch] = 7.x-1.x
 
 projects[views][version] = 3.3
@@ -92,7 +92,7 @@ projects[phone][version] = 1.x-dev
 projects[phone][type] = module
 projects[phone][subdir] = contrib
 projects[phone][download][type] = git
-projects[phone][download][revision] = c45a7e4
+;projects[phone][download][revision] = c45a7e4
 projects[phone][download][branch] = 7.x-1.x
 
 projects[field_group][version] = 1.1
@@ -103,19 +103,12 @@ projects[office_hours][version] = 1.x-dev
 projects[office_hours][type] = module
 projects[office_hours][subdir] = contrib
 projects[office_hours][download][type] = git
-projects[office_hours][download][revision] = ff04ef1
+;projects[office_hours][download][revision] = ff04ef1
 projects[office_hours][download][branch] = 7.x-1.x
 
 projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
-
-projects[biblio][version] = 1.x-dev
-projects[biblio][type] = module
-projects[biblio][subdir] = contrib
-projects[biblio][download][type] = git
-projects[biblio][download][revision] = 4fe4471
-projects[biblio][download][branch] = 7.x-1.x
 
 projects[calendar][version] = 3.0
 projects[calendar][subdir] = contrib
@@ -126,7 +119,7 @@ projects[file_entity][version] = 2.x-dev
 projects[file_entity][type] = module
 projects[file_entity][subdir] = contrib
 projects[file_entity][download][type] = git
-projects[file_entity][download][revision] = 86ba3ff
+;projects[file_entity][download][revision] = 86ba3ff
 projects[file_entity][download][branch] = 7.x-2.x
 
 ; Contrib - Search
@@ -148,7 +141,7 @@ projects[media][version] = 2.x-dev
 projects[media][type] = module
 projects[media][subdir] = contrib
 projects[media][download][type] = git
-projects[media][download][revision] = 863d6a6
+;projects[media][download][revision] = 863d6a6
 projects[media][download][branch] = 7.x-2.x
 
 projects[media_youtube][version] = 1.0-beta3
@@ -180,7 +173,7 @@ projects[wysiwyg][version] = 2.x-dev
 projects[wysiwyg][patch][1489096] = http://drupal.org/files/wysiwyg-table-format.patch
 projects[wysiwyg][patch][356480] = http://drupal.org/files/356480-by-zhangtaihao-Shawn_Smiley-sun.-Lazy-load-ed-p0.patch
 projects[wysiwyg][download][type] = git
-projects[wysiwyg][download][revision] = 0123d90 
+;projects[wysiwyg][download][revision] = 0123d90 
 projects[wysiwyg][download][branch] = 7.x-2.x
 
 projects[wysiwyg_filter][version] = 1.6-rc2
@@ -191,7 +184,7 @@ projects[better_formats][version] = 1.x-dev
 projects[better_formats][subdir] = contrib
 projects[better_formats][type] = module
 projects[better_formats][download][type] = git
-projects[better_formats][download][revision] = 9106bcf
+;projects[better_formats][download][revision] = 9106bcf
 projects[better_formats][download][branch] = 7.x-1.x
 
 projects[caption_filter][version] = 1.2
@@ -240,7 +233,7 @@ projects[apps][patch][1480912] = http://drupal.org/files/apps-clean-up-the-clean
 projects[apps][patch][1482684] = http://drupal.org/files/apps-single-item-style.patch
 projects[apps][patch][1484300] = http://drupal.org/files/apps-check-empty-multiple-servers.patch
 projects[apps][download][type] = git
-projects[apps][download][revision] = b1cf924
+;projects[apps][download][revision] = b1cf924
 projects[apps][download][branch] = 7.x-1.x
 
 projects[features][version] = 1.0-rc1
@@ -255,14 +248,14 @@ projects[uuid][version] = 1.x-dev
 projects[uuid][type] = module
 projects[uuid][subdir] = contrib
 projects[uuid][download][type] = git
-projects[uuid][download][revision] = 22c3ae3
+;projects[uuid][download][revision] = 22c3ae3
 projects[uuid][download][branch] = 7.x-1.x
 
 projects[uuid_features][version] = 1.x-dev
 projects[uuid_features][type] = module
 projects[uuid_features][subdir] = contrib
 projects[uuid_features][download][type] = git
-projects[uuid_features][download][revision] = bea7d9d
+;projects[uuid_features][download][revision] = bea7d9d
 projects[uuid_features][download][branch] = 7.x-1.x
 
 projects[defaultcontent][version] = 1.0-alpha6
