@@ -384,4 +384,4 @@ projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipo
 projects[omega_pushtape][download][branch] = "7.x-1.x"
 
 ;include panopoly make
-include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
+;include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
