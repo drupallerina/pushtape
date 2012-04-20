@@ -35,7 +35,7 @@ function pushtape_install_tasks($install_state) {
   $tasks = array();
   
   // is there such a switch?experimental workarond to make it run with aegir? http://drupal.org/node/1500120 http://drupal.org/node/1491258
-  if ($install_state['interactive']) {
+  if (!defined('DRUSH_BASE_PATH')) {
       
   // Summon the power of the Apps module
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
