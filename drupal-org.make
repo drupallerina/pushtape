@@ -267,7 +267,7 @@ projects[strongarm][version] = 2.0-rc1
 projects[strongarm][type] = module
 projects[strongarm][subdir] = contrib
 
-projects[libraries][version] = 1.0
+projects[libraries][version] = 2.x-dev
 projects[libraries][type] = module
 projects[libraries][subdir] = contrib
 
