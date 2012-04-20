@@ -45,7 +45,7 @@ projects[media] = 2.0-unstable3
 
 ; Devel Tools
 projects[diff][version] = "2.0"
-projects[libraries][version] = "2.0-alpha2"
+projects[libraries][version] = "2.x-dev"
 projects[strongarm][version] = "2.0-rc1"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.x-dev"
