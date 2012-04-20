@@ -48,7 +48,10 @@ projects[diff][version] = "2.0"
 projects[libraries][version] = "2.0-alpha2"
 projects[strongarm][version] = "2.0-rc1"
 projects[devel][version] = "1.2"
-projects[coder][version] = "1.0"
+projects[coder][version] = "1.x-dev"
+
+
+
 projects[omega_tools][version] = "3.0-rc4"
 projects[delta][version] = "3.0-beta9"
 
@@ -66,8 +69,9 @@ projects[soundmanager2][version] = "2.x-dev"
 projects[views_bulk_operations][version] = "3.0-rc1"
 
 ; Libraries
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
+libraries[grammar_parser_lib][version] = "1.x-dev"
+
+; Soundmanager2
 libraries[soundmanager2][download][type] = "get"
 libraries[soundmanager2][download][url] = "http://www.schillmania.com/projects/soundmanager2/download/soundmanagerv297a-20120318.zip"
 libraries[soundmanager2][directory_name] = "soundmanager2"
