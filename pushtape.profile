@@ -195,7 +195,7 @@ function pushtape_apps_servers_info() {
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x-panopolybased',
       'server_name' => $_SERVER['SERVER_NAME'],
- //     'server_ip' => $_SERVER['SERVER_ADDR'],
+      'server_ip' => $_SERVER['SERVER_ADDR'],
     ),
     'panopoly' => array(
       'title' => 'Panopoly',
@@ -204,7 +204,7 @@ function pushtape_apps_servers_info() {
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
       'server_name' => $_SERVER['SERVER_NAME'],
- //     'server_ip' => $_SERVER['SERVER_ADDR'],
+      'server_ip' => $_SERVER['SERVER_ADDR'],
     ),
   );
 }
@@ -221,7 +221,7 @@ function pushtape_default_content(&$modules) {
     // better to check $_SESSION['apps_manifest'] and check to see if this exists:
     // function_exists($_SESSION['module']['configure form'])
     if (isset($files[$module . '_democontent'])) {
- //     $modules[] = $module . '_democontent';
+      $modules[] = $module . '_democontent';
     }
   }
 }

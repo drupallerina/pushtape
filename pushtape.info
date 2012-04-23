@@ -89,8 +89,8 @@ dependencies[] = apps
 dependencies[] = features
 dependencies[] = entity
 dependencies[] = uuid
-;dependencies[] = uuid_features
-;dependencies[] = defaultcontent
+dependencies[] = uuid_features
+dependencies[] = defaultcontent
 dependencies[] = strongarm
 dependencies[] = libraries
 
