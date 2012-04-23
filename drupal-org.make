@@ -361,12 +361,6 @@ libraries[colorbox][download][url] = "http://www.jacklmoore.com/colorbox/colorbo
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
-
-;projects[pushtape_features][type] = "module"
-;projects[pushtape_features][download][type] = "git"
-;projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-;projects[pushtape_features][download][branch] = "7.x-2.x-apps"
-
 ; Defining a theme is no different.
 
 projects[omega] = 3.1
