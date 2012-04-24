@@ -271,7 +271,7 @@ function pushtape_install() {
 
   // Update the menu router information.
   menu_rebuild();
-  */
+ 
   
   
   // Enable some standard blocks.
@@ -333,7 +333,7 @@ function pushtape_install() {
     $query->values($record);
   }
   $query->execute();
-
+ */
   // New accounts made by administrators only.
   variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
 
