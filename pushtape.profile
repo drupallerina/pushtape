@@ -70,7 +70,7 @@ function pushtape_install_tasks($install_state) {
   $pushtape_server = array(
     'machine name' => 'pushtape',
     'default apps' => array(
-  //    'pushtape_core',
+     'pushtape_core',
       ),
     'required apps' => array(
 //      'pushtape_core',
