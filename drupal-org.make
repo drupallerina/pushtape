@@ -31,7 +31,7 @@ projects[panels_breadcrumbs][version] = 1.6
 
 projects[panelizer][subdir] = contrib
 projects[panelizer][type] = module
-projects[panelizer][version] = 2.0
+projects[panelizer][version] = 2.x-dev
 
 projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][version] = 1.x-dev
