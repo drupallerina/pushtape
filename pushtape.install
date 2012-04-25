@@ -272,67 +272,6 @@ function pushtape_install() {
   // Update the menu router information.
   menu_rebuild();
  
-  
-  
-  // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'omega_pushtape');
-  $values = array(
-    array(
-      'module' => 'system', 
-      'delta' => 'main', 
-      'theme' => $default_theme, 
-      'status' => 1, 
-      'weight' => 0, 
-      'region' => 'content', 
-      'pages' => '', 
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user', 
-      'delta' => 'login', 
-      'theme' => $default_theme, 
-      'status' => 1, 
-      'weight' => 0, 
-      'region' => 'sidebar_second', 
-      'pages' => '', 
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system', 
-      'delta' => 'main-menu', 
-      'theme' => $default_theme, 
-      'status' => 1, 
-      'weight' => 0, 
-      'region' => 'header', 
-      'pages' => '', 
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'views', 
-      'delta' => 'releases-block_1', 
-      'theme' => $default_theme, 
-      'status' => 1, 
-      'weight' => 0, 
-      'region' => 'sidebar_second', 
-      'pages' => '', 
-      'cache' => -1,
-    ),    
-    array(
-      'module' => 'system', 
-      'delta' => 'help', 
-      'theme' => $default_theme, 
-      'status' => 1, 
-      'weight' => 0, 
-      'region' => 'help', 
-      'pages' => '', 
-      'cache' => -1,
-    ),
-  );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
-  foreach ($values as $record) {
-    $query->values($record);
-  }
-  $query->execute();
  */
   // New accounts made by administrators only.
   variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
