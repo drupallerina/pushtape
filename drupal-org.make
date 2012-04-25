@@ -372,5 +372,10 @@ projects[omega_pushtape][download][type] = "git"
 projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
 projects[omega_pushtape][download][branch] = "7.x-1.x"
 
+projects[pushtape_wireframe][type] = "theme"
+projects[pushtape_wireframe][download][type] = "git"
+projects[pushtape_wireframe][download][url] = "http://git.drupal.org/sandbox/gusaus/1547514.git"
+projects[pushtape_wireframe][download][branch] = "master"
+
 ;include panopoly make
 ;include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
