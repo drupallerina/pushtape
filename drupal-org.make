@@ -311,7 +311,8 @@ projects[fontyourface][subdir] = contrib
 projects[fontyourface][type] = module
 projects[fontyourface][version] = 2.2
 
-; Libraries
+; Libraries 
+; TO DO: http://drupal.org/node/1532358 use real libs
 libraries[tinymce][download][type] = get
 libraries[tinymce][download][url] = http://apps.getpantheon.com/sites/all/libraries/tinymce-panopoly.tar.gz
 
