@@ -64,7 +64,7 @@ projects[ds][type] = module
 projects[ds][subdir] = contrib
 
 ; Contrib - Field UI and Content Types
-projects[tablefield][version] = 2.0-beta6
+projects[tablefield][version] = 2.0
 projects[tablefield][type] = module
 projects[tablefield][subdir] = contrib
 
@@ -72,7 +72,7 @@ projects[link][version] = 1.0
 projects[link][type] = module
 projects[link][subdir] = contrib
 
-projects[date][version] = 2.3
+projects[date][version] = 2.5
 projects[date][type] = module
 projects[date][subdir] = contrib
 
@@ -110,10 +110,10 @@ projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
 
-projects[calendar][version] = 3.0
+projects[calendar][version] = 3.2
 projects[calendar][subdir] = contrib
 projects[calendar][type] = module
-projects[calendar][patch][1489092] = http://drupal.org/files/panopoly-calendar-neg-taxonomy.patch
+;projects[calendar][patch][1489092] = http://drupal.org/files/panopoly-calendar-neg-taxonomy.patch
 
 projects[file_entity][version] = 2.x-dev
 projects[file_entity][type] = module
@@ -236,7 +236,7 @@ projects[apps][download][type] = git
 ;projects[apps][download][revision] = b1cf924
 projects[apps][download][branch] = 7.x-1.x
 
-projects[features][version] = 1.0-rc1
+projects[features][version] = 1.0-rc2
 projects[features][subdir] = contrib
 projects[features][type] = module
 
@@ -334,7 +334,7 @@ projects[beautytips][version] = "2.0-beta1"
 projects[better_exposed_filters][version] = "3.0-beta1"
 projects[colorbox][version] = "1.2"
 projects[download_file][version] = "1.1"
-projects[entity][version] = "1.0-rc1"
+projects[entity][version] = "1.0-rc2"
 projects[field_group][version] = "1.1"
 projects[hierarchical_select][version] = "3.x-dev"
 projects[soundmanager2][version] = "2.x-dev"
