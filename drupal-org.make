@@ -215,9 +215,9 @@ projects[simplified_menu_admin][version] = 1.0-beta2
 projects[simplified_menu_admin][type] = module
 projects[simplified_menu_admin][subdir] = contrib
 
-projects[references_dialog][version] = 1.0-alpha3
-projects[references_dialog][type] = module
-projects[references_dialog][subdir] = contrib
+;projects[references_dialog][version] = 1.0-alpha3
+;projects[references_dialog][type] = module
+;projects[references_dialog][subdir] = contrib
 
 projects[backports][version] = 1.0-alpha1
 projects[backports][type] = module
