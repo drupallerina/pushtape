@@ -79,11 +79,11 @@ libraries[soundmanager2][type] = "library"
 
 ;Pushtape apps
 
-;projects[pushtape_features][type] = "module"
-;projects[pushtape_features][download][type] = "git"
-;projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-;projects[pushtape_features][download][branch] = "7.x-2.x"
-;projects[pushtape_features][subdir] = pushtape_apps
+projects[pushtape_features][type] = "module"
+projects[pushtape_features][download][type] = "git"
+projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
+projects[pushtape_features][download][branch] = "7.x-2.x"
+projects[pushtape_features][subdir] = pushtape_apps
 
 projects[pushtape_features][location] = http://apps.rosenstrauch.com/fserver
 projects[pushtape_features][subdir] = pushtape_apps
@@ -95,8 +95,7 @@ projects[pushtape_mediaplayer][subdir] = pushtape_apps
 projects[omega] = 3.1
 
 projects[omega_pushtape_theme][location] = http://apps.rosenstrauch.com/fserver
-
-;projects[omega_pushtape][type] = "theme"
-;projects[omega_pushtape][download][type] = "git"
-;projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
-;projects[omega_pushtape][download][branch] = "7.x-1.x"
+projects[omega_pushtape][type] = "theme"
+projects[omega_pushtape][download][type] = "git"
+projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
+projects[omega_pushtape][download][branch] = "7.x-1.x"
