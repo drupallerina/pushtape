@@ -94,18 +94,11 @@ projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtap
 projects[pushtape_features][download][branch] = "7.x-2.x"
 projects[pushtape_features][subdir] = pushtape_apps
 
-projects[pushtape_features][location] = http://apps.rosenstrauch.com/fserver
-projects[pushtape_features][subdir] = pushtape_apps
-
 projects[pushtape_mediaplayer][type] = "module"
 projects[pushtape_mediaplayer][download][type] = "git"
-projects[pushtape_mediaplayer][download][url] = "git://github.com/discipolo/pushtape_features.git"
+projects[pushtape_mediaplayer][download][url] = "git://github.com/discipolo/pushtape_mediaplayer.git"
 projects[pushtape_mediaplayer][download][branch] = "7.x-2.x"
 projects[pushtape_mediaplayer][subdir] = pushtape_apps
-
-projects[pushtape_mediaplayer][location] = http://apps.rosenstrauch.com/fserver
-projects[pushtape_mediaplayer][subdir] = pushtape_apps
-
 
 projects[omega] = 3.1
 
