@@ -40,6 +40,7 @@ projects[references] = 2.x-dev
 projects[ctools] = 1.0
 projects[token] = 1.0
 projects[views] = 3.3
+projects[media] = 2.0-unstable3
 
 ;projects[pushtape_features] = 1.4 --> using dev version from github below
 
