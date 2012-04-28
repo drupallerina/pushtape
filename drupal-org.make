@@ -377,5 +377,11 @@ projects[pushtape_wireframe][download][type] = "git"
 projects[pushtape_wireframe][download][url] = "http://git.drupal.org/sandbox/gusaus/1547514.git"
 projects[pushtape_wireframe][download][branch] = "master"
 
+projects[navin][type] = "theme"
+
+projects[tao][type] = "theme"
+projects[rubik][type] = "theme"
+projects[cube][type] = "theme"
+
 ;include panopoly make
 ;include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make
