@@ -311,6 +311,11 @@ projects[fontyourface][subdir] = contrib
 projects[fontyourface][type] = module
 projects[fontyourface][version] = 2.2
 
+projects[jplayer][subdir] = contrib
+projects[jplayer][type] = module
+projects[jplayer][version] = 2.x-dev
+projects[jplayer][patch][] = http://drupal.org/files/hide-direct-link-1046744-16.patch
+
 ; Playlist addon dependencies
 ;projects[beautytips][version] = "2.0-beta1"
 ;projects[better_exposed_filters][version] = "3.0-beta1"
