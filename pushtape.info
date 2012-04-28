@@ -74,7 +74,7 @@ dependencies[] = admin
 dependencies[] = module_filter
 dependencies[] = views_bulk_operations
 dependencies[] = simplified_menu_admin
-dependencies[] = references_dialog 
+;dependencies[] = references_dialog
 dependencies[] = backports
 
 ; Contrib - Search 
