@@ -71,9 +71,10 @@ function pushtape_install_tasks($install_state) {
     'machine name' => 'pushtape',
     'default apps' => array(
      'pushtape_core',
+     'pushtape_music',
       ),
     'required apps' => array(
-//      'pushtape_core',
+      'pushtape_core',
     ),
     'default content callback' => 'pushtape_default_content',
   );
@@ -119,7 +120,7 @@ function pushtape_form_install_configure_form_alter(&$form, $form_state) {
   drupal_get_messages('warning');
 
   // Set reasonable defaults for site configuration form
-  $form['site_information']['site_name']['#default_value'] = 'Department of Pushtape';
+  $form['site_information']['site_name']['#default_value'] = 'Panopoly Pushtape';
   $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST']; 
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
   $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
@@ -231,7 +232,7 @@ function pushtape_default_content(&$modules) {
  */
 function pushtape_set_theme() {
   $themes = list_themes();
-  $theme = $themes['omega_pushtape'];
+  $theme = $themes['pushtape_wireframe'];
   _drupal_theme_initialize($theme);
 }
 
@@ -291,7 +292,7 @@ function pushtape_theme_form($form, &$form_state) {
   // Create list of theme options, minus admin + testing + starter themes
   $themes = array();
   foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array('test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance'))) {
+    if (!in_array($theme->name, array( 'omega', 'alpha', 'tao', 'rubik', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance'))) {
       $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . $theme->info['description'] . '</em></p>';
     }
   }
