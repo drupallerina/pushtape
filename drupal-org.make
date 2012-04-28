@@ -49,24 +49,9 @@ projects[libraries][version] = "2.x-dev"
 projects[strongarm][version] = "2.0-rc1"
 projects[devel][version] = "1.2"
 projects[coder][version] = "1.x-dev"
-
-
-
 projects[omega_tools][version] = "3.0-rc4"
 projects[delta][version] = "3.0-beta9"
 
-
-; Playlist addon dependencies (should be included in the feature)
-;projects[beautytips][version] = "2.0-beta1"
-;projects[better_exposed_filters][version] = "3.0-beta1"
-;projects[colorbox][version] = "1.2"
-;projects[download_file][version] = "1.1"
-projects[entity][version] = "1.0-rc1"
-;projects[field_group][version] = "1.1"
-;projects[hierarchical_select][version] = "3.x-dev"
-projects[soundmanager2][version] = "2.x-dev"
-;projects[uniform][version] = "1.10"
-projects[views_bulk_operations][version] = "3.0-rc1"
 
 ; Libraries
 libraries[grammar_parser_lib][version] = "1.x-dev"
