@@ -19,5 +19,5 @@ projects[drupal][type] = "core"
 ;projects[pushtape][download][url] = "git://github.com/discipolo/pushtape.git"
 ;projects[pushtape][download][branch] = "7.x-2.x"
 
-projects[pushtape_profile][type] = "profile"
-projects[pushtape_profile][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape][type] = "profile"
+projects[pushtape][location] = http://apps.rosenstrauch.com/fserver
