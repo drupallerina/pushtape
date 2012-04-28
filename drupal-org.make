@@ -99,13 +99,6 @@ projects[field_group][version] = 1.1
 projects[field_group][type] = module
 projects[field_group][subdir] = contrib
 
-;projects[office_hours][version] = 1.x-dev
-;projects[office_hours][type] = module
-;projects[office_hours][subdir] = contrib
-;projects[office_hours][download][type] = git
-;projects[office_hours][download][revision] = ff04ef1
-;projects[office_hours][download][branch] = 7.x-1.x
-
 projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
@@ -334,8 +327,6 @@ libraries[jquery.cycle][download][url] = http://apps.getpantheon.com/sites/all/l
 libraries[respondjs][download][type] = get
 libraries[respondjs][download][url] = http://apps.getpantheon.com/sites/all/libraries/panopoly-respondjs.tar.gz
 
-; Libraries
-
 libraries[jplayer][download][type] = "get"
 libraries[jplayer][download][url] = "http://jplayer.org/latest/jQuery.jPlayer.2.1.0.zip"
 libraries[jplayer][directory_name] = "jplayer"
@@ -346,8 +337,6 @@ libraries[soundmanager2][download][url] = "http://www.schillmania.com/projects/s
 libraries[soundmanager2][directory_name] = "soundmanager2"
 libraries[soundmanager2][type] = "library"
 
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
 libraries[uniform][download][type] = "git"
 libraries[uniform][download][url] = "https://github.com/pixelmatrix/uniform.git"
 libraries[uniform][directory_name] = "uniform"
