@@ -77,10 +77,16 @@ libraries[soundmanager2][download][url] = "http://www.schillmania.com/projects/s
 libraries[soundmanager2][directory_name] = "soundmanager2"
 libraries[soundmanager2][type] = "library"
 
+;Pushtape apps
+
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
 projects[pushtape_features][download][branch] = "7.x-2.x"
+projects[pushtape_features][subdir] = pushtape_apps
+
+projects[pushtape_mediaplayer][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape_mediaplayer][subdir] = pushtape_apps
 
 projects[omega] = 3.1
 
