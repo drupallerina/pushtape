@@ -316,18 +316,6 @@ projects[jplayer][type] = module
 projects[jplayer][version] = 2.x-dev
 projects[jplayer][patch][] = http://drupal.org/files/hide-direct-link-1046744-16.patch
 
-; Playlist addon dependencies
-;projects[beautytips][version] = "2.0-beta1"
-;projects[better_exposed_filters][version] = "3.0-beta1"
-;projects[colorbox][version] = "1.2"
-;projects[download_file][version] = "1.1"
-;projects[entity][version] = "1.0-rc2"
-;projects[field_group][version] = "1.1"
-;projects[hierarchical_select][version] = "3.x-dev"
-;projects[soundmanager2][version] = "2.x-dev"
-;projects[uniform][version] = "1.10"
-;projects[views_bulk_operations][version] = "3.0-rc1"
-
 ; Libraries 
 ; TO DO: http://drupal.org/node/1532358 use real libs
 libraries[tinymce][download][type] = get
