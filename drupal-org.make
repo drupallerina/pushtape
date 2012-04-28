@@ -72,6 +72,13 @@ projects[pushtape_mediaplayer][download][url] = "git://github.com/discipolo/push
 projects[pushtape_mediaplayer][download][branch] = "7.x-2.x"
 projects[pushtape_mediaplayer][subdir] = pushtape_apps
 
+projects[pushtape_connect][type] = "module"
+projects[pushtape_connect][download][type] = "git"
+projects[pushtape_connect][download][url] = "git://github.com/discipolo/pushtape_connect.git"
+projects[pushtape_connect][download][branch] = "7.x-2.x"
+projects[pushtape_connect][subdir] = pushtape_apps
+
+
 projects[omega] = 3.1
 
 ;projects[omega_pushtape][location] = http://apps.rosenstrauch.com/fserver
