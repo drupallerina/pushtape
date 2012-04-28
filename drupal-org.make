@@ -100,7 +100,7 @@ projects[pushtape_mediaplayer][subdir] = pushtape_apps
 
 projects[omega] = 3.1
 
-projects[omega_pushtape_theme][location] = http://apps.rosenstrauch.com/fserver
+;projects[omega_pushtape][location] = http://apps.rosenstrauch.com/fserver
 projects[omega_pushtape][type] = "theme"
 projects[omega_pushtape][download][type] = "git"
 projects[omega_pushtape][download][url] = "http://git.drupal.org/sandbox/discipolo/1474174.git"
