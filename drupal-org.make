@@ -314,9 +314,8 @@ projects[jplayer][patch][] = http://drupal.org/files/hide-direct-link-1046744-16
 libraries[tinymce][download][type] = get
 libraries[tinymce][download][url] = http://apps.getpantheon.com/sites/all/libraries/tinymce-panopoly.tar.gz
 
-libraries[solrphpclient][download][type] = get
-libraries[solrphpclient][download][url] = http://apps.getpantheon.com/sites/all/libraries/SolrPhpClient.r60.2011-05-04.zip
-;libraries[solrphpclient][directory_name] = "SolrPhPclient"
+libraries[SolrPhpClient][download][type] = get
+libraries[SolrPhpClient][download][url] = http://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.zip
 
 libraries[markitup][download][type] = get
 libraries[markitup][download][url] = http://apps.getpantheon.com/sites/all/libraries/markitup-panopoly.tar.gz
