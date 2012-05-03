@@ -33,10 +33,7 @@ function pushtape_form_alter(&$form, $form_state, $form_id) {
 function pushtape_install_tasks($install_state) {
   // Kick off the tasks
   $tasks = array();
-  
-  // is there such a switch?experimental workarond to make it run with aegir? http://drupal.org/node/1500120 http://drupal.org/node/1491258
-  if (!defined('DRUSH_BASE_PATH')) {
-      
+     
   // Summon the power of the Apps module
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
@@ -64,8 +61,15 @@ function pushtape_install_tasks($install_state) {
     ),
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $panopoly_server);
-  $tasks['apps_profile_apps_select_form_panopoly']['display_name'] = t('Install apps for Panopoly');
+  
+  //$tasks['apps_profile_apps_select_form_panopoly']['display_name'] = t('Install apps for Panopoly');
 
+  // Rename one of the default apps tasks. In the case of a non-interactive
+  // installation, apps_profile_install_tasks() never defines this task, so we
+  // need to make sure we don't accidentally create it when it doesn't exist.
+  if (isset($tasks['apps_profile_apps_select_form_panopoly'])) {
+    $tasks['apps_profile_apps_select_form_panopoly']['display_name'] = t('Install apps for Panopoly');
+  }
   // Setup the Pushtape Apps install task
   $pushtape_server = array(
     'machine name' => 'pushtape',
@@ -79,8 +83,16 @@ function pushtape_install_tasks($install_state) {
     'default content callback' => 'pushtape_default_content',
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $pushtape_server);
-  $tasks['apps_profile_apps_select_form_pushtape']['display_name'] = t('Install apps for Pushtape');
+  
+//$tasks['apps_profile_apps_select_form_pushtape']['display_name'] = t('Install apps for Pushtape');
 
+    // Rename one of the default apps tasks. In the case of a non-interactive
+  // installation, apps_profile_install_tasks() never defines this task, so we
+  // need to make sure we don't accidentally create it when it doesn't exist.
+  if (isset($tasks['apps_profile_apps_select_form_pushtape'])) {
+    $tasks['apps_profile_apps_select_form_pushtape']['display_name'] = t('Install apps for pushtape');
+  }
+  
   // Setup the theme selection and configuration tasks
   $tasks['pushtape_theme_form'] = array(
     'display_name' => t('Choose a theme'),
@@ -98,16 +110,6 @@ function pushtape_install_tasks($install_state) {
   );
   
   return $tasks;
- }
- /* not interactive? aegir fix part 2*/
- else {
-     return $tasks;
-   // Once more for good measure
-  drupal_flush_all_caches();
-
-  // And away we go
-  drupal_goto('<front>');
- }
 }
 
 /**
@@ -446,6 +448,13 @@ function pushtape_finished_yah_submit($form, &$form_state) {
 
   // And away we go
   drupal_goto('<front>');
+  
+  // $form_state['redirect'] won't work here since we are still in the
+  // installer, so use drupal_goto() (for interactive installs only) instead.
+  $install_state = $form_state['build_info']['args'][0];
+  if ($install_state['interactive']) {
+    drupal_goto('<front>');
+  }
 }
 
 /**
