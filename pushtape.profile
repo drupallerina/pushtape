@@ -455,7 +455,7 @@ function pushtape_finished_yah_submit($form, &$form_state) {
 
 /**
 * Helper function to adjust an array and put an element right where we want it. 
-*/
+
 function pushtape_maintaince_array_insert(&$array, $key, $insert_array, $before = FALSE) {
   $done = FALSE;
   foreach ($array as $array_key => $array_val) {
@@ -477,4 +477,4 @@ function pushtape_maintaince_array_insert(&$array, $key, $insert_array, $before 
   }
   // Put the new array in the place of the original.
   $array = $new_array;
-}
+}*/
