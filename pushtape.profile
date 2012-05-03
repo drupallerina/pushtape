@@ -182,7 +182,7 @@ function pushtape_apps_servers_info() {
       'description' => "Apps for Pushtape",
       'manifest' => 'http://www.apps.rosenstrauch.com/app/query/pushtape',
       'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-2.x-panopolybased',
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-3.x',
       'server_name' => $_SERVER['SERVER_NAME'],
       'server_ip' => $_SERVER['SERVER_ADDR'],
     ),
@@ -280,7 +280,7 @@ function pushtape_theme_form($form, &$form_state) {
   // Create list of theme options, minus admin + testing + starter themes
   $themes = array();
   foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array( 'omega', 'navin','cube', 'garland', 'alpha', 'tao', 'rubik', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance', 'starterkit_omega_html5', 'starterkit_omega_xhtml', 'starterkit_alpha_html5', 'starterkit_alpha_xhtml'))) {
+    if (!in_array($theme->name, array('omega', 'navin','cube', 'garland', 'alpha', 'tao', 'rubik', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance', 'starterkit_omega_html5', 'starterkit_omega_xhtml', 'starterkit_alpha_html5', 'starterkit_alpha_xhtml'))) {
       $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . $theme->info['description'] . '</em></p>';
     }
   }
@@ -396,7 +396,7 @@ function pushtape_finished_yah($form, &$form_state) {
   $form = array();
   
   //set the title
-  drupal_set_title(st('Congratulations!'));
+  drupal_set_title(t('Congratulations!'));
   
   //set the guidelines
   variable_set('pushtape_install_guidelines', '');
