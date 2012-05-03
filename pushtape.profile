@@ -153,16 +153,6 @@ function pushtape_form_apps_profile_apps_select_form_alter(&$form, $form_state) 
  */
 function pushtape_install_tasks_alter(&$tasks, $install_state) {
 
-  // Insert install task to set theme
- // pushtape_maintaince_array_insert(
-  //  $tasks, 
-  //  'install_load_profile', array(
- //     'pushtape_set_theme' => array(
-  //      'run' => INSTALL_TASK_RUN_IF_REACHED,
- //     ),
-   // )
-  //);
-
   // Since we only offer one language, define a callback to set this
   $tasks['install_select_locale']['function'] = 'pushtape_locale_selection';
 
@@ -452,29 +442,3 @@ function pushtape_finished_yah_submit($form, &$form_state) {
     drupal_goto('<front>');
   }
 }
-
-/**
-* Helper function to adjust an array and put an element right where we want it. 
-
-function pushtape_maintaince_array_insert(&$array, $key, $insert_array, $before = FALSE) {
-  $done = FALSE;
-  foreach ($array as $array_key => $array_val) {
-    if (!$before) {
-      $new_array[$array_key] = $array_val;
-    }
-    if ($array_key == $key && !$done) {
-      foreach ($insert_array as $insert_array_key => $insert_array_val) {
-        $new_array[$insert_array_key] = $insert_array_val;
-      }
-      $done = TRUE;
-    }
-    if ($before) {
-      $new_array[$array_key] = $array_val;
-    }
-  }
-  if (!$done) {
-    $new_array = array_merge($array, $insert_array);
-  }
-  // Put the new array in the place of the original.
-  $array = $new_array;
-}*/
