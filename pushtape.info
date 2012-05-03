@@ -98,4 +98,14 @@ dependencies[] = libraries
 ;dependencies[] = pushtape_core
 ;dependencies[] = pushtape_music
 
+; Contrib - Theme
+dependencies[] = conditional_styles
+dependencies[] = respondjs
+dependencies[] = fontyourface
+dependencies[] = fontyourface_ui
+dependencies[] = fontsquirrel
+
+; CSS Stylesheets
+stylesheets[all][] = panopoly.css
+
 files[] = pushtape.profile
