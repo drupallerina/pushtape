@@ -154,14 +154,14 @@ function pushtape_form_apps_profile_apps_select_form_alter(&$form, $form_state) 
 function pushtape_install_tasks_alter(&$tasks, $install_state) {
 
   // Insert install task to set theme
-  pushtape_maintaince_array_insert(
-    $tasks, 
-    'install_load_profile', array(
-      'pushtape_set_theme' => array(
-        'run' => INSTALL_TASK_RUN_IF_REACHED,
-      ),
-    )
-  );
+ // pushtape_maintaince_array_insert(
+  //  $tasks, 
+  //  'install_load_profile', array(
+ //     'pushtape_set_theme' => array(
+  //      'run' => INSTALL_TASK_RUN_IF_REACHED,
+ //     ),
+   // )
+  //);
 
   // Since we only offer one language, define a callback to set this
   $tasks['install_select_locale']['function'] = 'pushtape_locale_selection';
