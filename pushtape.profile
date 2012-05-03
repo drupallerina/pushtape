@@ -299,7 +299,7 @@ function pushtape_theme_form($form, &$form_state) {
     '#title' => t('Starting Theme'),
     '#type' => 'radios',
     '#options' => $themes,
-    '#default_value' => 'pushtape_default',
+    '#default_value' => 'pushtape_wireframe',
   );
   
   $form['actions'] = array(
