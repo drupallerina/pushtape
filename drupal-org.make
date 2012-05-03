@@ -368,11 +368,11 @@ projects[pushtape_wireframe][download][type] = "git"
 projects[pushtape_wireframe][download][url] = "http://git.drupal.org/sandbox/gusaus/1547514.git"
 projects[pushtape_wireframe][download][branch] = "master"
 
-projects[navin][type] = "theme"
+;projects[navin][type] = "theme"
 
-projects[tao][type] = "theme"
-projects[rubik][type] = "theme"
-projects[cube][type] = "theme"
+;projects[tao][type] = "theme"
+;projects[rubik][type] = "theme"
+;projects[cube][type] = "theme"
 
 ;include panopoly make instead of being behind ...
 include[] = http://drupalcode.org/project/panopoly.git/blob_plain/refs/heads/7.x-1.x:/drupal-org.make

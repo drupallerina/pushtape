@@ -114,9 +114,9 @@ function pushtape_install() {
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
   
   // Enable themes
-  theme_enable(array('omega_pushtape', 'seven'));
+  theme_enable(array('omega_pushtape', 'seven', 'pushtape_wireframe'));
   variable_set('admin_theme', 'seven');
-  variable_set('theme_default', 'omega_pushtape');
+  variable_set('theme_default', 'pushtape_wireframe');
   variable_set('site_frontpage', 'discography');
   // variable_set('clean_url', 1);
   //variable_set('site_footer', 'Built with Pushtape');
