@@ -20,10 +20,13 @@ projects[ctools][version] = 1.0
 projects[ctools][type] = module
 ;projects[ctools][patch][1489084] = http://drupal.org/files/ctools-modal-sizing.patch
 
+projects[panels][version] = 3.x-dev
 projects[panels][subdir] = contrib
 projects[panels][type] = module
-projects[panels][version] = 3.2
-projects[panels][patch][1489088] = http://drupal.org/files/panels-lazy-css-loading.patch
+projects[panels][download][type] = git
+projects[panels][download][revision] = 9c467ad
+projects[panels][download][branch] = 7.x-3.x
+projects[panels][patch][1555352] = http://drupal.org/files/panels-ipe-reset-html-ids-take3.patch
 
 projects[panels_breadcrumbs][subdir] = contrib
 projects[panels_breadcrumbs][type] = module
@@ -59,9 +62,9 @@ projects[references][subdir] = contrib
 projects[references][type] = module
 projects[references][version] = 2.x-dev
 
-projects[ds][version] = 1.5
-projects[ds][type] = module
-projects[ds][subdir] = contrib
+;projects[ds][version] = 1.5
+;projects[ds][type] = module
+;projects[ds][subdir] = contrib
 
 ; Contrib - Field UI and Content Types
 projects[tablefield][version] = 2.0
@@ -310,21 +313,20 @@ projects[jplayer][version] = 2.x-dev
 projects[jplayer][patch][] = http://drupal.org/files/hide-direct-link-1046744-16.patch
 
 ; Libraries 
-; TO DO: http://drupal.org/node/1532358 use real libs
 libraries[tinymce][download][type] = get
-libraries[tinymce][download][url] = http://apps.getpantheon.com/sites/all/libraries/tinymce-panopoly.tar.gz
+libraries[tinymce][download][url] = https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip
 
 libraries[SolrPhpClient][download][type] = get
 libraries[SolrPhpClient][download][url] = http://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.zip
 
 libraries[markitup][download][type] = get
-libraries[markitup][download][url] = http://apps.getpantheon.com/sites/all/libraries/markitup-panopoly.tar.gz
+libraries[markitup][download][url] = https://github.com/markitup/1.x/tarball/master
 
 libraries[jquery.cycle][download][type] = get
-libraries[jquery.cycle][download][url] = http://apps.getpantheon.com/sites/all/libraries/jquery-cycle.tar.gz
+libraries[jquery.cycle][download][url] = https://github.com/malsup/cycle/zipball/master
 
 libraries[respondjs][download][type] = get
-libraries[respondjs][download][url] = http://apps.getpantheon.com/sites/all/libraries/panopoly-respondjs.tar.gz
+libraries[respondjs][download][url] = https://github.com/scottjehl/Respond/tarball/master
 
 libraries[jplayer][download][type] = "get"
 libraries[jplayer][download][url] = "http://jplayer.org/latest/jQuery.jPlayer.2.1.0.zip"
@@ -369,5 +371,6 @@ projects[tao][type] = "theme"
 projects[rubik][type] = "theme"
 projects[cube][type] = "theme"
 
-;include panopoly make
+;include panopoly make instead of being behind ...
+include[] = http://drupalcode.org/project/panopoly.git/blob_plain/refs/heads/7.x-1.x:/drupal-org.make
 ;include[] = http://drupalcode.org/project/panopoly.git/blob_plain/a845c94692c3adcad4f38d9377d016fd754e58d1:/drupal-org.make

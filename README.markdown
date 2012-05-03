@@ -57,7 +57,8 @@ If you want to force a rebuild of everything, you can run this:
 - including modules neccessary for importing from drupalgardens
 - it might or might not take the app approach.
 
-##the 2.x-panopoly #
+##the 3.x branch #
 
 - is an _apps_ enabled branch that investigates http://drupal.org/project/panopoly
 - attempts to include panopoly in the same way openacademy does, in effect adding pushtape_features_app to it
+- is currently behind panopoly, but will be kept up to date if we figure out how
