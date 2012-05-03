@@ -294,7 +294,7 @@ function pushtape_theme_form($form, &$form_state) {
   // Create list of theme options, minus admin + testing + starter themes
   $themes = array();
   foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array( 'omega', 'alpha', 'tao', 'rubik', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance'))) {
+    if (!in_array($theme->name, array( 'omega', 'alpha', 'tao', 'rubik', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'pushtape_maintenance', 'omega_html5', 'omega_xhtml', 'alpha_html5'))) {
       $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . $theme->info['description'] . '</em></p>';
     }
   }
