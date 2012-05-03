@@ -18,7 +18,6 @@ api = 2
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.0
 projects[ctools][type] = module
-;projects[ctools][patch][1489084] = http://drupal.org/files/ctools-modal-sizing.patch
 
 projects[panels][version] = 3.x-dev
 projects[panels][subdir] = contrib
@@ -35,6 +34,9 @@ projects[panels_breadcrumbs][version] = 1.6
 projects[panelizer][subdir] = contrib
 projects[panelizer][type] = module
 projects[panelizer][version] = 2.x-dev
+projects[panelizer][download][type] = git
+projects[panelizer][download][revision] = 142cccc
+projects[panelizer][download][branch] = 7.x-2.x
 
 projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][version] = 1.x-dev
@@ -43,12 +45,9 @@ projects[fieldable_panels_panes][download][type] = git
 ;projects[fieldable_panels_panes][download][revision] = 3833248
 projects[fieldable_panels_panes][download][branch] = 7.x-1.x
 
-projects[pm_existing_pages][version] = 1.x-dev
+projects[pm_existing_pages][version] = 1.2
 projects[pm_existing_pages][type] = module
 projects[pm_existing_pages][subdir] = contrib
-projects[pm_existing_pages][download][type] = git
-;projects[pm_existing_pages][download][revision] = 8be3b27
-projects[pm_existing_pages][download][branch] = 7.x-1.x
 
 projects[views][version] = 3.3
 projects[views][type] = module
@@ -58,6 +57,7 @@ projects[token][version] = 1.0
 projects[token][type] = module
 projects[token][subdir] = contrib
 
+;TODO DEPRECATE!
 projects[references][subdir] = contrib
 projects[references][type] = module
 projects[references][version] = 2.x-dev
@@ -106,7 +106,7 @@ projects[entityreference][version] = 1.0-rc1
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
 
-projects[calendar][version] = 3.2
+projects[calendar][version] = 3.3
 projects[calendar][subdir] = contrib
 projects[calendar][type] = module
 ;projects[calendar][patch][1489092] = http://drupal.org/files/panopoly-calendar-neg-taxonomy.patch
@@ -123,9 +123,12 @@ projects[search_api][version] = 1.0
 projects[search_api][type] = module
 projects[search_api][subdir] = contrib
 
-projects[search_api_solr][version] = 1.0-rc1
+projects[search_api_solr][version] = 1.x-dev
 projects[search_api_solr][type] = module
 projects[search_api_solr][subdir] = contrib
+projects[search_api_solr][download][type] = git
+projects[search_api_solr][download][revision] = 8452317
+projects[search_api_solr][download][branch] = 7.x-1.x
 projects[search_api_solr][patch][1407282] = http://drupal.org/files/1407282-search-api-solr-alternate-connection-reroll.patch
 
 projects[facetapi][version] = 1.0-rc4
@@ -169,7 +172,7 @@ projects[wysiwyg][version] = 2.x-dev
 projects[wysiwyg][patch][1489096] = http://drupal.org/files/wysiwyg-table-format.patch
 projects[wysiwyg][patch][356480] = http://drupal.org/files/356480-by-zhangtaihao-Shawn_Smiley-sun.-Lazy-load-ed-p0.patch
 projects[wysiwyg][download][type] = git
-;projects[wysiwyg][download][revision] = 0123d90 
+;projects[wysiwyg][download][revision] = 7e6609e
 projects[wysiwyg][download][branch] = 7.x-2.x
 
 projects[wysiwyg_filter][version] = 1.6-rc2
@@ -211,9 +214,9 @@ projects[simplified_menu_admin][version] = 1.0-beta2
 projects[simplified_menu_admin][type] = module
 projects[simplified_menu_admin][subdir] = contrib
 
-;projects[references_dialog][version] = 1.0-alpha3
-;projects[references_dialog][type] = module
-;projects[references_dialog][subdir] = contrib
+projects[references_dialog][version] = 1.0-alpha3
+projects[references_dialog][type] = module
+projects[references_dialog][subdir] = contrib
 
 projects[backports][version] = 1.0-alpha1
 projects[backports][type] = module
