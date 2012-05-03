@@ -25,7 +25,3 @@ projects[pushtape][download][type] = "git"
 projects[pushtape][download][url] = "git://github.com/discipolo/pushtape.git"
 projects[pushtape][download][branch] = "7.x-3.x"
 
-; mediaplayer feature installed from fserver needs to go in sites/all/modules
-
-projects[pushtape_mediaplayer][location] = http://apps.rosenstrauch.com/fserver
-projects[pushtape_mediaplayer][subdir] = contrib
