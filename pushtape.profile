@@ -45,6 +45,7 @@ function pushtape_install_tasks($install_state) {
       'panopoly_theme',
       'panopoly_widgets',
       'panopoly_wysiwyg',
+      'panopoly_users',
     ),
     'required apps' => array(
       'panopoly_core',
