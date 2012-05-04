@@ -54,30 +54,43 @@ projects[omega_tools][version] = "3.0-rc4"
 projects[delta][version] = "3.0-beta9"
 
 
-; Libraries
-libraries[grammar_parser_lib][version] = "1.x-dev"
-
 
 ;Pushtape apps
 
+;projects[pushtape_features][location] = http://apps.rosenstrauch.com/fserver
 projects[pushtape_features][type] = "module"
 projects[pushtape_features][download][type] = "git"
 projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
 projects[pushtape_features][download][branch] = "7.x-2.x"
 projects[pushtape_features][subdir] = pushtape_apps
 
+;projects[pushtape_mediaplayer][location] = http://apps.rosenstrauch.com/fserver
 projects[pushtape_mediaplayer][type] = "module"
 projects[pushtape_mediaplayer][download][type] = "git"
 projects[pushtape_mediaplayer][download][url] = "git://github.com/discipolo/pushtape_mediaplayer.git"
 projects[pushtape_mediaplayer][download][branch] = "7.x-2.x"
 projects[pushtape_mediaplayer][subdir] = pushtape_apps
 
+;projects[pushtape_connect][location] = http://apps.rosenstrauch.com/fserver
 projects[pushtape_connect][type] = "module"
 projects[pushtape_connect][download][type] = "git"
 projects[pushtape_connect][download][url] = "git://github.com/discipolo/pushtape_connect.git"
 projects[pushtape_connect][download][branch] = "7.x-2.x"
 projects[pushtape_connect][subdir] = pushtape_apps
 
+;projects[pushtape_events][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape_events][type] = "module"
+projects[pushtape_events][download][type] = "git"
+projects[pushtape_events][download][url] = "git://github.com/discipolo/pushtape_events.git"
+projects[pushtape_events][download][branch] = "7.x-2.x"
+projects[pushtape_events][subdir] = pushtape_apps
+
+;projects[pushtape_news][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape_news][type] = "module"
+projects[pushtape_news][download][type] = "git"
+projects[pushtape_news][download][url] = "git://github.com/discipolo/pushtape_news.git"
+projects[pushtape_news][download][branch] = "7.x-2.x"
+projects[pushtape_news][subdir] = pushtape_apps
 
 projects[omega] = 3.1
 
