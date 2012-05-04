@@ -42,13 +42,13 @@ dependencies[] = date_views
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
 dependencies[] = simple_gmap
-dependencies[] = email
-dependencies[] = phone
+;dependencies[] = email
+;dependencies[] = phone
 dependencies[] = field_group
 ;dependencies[] = office_hours
 dependencies[] = node_reference
 ;dependencies[] = biblio
-dependencies[] = calendar
+;dependencies[] = calendar
 dependencies[] = file_entity
 
 ; Contrib - Media
