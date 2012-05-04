@@ -53,8 +53,6 @@ projects[coder][version] = "1.x-dev"
 projects[omega_tools][version] = "3.0-rc4"
 projects[delta][version] = "3.0-beta9"
 
-
-
 ;Pushtape apps
 
 ;projects[pushtape_features][location] = http://apps.rosenstrauch.com/fserver
@@ -82,7 +80,7 @@ projects[pushtape_connect][subdir] = pushtape_apps
 projects[pushtape_events][type] = "module"
 projects[pushtape_events][download][type] = "git"
 projects[pushtape_events][download][url] = "git://github.com/discipolo/pushtape_events.git"
-projects[pushtape_events][download][branch] = "7.x-2.x"
+projects[pushtape_events][download][branch] = "master"
 projects[pushtape_events][subdir] = pushtape_apps
 
 ;projects[pushtape_news][location] = http://apps.rosenstrauch.com/fserver
