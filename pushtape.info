@@ -21,7 +21,6 @@ dependencies[] = rdf
 ;Contrib
 dependencies[] = features
 dependencies[] = pathauto
-dependencies[] = references
 dependencies[] = ctools
 dependencies[] = token
 dependencies[] = views
