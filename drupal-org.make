@@ -58,9 +58,9 @@ projects[token][type] = module
 projects[token][subdir] = contrib
 
 ;TODO DEPRECATE!
-projects[references][subdir] = contrib
-projects[references][type] = module
-projects[references][version] = 2.x-dev
+;projects[references][subdir] = contrib
+;projects[references][type] = module
+;projects[references][version] = 2.x-dev
 
 ;projects[ds][version] = 1.5
 ;projects[ds][type] = module
