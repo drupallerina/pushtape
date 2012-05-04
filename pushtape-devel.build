@@ -6,9 +6,9 @@
 api = 2
 core = 7.x
 
-projects[drupal][version] = "drupal-7.13"
+projects[drupal][version] = "7.14"
 projects[drupal][type] = "core"
-projects[drupal][patch][1245332] = http://drupal.org/files/field_info_instances_fix_returns-1245332-14-7.x_0.patch
+;projects[drupal][patch][1245332] = http://drupal.org/files/field_info_instances_fix_returns-1245332-14-7.x_0.patch
 projects[drupal][patch][985814] = http://drupal.org/files/drupal-actions-985814-11-D7.patch
 
 ;projects[panopoly][version] = "7.x-1.0-beta2"
