@@ -8,7 +8,7 @@
 
 ; The version of Drupal the profile is built for. You must include both a
 ; major and a minor release - just specifying 6.x won't work
-core = 7.12
+core = 7.14
 api = 2
 
 ; OPTIONAL ATTRIBUTES
@@ -32,14 +32,17 @@ api = 2
 ; version string. For example, if you wanted to specify Views 6.x-2.7,
 ; you would use:
 
-projects[features] = 1.0-beta6
-projects[pathauto] = 1.0
-projects[references] = 2.0
-projects[ctools] = 1.0-rc1
-projects[token] = 1.0-rc1
-projects[views] = 3.1
-projects[media] = 1.0-rc3
+projects[features] = 1.0-rc3
+projects[pathauto] = 1.1
+projects[ctools] = 1.0
+projects[token] = 1.1
+projects[views] = 3.3
+projects[media] = 1.1
 projects[pushtape_features] = 1.4
+projects[entityreference] = 1.0-rc3
+projects[references] = 2.0
+
+projects[omega] = 3.1
 
 ;@todo - Move this to the libraries directory
 ;library[profiler] = 2.0-beta1
@@ -63,4 +66,3 @@ projects[pushtape_features] = 1.4
 ; projects[filefield][subdir] = cck_related_modules
 
 ; Defining a theme is no different.
-projects[omega] = 3.0
