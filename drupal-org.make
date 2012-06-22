@@ -31,21 +31,22 @@ projects[panels_breadcrumbs][subdir] = contrib
 projects[panels_breadcrumbs][type] = module
 projects[panels_breadcrumbs][version] = 1.6
 
+projects[panelizer][version] = 3.x-dev
 projects[panelizer][subdir] = contrib
 projects[panelizer][type] = module
-projects[panelizer][version] = 2.x-dev
 projects[panelizer][download][type] = git
-projects[panelizer][download][revision] = 142cccc
-projects[panelizer][download][branch] = 7.x-2.x
+projects[panelizer][download][revision] = c7942f3
+projects[panelizer][download][branch] = 7.x-3.x
+projects[panelizer][patch][1648040] = http://drupal.org/files/panelizer-no-notice-view-modes-updated.patch
 
-projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][version] = 1.x-dev
+projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][type] = module
 projects[fieldable_panels_panes][download][type] = git
-;projects[fieldable_panels_panes][download][revision] = 3833248
+projects[fieldable_panels_panes][download][revision] = 57000ec
 projects[fieldable_panels_panes][download][branch] = 7.x-1.x
 
-projects[pm_existing_pages][version] = 1.2
+projects[pm_existing_pages][version] = 1.4
 projects[pm_existing_pages][type] = module
 projects[pm_existing_pages][subdir] = contrib
 
@@ -53,18 +54,9 @@ projects[views][version] = 3.3
 projects[views][type] = module
 projects[views][subdir] = contrib
 
-projects[token][version] = 1.0
+projects[token][version] = 1.1
 projects[token][type] = module
 projects[token][subdir] = contrib
-
-;TODO DEPRECATE!
-;projects[references][subdir] = contrib
-;projects[references][type] = module
-;projects[references][version] = 2.x-dev
-
-;projects[ds][version] = 1.5
-;projects[ds][type] = module
-;projects[ds][subdir] = contrib
 
 ; Contrib - Field UI and Content Types
 projects[tablefield][version] = 2.0
@@ -87,49 +79,35 @@ projects[simple_gmap][version] = 1.0-rc1
 projects[simple_gmap][type] = module
 projects[simple_gmap][subdir] = contrib
 
-;projects[email][version] = 1.0
-;projects[email][type] = module
-;projects[email][subdir] = contrib
-
-;projects[phone][version] = 1.x-dev
-;projects[phone][type] = module
-;projects[phone][subdir] = contrib
-;projects[phone][download][type] = git
-;projects[phone][download][revision] = c45a7e4
-;projects[phone][download][branch] = 7.x-1.x
-
 projects[field_group][version] = 1.1
 projects[field_group][type] = module
 projects[field_group][subdir] = contrib
 
-projects[entityreference][version] = 1.0-rc1
+projects[entityreference][version] = 1.0-rc3
 projects[entityreference][type] = module
 projects[entityreference][subdir] = contrib
-
-;projects[calendar][version] = 3.3
-;projects[calendar][subdir] = contrib
-;projects[calendar][type] = module
-;projects[calendar][patch][1489092] = http://drupal.org/files/panopoly-calendar-neg-taxonomy.patch
 
 projects[file_entity][version] = 2.x-dev
 projects[file_entity][type] = module
 projects[file_entity][subdir] = contrib
 projects[file_entity][download][type] = git
-;projects[file_entity][download][revision] = 86ba3ff
+projects[file_entity][download][revision] = 0739c8a
 projects[file_entity][download][branch] = 7.x-2.x
 
 ; Contrib - Search
-projects[search_api][version] = 1.0
+projects[search_api][version] = 1.1
 projects[search_api][type] = module
 projects[search_api][subdir] = contrib
 
-projects[search_api_solr][version] = 1.x-dev
+projects[search_api_solr][version] = 1.0-rc2
 projects[search_api_solr][type] = module
 projects[search_api_solr][subdir] = contrib
-projects[search_api_solr][download][type] = git
-projects[search_api_solr][download][revision] = 8452317
-projects[search_api_solr][download][branch] = 7.x-1.x
-projects[search_api_solr][patch][1407282] = http://drupal.org/files/1407282-search-api-solr-alternate-connection-reroll.patch
+projects[search_api_solr][patch][1407282] = http://drupal.org/files/1407282-search-api-custom-connection-class.patch
+
+
+projects[search_api_db][version] = 1.0-beta3
+projects[search_api_db][type] = module
+projects[search_api_db][subdir] = contrib
 
 projects[facetapi][version] = 1.0-rc4
 projects[facetapi][type] = module
@@ -152,9 +130,10 @@ projects[media_vimeo][type] = module
 projects[media_vimeo][subdir] = contrib
 
 ; Contrib - Menus and URLS
+projects[pathauto][version] = 1.1
 projects[pathauto][subdir] = contrib
 projects[pathauto][type] = module
-projects[pathauto][version] = 1.0
+projects[pathauto][patch][936222] = http://drupal.org/files/936222-pathauto-persist.patch
 
 projects[menu_block][version] = 2.3
 projects[menu_block][subdir] = contrib
@@ -214,7 +193,7 @@ projects[simplified_menu_admin][version] = 1.0-beta2
 projects[simplified_menu_admin][type] = module
 projects[simplified_menu_admin][subdir] = contrib
 
-projects[references_dialog][version] = 1.0-alpha3
+projects[references_dialog][version] = 1.0-alpha4
 projects[references_dialog][type] = module
 projects[references_dialog][subdir] = contrib
 
@@ -233,11 +212,11 @@ projects[apps][patch][1482684] = http://drupal.org/files/apps-single-item-style.
 projects[apps][patch][1558280] = http://drupal.org/files/apps-screen-design-css-p0.patch
 projects[apps][patch][1561652] = http://drupal.org/files/apps-allow-drush-site-install.patch
 
-projects[features][version] = 1.0-rc2
+projects[features][version] = 1.0-rc3
 projects[features][subdir] = contrib
 projects[features][type] = module
 
-projects[entity][version] = 1.0-rc1
+projects[entity][version] = 1.0-rc3
 projects[entity][type] = module
 projects[entity][subdir] = contrib
 
@@ -245,7 +224,7 @@ projects[uuid][version] = 1.x-dev
 projects[uuid][type] = module
 projects[uuid][subdir] = contrib
 projects[uuid][download][type] = git
-;projects[uuid][download][revision] = 22c3ae3
+;projects[uuid][download][revision] = bf06527
 projects[uuid][download][branch] = 7.x-1.x
 
 projects[uuid_features][version] = 1.x-dev
@@ -260,7 +239,7 @@ projects[defaultcontent][type] = module
 projects[defaultcontent][subdir] = contrib
 ;projects[defaultcontent][patch][1263536] = http://drupal.org/files/base64_encode_files-1263536-1_0.patch
 
-projects[strongarm][version] = 2.0-rc1
+projects[strongarm][version] = 2.0
 projects[strongarm][type] = module
 projects[strongarm][subdir] = contrib
 
@@ -280,13 +259,13 @@ projects[devel][version] = 1.2
 
 projects[delta][subdir] = contrib
 projects[delta][type] = module
-projects[delta][version] = 3.0-beta9
+projects[delta][version] = 3.0-beta10
 
 projects[diff][subdir] = contrib
 projects[diff][version] = "2.0"
 
 projects[context][subdir] = contrib
-projects[context][version] = "3.0-beta2"
+projects[context][version] = "3.0-beta3"
 
 projects[coder][subdir] = contrib
 projects[coder][version] = "1.0"
@@ -315,7 +294,8 @@ projects[jplayer][patch][] = http://drupal.org/files/hide-direct-link-1046744-16
 
 ; Libraries 
 libraries[tinymce][download][type] = get
-libraries[tinymce][download][url] = https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip
+libraries[tinymce][download][url] = https://github.com/downloads/tinymce/tinymce/tinymce_3.5.2.zip
+libraries[tinymce][patch][1561882] = http://drupal.org/files/1561882-cirkuit-theme-tinymce-3.5.2.patch
 
 libraries[SolrPhpClient][download][type] = get
 libraries[SolrPhpClient][download][url] = http://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.zip

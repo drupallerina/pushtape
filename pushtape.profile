@@ -24,6 +24,10 @@ function pushtape_install_tasks($install_state) {
   // Kick off the tasks
   $tasks = array();
      
+    if (ini_get('memory_limit') != '-1' && ini_get('memory_limit') <= '196M') {    
+    ini_set('memory_limit', '196M');
+  }
+  
   // Summon the power of the Apps module
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
@@ -33,6 +37,8 @@ function pushtape_install_tasks($install_state) {
     'type' => 'form',
   );
 
+
+ 
   // Setup the Panopoly Apps install task
   $panopoly_server = array(
     'machine name' => 'panopoly',

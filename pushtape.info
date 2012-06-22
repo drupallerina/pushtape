@@ -1,7 +1,8 @@
 name = Pushtape
 description = Music publishing profile. 
 core = 7.x
-; Core
+
+; Panopoly - Core
 dependencies[] = menu
 dependencies[] = image
 dependencies[] = list
@@ -14,8 +15,9 @@ dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = block
+dependencies[] = dblog
 
-; Contrib - Foundation 
+; Panopoly - Contrib - Foundation 
 dependencies[] = ctools
 dependencies[] = panels
 dependencies[] = panels_ipe
@@ -28,11 +30,8 @@ dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_ui
 dependencies[] = token
-;dependencies[] = ds
-;dependencies[] = ds_extras
-dependencies[] = context
 
-; Contrib - Field UI and Content Types
+; Panopoly - Contrib - Field UI and Content Types
 dependencies[] = tablefield
 dependencies[] = link
 dependencies[] = date
@@ -42,31 +41,23 @@ dependencies[] = date_views
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
 dependencies[] = simple_gmap
-;dependencies[] = email
-;dependencies[] = phone
 dependencies[] = field_group
-;dependencies[] = office_hours
-;dependencies[] = node_reference
-;dependencies[] = biblio
-;dependencies[] = calendar
 dependencies[] = file_entity
 
-; Contrib - Media
+; Panopoly - Contrib - Media
 dependencies[] = media
 dependencies[] = media_internet
 dependencies[] = mediafield
 dependencies[] = media_youtube
 dependencies[] = media_vimeo
 
-; Contrib - Menus and URLS
+; Panopoly - Contrib - Menus and URLS
 dependencies[] = pathauto
 dependencies[] = menu_block
-dependencies[] = taxonomy_menu
 
-; Contrib - User Experience
+; Panopoly - Contrib - User Experience
 dependencies[] = wysiwyg
 dependencies[] = wysiwyg_filter
-dependencies[] = better_formats
 dependencies[] = caption_filter
 dependencies[] = image_resize_filter
 dependencies[] = date_popup_authored
@@ -74,36 +65,34 @@ dependencies[] = admin
 dependencies[] = module_filter
 dependencies[] = views_bulk_operations
 dependencies[] = simplified_menu_admin
-;dependencies[] = references_dialog
+dependencies[] = references_dialog 
 dependencies[] = backports
 
-; Contrib - Search 
+; Panopoly - Contrib - Search 
+dependencies[] = facetapi
 dependencies[] = search_api
 dependencies[] = search_api_solr
-dependencies[] = facetapi
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
+dependencies[] = search_api_db
 
-; Contrib - Products
+; Panopoly - Contrib - Products
 dependencies[] = apps 
 dependencies[] = features
 dependencies[] = entity
 dependencies[] = uuid
-;dependencies[] = uuid_features
 dependencies[] = defaultcontent
 dependencies[] = strongarm
 dependencies[] = libraries
 
-;Install Profile
-;dependencies[] = pushtape_core
-;dependencies[] = pushtape_music
+; Panopoly - Contrib - Development
+dependencies[] = devel
+dependencies[] = devel_generate
 
-; Contrib - Theme
+; Panopoly - Contrib - Theme
 dependencies[] = conditional_styles
 dependencies[] = respondjs
-dependencies[] = fontyourface
-dependencies[] = fontyourface_ui
-dependencies[] = fontsquirrel
+
 
 ; CSS Stylesheets
 stylesheets[all][] = panopoly.css
