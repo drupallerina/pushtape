@@ -234,7 +234,7 @@ projects[uuid_features][download][type] = git
 ;projects[uuid_features][download][revision] = bea7d9d
 projects[uuid_features][download][branch] = 7.x-1.x
 
-projects[defaultcontent][version] = 1.0-alpha6
+projects[defaultcontent][version] = 1.x-dev
 projects[defaultcontent][type] = module
 projects[defaultcontent][subdir] = contrib
 ;projects[defaultcontent][patch][1263536] = http://drupal.org/files/base64_encode_files-1263536-1_0.patch
