@@ -71,7 +71,7 @@ It is implementing these changes and solutions from the [pushtape features issue
   - adds an omega subtheme (omega _ pushtape)
   
 ###Features####
-- [Pushtape UI](https://github.com/discipolo/pushtape_ui): adds UI improvements.
+- Pushtape UI: adds UI improvements.
 - [Pushtape Discography](https://github.com/discipolo/pushtape_discography): adds Track & Album content types, views and demo content.
 - [Pushtape Mediaplayer](https://github.com/discipolo/pushtape_mediaplayer): adds the ability to stream audio tracks.
 
@@ -87,10 +87,10 @@ Feature branch for demonstration purposes.  Proof of concept for apps and panels
 ###Features/Apps####
 
 - Pushtape UI adds UI improvements.
-- Pushtape Discography adds Track & Album content types, views and demo content.
+- [Pushtape Discography](https://github.com/discipolo/pushtape_discography): adds Track & Album content types, views and demo content.
 - Pushtape News provides a News content type, an RSS-friendly centralised news view and demo content.
 - Pushtape Events provides an Event content type, a calendar view for upcoming gigs and demo content.
-- Pushtape Mediaplayer adds the ability to stream audio tracks.
+- [Pushtape Mediaplayer](https://github.com/discipolo/pushtape_mediaplayer): adds the ability to stream audio tracks.
 - Pushtape Earnings provides for a choice between financing plans
 - Pushtape Connect allows users to integrate their content with social networks.
 - Pushtape Wireframe Theme
