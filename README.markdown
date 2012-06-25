@@ -44,7 +44,7 @@ If you want to force a rebuild of everything, you can run this:
 - is tracking the changes from http://git.drupal.org/project/pushtape.git
 - attempting to extened it in different ways
 
-##the 2.x branch #
+##the context branch #
 
 - is a "fork" of http://drupal.org/project/pushtape ,
 - its updating some modules (references and media if you must know) )
@@ -52,13 +52,15 @@ If you want to force a rebuild of everything, you can run this:
 - to get it just run <code>drush make https://raw.github.com/discipolo/pushtape/08c45e532948b9e40d13ccb37d8014fb3822a903/pushtape-devel.build</code>
 
 ##the master branch #
+- is empty according to drupal guidelines http://drupal.org/empty-git-master
 
-- is an inital attempt at creating an install profile _extending_ http://drupal.org/project/pushtape (the approach was inspired by nodestream 2.x) 
-- including modules neccessary for importing from drupalgardens
-- it might or might not take the app approach.
-
-##the 3.x branch #
+##the panopoly branch #
 
 - is an _apps_ enabled branch that investigates http://drupal.org/project/panopoly
 - attempts to include panopoly in the same way openacademy does, in effect adding pushtape_features_app to it
 - is currently behind panopoly, but will be kept up to date if we figure out how
+
+##TODO: another branch ... 
+- is an inital attempt at creating an install profile _extending_ http://drupal.org/project/pushtape (the approach was inspired by nodestream 2.x) 
+- including modules neccessary for importing from drupalgardens
+- it might or might not take the app approach.
