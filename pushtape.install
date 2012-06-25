@@ -1,0 +1,354 @@
+<?php
+/**
+* Implement hook_install().
+*
+* Perform actions to set up the site for this profile.
+*/
+function pushtape_install() {
+  // pulse, reverb, impulse
+  /*
+  // Add text formats.
+  $filtered_html_format = array(
+    'format' => 'filtered_html', 
+    'name' => 'Filtered HTML', 
+    'weight' => 0, 
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0, 
+        'status' => 1,
+      ),
+      // HTML filter. 
+      'filter_html' => array(
+        'weight' => 1, 
+        'status' => 1,
+      ),
+      // Line break filter. 
+      'filter_autop' => array(
+        'weight' => 2, 
+        'status' => 1,
+      ),
+      // HTML corrector filter. 
+      'filter_htmlcorrector' => array(
+        'weight' => 10, 
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html', 
+    'name' => 'Full HTML', 
+    'weight' => 1, 
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0, 
+        'status' => 1,
+      ),
+      // Line break filter. 
+      'filter_autop' => array(
+        'weight' => 1, 
+        'status' => 1,
+      ),
+      // HTML corrector filter. 
+      'filter_htmlcorrector' => array(
+        'weight' => 10, 
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  // Enable some standard blocks.
+  $default_theme = 'omega';
+  $admin_theme = 'seven';
+  $values = array(
+    array(
+      'module' => 'system', 
+      'delta' => 'main', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'content', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system', 
+      'delta' => 'help', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'help', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views', 
+      'delta' => 'releases-block_1', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'sidebar_second', 
+      'pages' => '', 
+      'cache' => -1,
+    ),    
+    array(
+      'module' => 'system', 
+      'delta' => 'main', 
+      'theme' => $admin_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'content', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system', 
+      'delta' => 'help', 
+      'theme' => $admin_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'help', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user', 
+      'delta' => 'login', 
+      'theme' => $admin_theme, 
+      'status' => 1, 
+      'weight' => 10, 
+      'region' => 'content', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search', 
+      'delta' => 'form', 
+      'theme' => $admin_theme, 
+      'status' => 1, 
+      'weight' => -10, 
+      'region' => 'dashboard_sidebar', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // Insert default pre-defined node types into the database. For a complete
+  // list of available node type attributes, refer to the node type API
+  // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+  $types = array(
+    array(
+      'type' => 'page', 
+      'name' => st('Basic page'), 
+      'base' => 'node_content', 
+      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."), 
+      'custom' => 1, 
+      'modified' => 1, 
+      'locked' => 0,
+    ),
+  );
+
+  foreach ($types as $type) {
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
+
+  // Insert default pre-defined RDF mapping into the database.
+  $rdf_mappings = array(
+    array(
+      'type' => 'node', 
+      'bundle' => 'page', 
+      'mapping' => array(
+        'rdftype' => array('foaf:Document'),
+      ),
+    ),
+  );
+  foreach ($rdf_mappings as $rdf_mapping) {
+    rdf_mapping_save($rdf_mapping);
+  }
+
+  // Default "Basic page" to not be promoted and have comments disabled.
+  variable_set('node_options_page', array('status'));
+  variable_set('comment_page', COMMENT_NODE_HIDDEN);
+
+  // Don't display date and author information for "Basic page" nodes by default.
+  variable_set('node_submitted_page', FALSE);
+
+  // Enable user picture support and set the default to a square thumbnail option.
+  variable_set('user_pictures', '1');
+  variable_set('user_picture_dimensions', '1024x1024');
+  variable_set('user_picture_file_size', '800');
+  variable_set('user_picture_style', 'thumbnail');
+
+  // Allow visitor account creation with administrative approval.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  // Create a default vocabulary named "Tags", enabled for the 'article' content type.
+  $description = st('Use tags to group articles on similar topics into categories.');
+  $help = st('Enter a comma-separated list of words to describe your content.');
+  $vocabulary = (object) array(
+    'name' => st('Tags'), 
+    'description' => $description, 
+    'machine_name' => 'tags', 
+    'help' => $help,
+  );
+  taxonomy_vocabulary_save($vocabulary);
+
+  $field = array(
+    'field_name' => 'field_' . $vocabulary->machine_name, 
+    'type' => 'taxonomy_term_reference',
+    // Set cardinality to unlimited for tagging. 
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED, 
+    'settings' => array(
+      'allowed_values' => array(
+        array(
+          'vocabulary' => $vocabulary->machine_name, 
+          'parent' => 0,
+        ),
+      ),
+    ),
+  );
+  field_create_field($field);
+
+
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  $root = user_load(array('uid' => 1));
+  
+  // Create user/2
+  $new_user = array(
+        'name' => 'artist',
+        'pass' => $root->pass,
+        'mail' => $root->mail,
+        'init' => $root->mail,
+        'status' => 1,
+  );
+  
+  // $account returns user object
+  $account = user_save(null, $new_user);
+  
+  // Create a default role for artists, with all available permissions assigned.
+  $artist_role = new stdClass();
+  $artist_role->name = 'artist';
+  $artist_role->weight = 2;
+  user_role_save($artist_role);
+  //user_role_grant_permissions($artist_role->rid, array_keys(module_invoke_all('permission')));
+
+  // Assign user 2 the "artist" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 2, 'rid' => $artist_role->rid))
+    ->execute();
+
+
+  // Update the menu router information.
+  menu_rebuild();
+  */
+  
+  
+  // Enable some standard blocks.
+  $default_theme = variable_get('theme_default', 'seven');
+  $values = array(
+    array(
+      'module' => 'system', 
+      'delta' => 'main', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'content', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user', 
+      'delta' => 'login', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'sidebar_second', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system', 
+      'delta' => 'main-menu', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'header', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views', 
+      'delta' => 'releases-block_1', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'sidebar_second', 
+      'pages' => '', 
+      'cache' => -1,
+    ),    
+    array(
+      'module' => 'system', 
+      'delta' => 'help', 
+      'theme' => $default_theme, 
+      'status' => 1, 
+      'weight' => 0, 
+      'region' => 'help', 
+      'pages' => '', 
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // New accounts made by administrators only.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  // Enable default permissions for system roles.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+  
+  // Enable themes
+  theme_enable(array('alpha', 'seven'));
+  variable_set('admin_theme', 'seven');
+  variable_set('theme_default', 'seven');
+  variable_set('site_frontpage', 'releases');
+  // variable_set('clean_url', 1);
+  //variable_set('site_footer', 'Built with Pushtape');
+  // variable_set('node_admin_theme', '1');  
+
+}
+
