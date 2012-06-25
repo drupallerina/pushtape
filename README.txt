@@ -1,22 +1,26 @@
-#this project #
-
-- is tracking the changes from http://git.drupal.org/project/pushtape.git
-- attempting to extened it in different ways
-
-##the 2.x branch #
-
-- is a "fork" of http://drupal.org/project/pushtape ,
-- its updating some modules (references and media if you must know) and adds an optional (experimental) playlist feature)
-- and adds a subtheme
-- to get it just run <code>drush make https://raw.github.com/discipolo/pushtape/08c45e532948b9e40d13ccb37d8014fb3822a903/pushtape-devel.build</code>
+#this repository #
+- is my development clone tracking the changes from http://git.drupal.org/project/pushtape.git
 
 ##the master branch #
+- is empty in accordance with drupal git guidelines
 
-- is an inital attempt at creating an install profile _extending_ http://drupal.org/project/pushtape (the approach was inspired by nodestream 2.x) 
-- including modules neccessary for importing from drupalgardens
-- it might or might not take the app approach.
+##my development branch #
 
-##the 2.x-panopoly #
+- is a "fork" of http://drupal.org/project/pushtape ,
+- is implementing my proposed changes and solutions from this issuequeue http://drupal.org/project/issues/pushtape_features
+  - [deprecate nodereference in favour of entity reference](http://drupal.org/node/1460296)
+  - [extension to add upload and player to tracks](http://drupal.org/node/1476866)
+  - [renames pushtape_music and makes it into a standalone feature](http://drupal.org/node/1647728)
+- to get it just run <code>drush make https://raw.github.com/discipolo/pushtape/08c45e532948b9e40d13ccb37d8014fb3822a903/pushtape-devel.build</code>
 
-- is an _apps_ enabled branch that investigates http://drupal.org/project/panopoly
-- attempts to include panopoly in the same way openacademy does, in effect adding pushtape_features_app to it
+
+##the pushtape-panopoly feature branch  #
+
+- is an _apps_ enabled branch that investigates http://drupal.org/project/panopoly as a base distribution. 
+  - [panels or context for layouts](http://drupal.org/node/1357908)
+- also is implementing my proposed changes and solutions from this issuequeue http://drupal.org/project/issues/pushtape_features
+  - [deprecate nodereference in favour of entity reference](http://drupal.org/node/1460296)
+  - [extension to add upload and player to tracks](http://drupal.org/node/1476866)
+  - [renames pushtape_music and makes it into a standalone feature](http://drupal.org/node/1647728)
+
+- additionally attempts to approach some of the issues from  http://drupal.org/project/issues/pushtape
