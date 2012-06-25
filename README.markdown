@@ -1,35 +1,55 @@
-# This Project #
+#The Project##
+**This is Discipolos repository for the [PUSHTAPE INSTALLPROFILE](http://git.drupal.org/project/pushtape.git)**
+
+Pushtape is a D7 distribution tailored for bands and musicians to facilitate
+sharing their discography, news, events and tracks with their fans as well
+as interested event organisers who want to book them for a gig.
+Planned features for future versions of this distribution are social media integration,
+the ability to sell tracks and the ability to sell concert tickets.
+Pushtape is a Drupal Distribution tailored for music creators and performers,
+distributors and organizers. Single artists, bands, collectives and similar musiccentered organizations.
+
+#The Branches##
+
+##Master branch###
+Is empty according to http://drupal.org/empty-git-master
+
+##Upstream/7.x-1.x###
+Is tracking the changes from http://git.drupal.org/project/pushtape.git.
+This branch we all always have in common. One person is responsible for pulling in changes from our dev branches (or appliyng patches supplied).
 
 
+##7.x-1.x-discipolo###
+Is my dev branch. Changes I propose to be comitted to the "upstream/7.x-1.x" branch (7.x-1.x on drupal.org).  
+This is a "fork" of http://drupal.org/project/pushtape.
+It is implementing these changes and solutions from the [pushtape features issuequeue](http://drupal.org/project/issues/pushtape_features):
 
-## This Repository #
-This is an INSTALLPROFILE
-- is my development clone tracking the changes from http://git.drupal.org/project/pushtape.git
-
-
-0. master branch
-  - empty according to http://drupal.org/empty-git-master
-1. upstream/7.x-1.x http://drupalcode.org/project/pushtape.git
-this branch we all always have in common. one person is responsible for pulling in changes from our dev branches. (or appliyng patches supplied) 
-  - is tracking the changes from http://git.drupal.org/project/pushtape.git
-
-2. 7.x-1.x-discipolo my dev branch. changes i propose to be comitted to the "master" branch (7.x-1.x on drupal.org)
-
-- is a "fork" of http://drupal.org/project/pushtape ,
-- is implementing my proposed changes and solutions from this issuequeue http://drupal.org/project/issues/pushtape_features
   - [deprecate nodereference in favour of entity reference](http://drupal.org/node/1460296)
   - [extension to add upload and player to tracks](http://drupal.org/node/1476866)
   - [renames pushtape_music and makes it into a standalone feature](http://drupal.org/node/1647728)
-- and adds a subtheme
-- to get it just run <code>drush make https://raw.github.com/discipolo/pushtape/08c45e532948b9e40d13ccb37d8014fb3822a903/pushtape-devel.build</code>
+  - adds an omega subtheme (omega _ pushtape)
+  
+###Features####
+- [Pushtape UI](https://github.com/discipolo/pushtape_ui): adds UI improvements.
+- [Pushtape Discography](https://github.com/discipolo/pushtape_discography): adds Track & Album content types, views and demo content.
+- [Pushtape Mediaplayer](https://github.com/discipolo/pushtape_mediaplayer): adds the ability to stream audio tracks.
 
-3. 7.x-1.x-panopoly feature branchfor demonstration purposes. proof of concept for apps and panels. these changes are not proposed to be comitted
+  
+##7.x-1.x-panopoly###
+**These changes are not proposed to be committed**
+Feature branch for demonstration purposes.  Proof of concept for apps and panels. investigates http://drupal.org/project/panopoly as a base distribution.  
 
- is an _apps_ enabled branch that investigates http://drupal.org/project/panopoly as a base distribution. 
   - [panels or context for layouts](http://drupal.org/node/1357908)
-- also is implementing my proposed changes and solutions from this issuequeue http://drupal.org/project/issues/pushtape_features
-  - [deprecate nodereference in favour of entity reference](http://drupal.org/node/1460296)
-  - [extension to add upload and player to tracks](http://drupal.org/node/1476866)
-  - [renames pushtape_music and makes it into a standalone feature](http://drupal.org/node/1647728)
+  - Also is implementing my proposed changes and solutions from the [pushtape _ features issuequeue](http://drupal.org/project/issues/pushtape _ features)
+ - additionally attempts to approach some of the issues from the [Pushtape profile issuequeue on drupal.org](http://drupal.org/project/issues/pushtape)
 
-- additionally attempts to approach some of the issues from  http://drupal.org/project/issues/pushtape
+###Features/Apps####
+
+- Pushtape UI adds UI improvements.
+- Pushtape Discography adds Track & Album content types, views and demo content.
+- Pushtape News provides a News content type, an RSS-friendly centralised news view and demo content.
+- Pushtape Events provides an Event content type, a calendar view for upcoming gigs and demo content.
+- Pushtape Mediaplayer adds the ability to stream audio tracks.
+- Pushtape Earnings provides for a choice between financing plans
+- Pushtape Connect allows users to integrate their content with social networks.
+- Pushtape Wireframe Theme
