@@ -11,12 +11,8 @@
 core = 7.12
 api = 2
 
-;version override
-projects[defaultcontent][version] = "1.x-dev"
-
 includes[panopoly] = http://drupalcode.org/project/panopoly.git/blob_plain/refs/heads/7.x-1.x:/drupal-org.make
 ;include panopoly make instead of being behind ...
-include[] = http://drupalcode.org/project/panopoly.git/blob_plain/refs/heads/7.x-1.x:/drupal-org.make
 
 ; Defining a theme is no different.
 
