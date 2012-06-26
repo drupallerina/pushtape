@@ -6,10 +6,11 @@ function pushtape_install_tasks($install_state) {
   // Kick off the tasks
   $tasks = array();
      
-    if (ini_get('memory_limit') != '-1' && ini_get('memory_limit') <= '196M') {    
-    ini_set('memory_limit', '196M');
-  }
-  
+    if (ini_get('memory_limit') != '-1' && ini_get('memory_limit') <= '196M'){
+        ini_set('memory_limit', '196M');
+        
+        }
+      
   // Summon the power of the Apps module
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
@@ -118,7 +119,6 @@ function pushtape_form_install_configure_form_alter(&$form, $form_state) {
 function pushtape_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
 
 // For some things there are no need
-}
   $form['apps_message']['#access'] = FALSE;
   $form['apps_fieldset']['apps']['#title'] = NULL;
 
@@ -308,6 +308,8 @@ function pushtape_theme_form_submit($form, &$form_state) {
     $theme_data[$theme]->info['settings']['default_logo'] = 0;
     $theme_data[$theme]->info['settings']['logo_path'] = 'profiles/pushtape/images/pushtape_icon_theme.png';
     variable_set('theme_' . $theme . '_settings', $theme_data[$theme]->info['settings']);
+    
+    }
   // Flush theme caches so things are right
   system_rebuild_theme_data();
   drupal_theme_rebuild();
