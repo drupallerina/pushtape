@@ -32,6 +32,7 @@ api = 2
 ; version string. For example, if you wanted to specify Views 6.x-2.7,
 ; you would use:
 
+;move these to featuires
 projects[entity] = 1.0-rc2
 projects[entityreference] = 1.0-rc1
 projects[features] = 1.0-rc1
@@ -41,8 +42,6 @@ projects[ctools] = 1.0
 projects[token] = 1.0
 projects[views] = 3.3
 projects[media] = 2.0-unstable3
-
-;projects[pushtape_features] = 1.4 --> using dev version from github below
 
 ; Devel Tools
 projects[diff][version] = "2.0"
@@ -55,12 +54,19 @@ projects[delta][version] = "3.0-beta9"
 
 ;Pushtape apps
 
-;projects[pushtape_features][location] = http://apps.rosenstrauch.com/fserver
-projects[pushtape_features][type] = "module"
-projects[pushtape_features][download][type] = "git"
-projects[pushtape_features][download][url] = "git://github.com/discipolo/pushtape_features.git"
-projects[pushtape_features][download][branch] = "7.x-2.x"
-projects[pushtape_features][subdir] = pushtape_apps
+;projects[pushtape_core][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape_core][type] = "module"
+projects[pushtape_core][download][type] = "git"
+projects[pushtape_core][download][url] = "git://github.com/discipolo/pushtape_core.git"
+projects[pushtape_core][download][branch] = "7.x-1.x"
+projects[pushtape_core][subdir] = pushtape_apps
+
+;projects[pushtape_discography][location] = http://apps.rosenstrauch.com/fserver
+projects[pushtape_discography][type] = "module"
+projects[pushtape_discography][download][type] = "git"
+projects[pushtape_discography][download][url] = "git://github.com/discipolo/pushtape_discography.git"
+projects[pushtape_discography][download][branch] = "7.x-1.x"
+projects[pushtape_discography][subdir] = pushtape_apps
 
 ;projects[pushtape_mediaplayer][location] = http://apps.rosenstrauch.com/fserver
 projects[pushtape_mediaplayer][type] = "module"
