@@ -88,11 +88,6 @@ function pushtape_install_tasks($install_state) {
  */
 function pushtape_form_install_configure_form_alter(&$form, $form_state) {
 
-// Set the Seven logo to be our logo
-  $theme_data = _system_rebuild_theme_data();
-  $seven_data = $theme_data['seven']->info['settings'];
-  $seven_data['default_logo'] = 0;
-  $seven_data['logo_path'] = 'profiles/pushtape/images/pushtape_icon_install.png';  variable_set('theme_seven_settings', $seven_data);
 
   // Hide some messages from various modules that are just too chatty!
   drupal_get_messages('status');
@@ -303,13 +298,7 @@ function pushtape_theme_form_submit($form, &$form_state) {
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
  // Set the Bartik or Garland logo to be Panopoly's logo
-  if ($theme == 'bartik' || $theme == 'garland') {
-    $theme_data = _system_rebuild_theme_data();
-    $theme_data[$theme]->info['settings']['default_logo'] = 0;
-    $theme_data[$theme]->info['settings']['logo_path'] = 'profiles/pushtape/images/pushtape_icon_theme.png';
-    variable_set('theme_' . $theme . '_settings', $theme_data[$theme]->info['settings']);
-    
-    }
+
   // Flush theme caches so things are right
   system_rebuild_theme_data();
   drupal_theme_rebuild();
