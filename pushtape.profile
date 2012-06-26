@@ -1,23 +1,5 @@
 <?php
 /**
- * Implements hook_init
- */
-function pushtape_init() {
-
-}
-
-/**
- * Implements hook_form_alter().
- *
- * Allows the profile to alter the site-configuration form. This is
- * called through custom invocation, so $form_state is not populated.
- */
-function pushtape_form_alter(&$form, $form_state, $form_id) {
-
-}
-
-
-/**
  * Implements hook_install_tasks()
  */
 function pushtape_install_tasks($install_state) {
@@ -36,9 +18,6 @@ function pushtape_install_tasks($install_state) {
     'display_name' => t('Enable apps support'),
     'type' => 'form',
   );
-
-
- 
   // Setup the Panopoly Apps install task
   $panopoly_server = array(
     'machine name' => 'panopoly',
@@ -77,7 +56,6 @@ function pushtape_install_tasks($install_state) {
     'required apps' => array(
       'pushtape_core',
     ),
-    'default content callback' => 'pushtape_default_content',
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $pushtape_server);
   
@@ -100,11 +78,6 @@ function pushtape_install_tasks($install_state) {
     'type' => 'form',
   );
 
-  // Setup the prepare task to close it out
-  $tasks['pushtape_prepare'] = array(
-    'display_name' => t('Prepare site'),
-    'type' => 'form',
-  );
   
   return $tasks;
 }
@@ -113,6 +86,12 @@ function pushtape_install_tasks($install_state) {
  * Implements hook_form_FORM_ID_alter()
  */
 function pushtape_form_install_configure_form_alter(&$form, $form_state) {
+
+// Set the Seven logo to be our logo
+  $theme_data = _system_rebuild_theme_data();
+  $seven_data = $theme_data['seven']->info['settings'];
+  $seven_data['default_logo'] = 0;
+  $seven_data['logo_path'] = 'profiles/pushtape/images/pushtape_icon_install.png';  variable_set('theme_seven_settings', $seven_data);
 
   // Hide some messages from various modules that are just too chatty!
   drupal_get_messages('status');
@@ -138,7 +117,8 @@ function pushtape_form_install_configure_form_alter(&$form, $form_state) {
  */
 function pushtape_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
 
-  // For some things there are no need
+// For some things there are no need
+}
   $form['apps_message']['#access'] = FALSE;
   $form['apps_fieldset']['apps']['#title'] = NULL;
 
@@ -147,12 +127,19 @@ function pushtape_form_apps_profile_apps_select_form_alter(&$form, $form_state) 
     $options = array();
     foreach($_SESSION['apps_manifest'] as $name => $app) {
       if ($name != '#theme') {
-        $options[$name] = '<div class="app-icon">' . theme('image', array('path' => $app['logo']['path'], 'height' => '32', 'width' => '32')) . '</div><strong>' . $app['name'] . '</strong><div class="admin-options">' . $app['description'] . '</div>';
+        $options[$name] = '<strong>' . $app['name'] . '</strong><p><div class="admin-options"><div class="form-item">' . theme('image', array('path' => $app['logo']['path'], 'height' => '32', 'width' => '32')) . '</div>' . $app['description'] . '</div></p>';
       }
     }
     ksort($options);
     $form['apps_fieldset']['apps']['#options'] = $options;
   }
+
+  // Remove the demo content selection option since this is
+  // handled through the Panopoly demo module.
+  $form['default_content_fieldset']['#access'] = FALSE;
+
+  // Remove the "skip this step" option since why would we want that?
+  $form['actions']['skip']['#access'] = FALSE;
 }
 
 /**
@@ -196,11 +183,7 @@ function pushtape_apps_servers_info() {
     'panopoly' => array(
       'title' => 'Panopoly',
       'description' => 'Apps for Panopoly',
-      'manifest' => 'http://apps.getpantheon.com/panopoly-dev',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-      'server_name' => $_SERVER['SERVER_NAME'],
-      'server_ip' => $_SERVER['SERVER_ADDR'],
+      'manifest' => (empty($info['version']) || $info['version'] == '7.x-1.x-dev') ? 'http://apps.getpantheon.com/panopoly-dev' : 'http://apps.getpantheon.com/panopoly',
     ),
   );
 }
@@ -292,23 +275,21 @@ function pushtape_theme_form($form, &$form_state) {
     }
   }
 
-  $form['theme'] = array(
+  $form['theme_wrapper'] = array(
     '#title' => t('Starting Theme'),
-    '#type' => 'radios',
-    '#options' => $themes,
-    '#default_value' => 'pushtape_wireframe',
-  );
-  
-  $form['actions'] = array(
-   '#prefix' => '<div class="form-actions">',
-   '#suffix' => '</div>',
+    '#type' => 'fieldset',
   );
 
-  $form['actions']['submit'] = array(
+  $form['theme_wrapper']['theme'] = array(
+    '#type' => 'radios',
+    '#options' => $themes,
+    '#default_value' => 'bartik',
+  );
+
+  $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Choose theme',
   );
-
   return $form;
 }
 
@@ -321,7 +302,12 @@ function pushtape_theme_form_submit($form, &$form_state) {
   $theme = $form_state['input']['theme'];
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
- 
+ // Set the Bartik or Garland logo to be Panopoly's logo
+  if ($theme == 'bartik' || $theme == 'garland') {
+    $theme_data = _system_rebuild_theme_data();
+    $theme_data[$theme]->info['settings']['default_logo'] = 0;
+    $theme_data[$theme]->info['settings']['logo_path'] = 'profiles/pushtape/images/pushtape_icon_theme.png';
+    variable_set('theme_' . $theme . '_settings', $theme_data[$theme]->info['settings']);
   // Flush theme caches so things are right
   system_rebuild_theme_data();
   drupal_theme_rebuild();
@@ -342,64 +328,12 @@ function pushtape_theme_configure_form($form, &$form_state) {
 }
 
 /**
- * Form to talk about preparing the site for prime time
- */
-function pushtape_prepare($form, &$form_state) {
-  
-  // Set the title 
-  drupal_set_title(t('Prepare Site'));
-  
-  $form = array();
-
-  $form['openingtext'] = array(
-    '#markup' => '<h2>' . t('Pushtape now needs to do a bit more Drupal magic to get everything setup.') . '</h2>',
-  );
-  
-  $form['actions'] = array(
-   '#prefix' => '<div class="form-actions">',
-   '#suffix' => '</div>',
-  );
-
-  $form['actions']['submit'] = array(
-    '#type' => 'submit',
-    '#value' => 'Prepare your site',
-  );
-
-  return $form;
-}
-
-/**
- * Submit form to prepare site for prime time
- */
-function pushtape_prepare_submit($form, &$form_state) {
-  // Flush all caches to ensure that any full bootstraps during the installer
-  // do not leave stale cached data, and that any content types or other items
-  // registered by the install profile are registered correctly.
-  drupal_flush_all_caches();
-
-  // Remember the profile which was used.
-  variable_set('install_profile', drupal_get_profile());
-
-  // Install profiles are always loaded last
-  db_update('system')
-    ->fields(array('weight' => 1000))
-    ->condition('type', 'module')
-    ->condition('name', drupal_get_profile())
-    ->execute();
-
-  // Cache a fully-built schema.
-  drupal_get_schema(NULL, TRUE);
-
-  // Run cron to populate update status tables (if available) so that users
-  // will be warned if they've installed an out of date Drupal version.
-  // Will also trigger indexing of profile-supplied content or feeds.
-  drupal_cron_run();
-}
-
-/**
  * Form to finish it all out and send us on our way
  */
 function pushtape_finished_yah($form, &$form_state) {
+  // Hide some messages from various modules that are just too chatty!
+  drupal_get_messages('status');
+  
   $form = array();
   
   //set the title
@@ -411,11 +345,7 @@ function pushtape_finished_yah($form, &$form_state) {
   $form['openingtext'] = array(
     '#markup' => '<h2 class="bubble">' . t('Congratulations, you just installed Pushtape!') . '<span class="tip"></span></h2>',
   );
-  
-  $form['openacademysaurus'] = array(
-    '#markup' => theme('image', array('path' => drupal_get_path('profile', 'pushtape') . '/images/openacademysaurus-success.png', 'attributes' => array('class' => array('openacademysaurus')))),
-  );
-  
+
   $form['actions'] = array(
    '#prefix' => '<div class="form-actions">',
    '#suffix' => '</div>',
@@ -435,12 +365,33 @@ function pushtape_finished_yah($form, &$form_state) {
 function pushtape_finished_yah_submit($form, &$form_state) {
   //clean up variables
   variable_del('pushtape_install_guidelines');
+_field_info_collate_fields(TRUE);
+_field_info_collate_fields();
 
   // Once more for good measure
   drupal_flush_all_caches();
 
-  // And away we go
-  drupal_goto('<front>');
+    // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+
+  // Install profiles are always loaded last
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Allow anonymous and authenticated users to see content
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+
+  // Cache a fully-built schema.
+  drupal_get_schema(NULL, TRUE);
+
+  // Run cron to populate update status tables (if available) so that users
+  // will be warned if they've installed an out of date Drupal version.
+  // Will also trigger indexing of profile-supplied content or feeds.
+  drupal_cron_run();
   
   // $form_state['redirect'] won't work here since we are still in the
   // installer, so use drupal_goto() (for interactive installs only) instead.
