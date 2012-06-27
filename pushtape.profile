@@ -166,6 +166,15 @@ function pushtape_apps_servers_info() {
   $profile = variable_get('install_profile', 'pushtape');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   return array(
+    'debut' => array(
+      'title' => 'debut',
+      'description' => t('Debut apps'),
+      'manifest' => 'http://appserver.openoutreach.org/app/query',
+      'profile' => $profile,
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
+      'server_name' => $_SERVER['SERVER_NAME'],
+      'server_ip' => $_SERVER['SERVER_ADDR'],
+    ),
     'pushtape' => array(
       'title' => 'Pushtape',
       'description' => "Apps for Pushtape",
