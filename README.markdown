@@ -55,12 +55,12 @@ distributors and organizers. Single artists, bands, collectives and similar musi
 ##Master branch###
 Is empty according to http://drupal.org/empty-git-master
 
-##Upstream/7.x-1.x###
+##7.x-1.x###
 Is tracking the changes from http://git.drupal.org/project/pushtape.git.
 This branch we all always have in common. One person is responsible for pulling in changes from our dev branches (or appliyng patches supplied).
 
 
-##7.x-1.x-discipolo###
+##7.x-1.x-upstream###
 Is my dev branch. Changes I propose to be comitted to the "upstream/7.x-1.x" branch (7.x-1.x on drupal.org).  
 This is a "fork" of http://drupal.org/project/pushtape.
 It is implementing these changes and solutions from the [pushtape features issuequeue](http://drupal.org/project/issues/pushtape_features):
@@ -76,7 +76,7 @@ It is implementing these changes and solutions from the [pushtape features issue
 - [Pushtape Mediaplayer](https://github.com/discipolo/pushtape_mediaplayer): adds the ability to stream audio tracks.
 
   
-##7.x-1.x-panopoly###
+##7.x-1.x-panels###
 **These changes are not proposed to be committed**
 Feature branch for demonstration purposes.  Proof of concept for apps and panels. investigates http://drupal.org/project/panopoly as a base distribution.  
 
